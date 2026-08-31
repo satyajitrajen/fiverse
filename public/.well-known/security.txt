@@ -1,0 +1,8 @@
+Contact: mailto:security@fiversesystems.com
+Contact: mailto:hi@fiversesystems.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://fiversesystems.com/.well-known/security.txt
+Policy: https://fiversesystems.com/security
+Hiring: https://fiversesystems.com/careers
+Acknowledgments: https://fiversesystems.com/security-acknowledgments

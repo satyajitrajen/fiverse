@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f7f8f4;
+    color: #111210;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glow effects matching the design's soft lime/green ambient lighting */
+.lime-glow-bg {
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(215, 255, 65, 0.45) 0%,
+    rgba(224, 255, 110, 0.25) 35%,
+    rgba(247, 248, 244, 0) 70%
+  );
+}
+
+.lime-glow-circle {
+  background: radial-gradient(
+    circle,
+    rgba(205, 255, 45, 0.55) 0%,
+    rgba(215, 255, 75, 0.28) 45%,
+    rgba(247, 248, 244, 0) 75%
+  );
+}
+
+.lime-glow-pill {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 255, 40, 0.6) 0%,
+    rgba(210, 255, 80, 0.25) 50%,
+    rgba(247, 248, 244, 0) 80%
+  );
+}
+
+/* Glassmorphism & Custom Card styles */
+.hero-card-shadow {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.card-soft-shadow {
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.floating-card-shadow {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f2ed;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d8cc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b5baa9;
+}
+
+/* ========================================================
+   Animation Keyframes & Motion Utilities
+   ======================================================== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(200,255,40,0.18) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.8s infinite;
+}
+
+.data-stream-line {
+  stroke-dasharray: 4 4;
+  animation: data-flow 1.2s linear infinite;
+}
+
+/* Smooth transitions and mobile touch optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Hide scrollbar for horizontal chip carousels while maintaining touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch-friendly horizontal scroll indicator */
+.custom-h-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+.custom-h-scrollbar::-webkit-scrollbar-track {
+  background: #f0f2eb;
+  border-radius: 9999px;
+}
+.custom-h-scrollbar::-webkit-scrollbar-thumb {
+  background: #c8ff28;
+  border-radius: 9999px;
+}
