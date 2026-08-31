@@ -167,7 +167,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
               <GlowOrb color="lime" size="md" className="top-0 right-0 opacity-20 pointer-events-none" />
               <div className="space-y-2 relative z-10">
                 <h3 className="text-[22px] sm:text-[26px] font-bold text-white lowercase">ready to build technology that compounds?</h3>
-                <p className="text-[14px] text-[#a4a99d]">Talk to our senior engineering and AI leadership team.</p>
+                <p className="text-[14px] text-[#dce0d4]">Talk to our senior engineering and AI leadership team.</p>
               </div>
               <button
                 onClick={onStartProject}
@@ -606,7 +606,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                 <div className="bg-[#111210] text-white rounded-3xl p-8 space-y-4 shadow-xl">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#c8ff28]">Direct Inquiries</span>
                   <h3 className="text-[20px] font-bold">Talk with our engineering team</h3>
-                  <p className="text-[13px] text-[#a4a99d] leading-relaxed">
+                  <p className="text-[13px] text-[#dce0d4] leading-relaxed">
                     Have an urgent question or RFQ? Contact our team directly via email.
                   </p>
                   <a

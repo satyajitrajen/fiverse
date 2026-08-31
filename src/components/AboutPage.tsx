@@ -873,7 +873,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
             <h2 className="text-[36px] sm:text-[50px] md:text-[56px] font-bold tracking-tight leading-[1.1] lowercase text-white">
               let's build what's next.
             </h2>
-            <p className="text-[15px] sm:text-[17px] text-[#a4a99d] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-[15px] sm:text-[17px] text-[#dce0d4] leading-relaxed max-w-2xl mx-auto">
               Whether you’re starting with a product idea, an existing application, a business process or an ambitious AI vision—tell us the problem. We’ll determine what technology can make possible.
             </p>
 

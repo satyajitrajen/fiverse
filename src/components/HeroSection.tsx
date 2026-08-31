@@ -233,7 +233,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                     />
                     <div>
                       <p className="font-bold text-[11px] sm:text-[12px] leading-tight text-white">Kristin Watson</p>
-                      <p className="text-[10px] text-[#a4a99d]">Frontend developer</p>
+                      <p className="text-[10px] text-[#dce0d4]">Frontend developer</p>
                     </div>
                   </div>
 

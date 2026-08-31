@@ -210,14 +210,14 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               <h2 className="text-[28px] sm:text-[38px] font-bold text-white tracking-tight lowercase">
                 from ai assistant to ai operator.
               </h2>
-              <p className="text-[14px] text-[#a4a99d] leading-relaxed">
+              <p className="text-[14px] text-[#dce0d4] leading-relaxed">
                 Consider a traditional assistant: You ask <span className="text-white italic">"Which customers haven't paid?"</span> and it returns a list. An agentic AI system goes further:
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
               {service.operatorSteps.map((step, sIdx) => (
-                <div key={sIdx} className="bg-[#1c1e19] p-4.5 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/50 transition-colors flex items-start gap-3">
+                <div key={sIdx} className="bg-[#1c1e19] p-4.5 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/50 transition-colors flex items-start gap-3 text-[#dce0d4]">
                   <span className="w-6 h-6 rounded-full bg-[#c8ff28] text-[#111210] font-bold text-[12px] flex items-center justify-center shrink-0 mt-0.5">
                     {sIdx + 1}
                   </span>
@@ -505,7 +505,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             <h2 className="text-[30px] sm:text-[44px] font-bold tracking-tight lowercase text-white leading-tight">
               have a problem, idea or product to build?
             </h2>
-            <p className="text-[15px] sm:text-[16px] text-[#a4a99d] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-[15px] sm:text-[16px] text-[#dce0d4] leading-relaxed max-w-2xl mx-auto">
               You don't need to arrive with a finished technical specification. Tell us:
             </p>
 
