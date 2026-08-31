@@ -1,5 +1,4 @@
 import React, { useState, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
   ArrowRight,
@@ -139,33 +138,32 @@ export const HomePage: React.FC<HomePageProps> = memo(({
         canonicalPath="/"
         faqs={homepageFaqs}
       />
+      
       {/* ========================================================
-          1. HERO SECTION WITH RICH VISUALS & LIVE ENGINE
+          1. HERO SECTION (DYNAMIC AI ENGINE + FLOATING GLASS HUBS)
          ======================================================== */}
-      <section className="relative w-full pt-10 sm:pt-20 pb-16 sm:pb-24 overflow-hidden">
-        {/* Ambient Floating Glow Aura */}
-        <GlowOrb color="lime" size="xl" className="top-0 left-1/2 -translate-x-1/2 -z-10" />
-        <GlowOrb color="blue" size="lg" className="top-1/4 -left-20 -z-10 opacity-35" />
+      <section className="w-full pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 relative overflow-hidden">
+        {/* Modern ambient glow backdrop */}
+        <GlowOrb color="lime" size="xl" className="-top-32 left-1/2 -translate-x-1/2 opacity-35 pointer-events-none" />
+        <GlowOrb color="cyan" size="md" className="top-1/3 -right-20 opacity-20 pointer-events-none" />
 
-        <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16">
+        <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16 relative z-10">
           {/* Main Hero Header */}
-          <FadeIn direction="up" delay={0.1} duration={0.6} className="text-center max-w-4xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-xs px-4 py-1.5 rounded-full border border-[#e2e6d9] text-[12px] font-bold text-[#111210] shadow-2xs">
+          <FadeIn direction="up" duration={0.6} className="text-center max-w-4xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 bg-[#f0f3e8] border border-[#d6dcce] px-4 py-1.5 rounded-full shadow-2xs">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff28] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8ff28]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#528d2c] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#528d2c]" />
               </span>
-              <span>AI-FIRST SOFTWARE & PRODUCT ENGINEERING</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#2e6314]">
+                Autonomous Systems & AI-First Software Engineering
+              </span>
             </div>
 
-            <h1 className="text-[40px] sm:text-[58px] md:text-[68px] font-extrabold text-[#111210] tracking-tight leading-[1.06] lowercase">
-              ai-first software <br className="hidden sm:inline" />
-              built for what's next.
+            <h1 className="text-[40px] sm:text-[56px] md:text-[68px] lg:text-[76px] font-extrabold tracking-[-0.04em] leading-[1.04] text-[#111210] lowercase">
+              we engineer intelligence <br className="hidden sm:inline" />
+              into <span className="bg-gradient-to-r from-[#111210] via-[#2e6314] to-[#111210] bg-clip-text text-transparent">digital products.</span>
             </h1>
-
-            <p className="text-[17px] sm:text-[20px] font-medium text-[#2d312c] max-w-2xl mx-auto leading-snug">
-              From intelligent AI agents to complete digital products, we engineer software that thinks, automates, learns and scales.
-            </p>
 
             <p className="text-[14px] sm:text-[15px] text-[#61665c] max-w-2xl mx-auto leading-relaxed">
               Fiverse Systems is an AI-first software development and product engineering company helping startups, growing businesses and enterprises turn ideas, workflows and data into intelligent digital products.
@@ -173,24 +171,20 @@ export const HomePage: React.FC<HomePageProps> = memo(({
 
             {/* Hero CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 pt-3 w-full max-w-md sm:max-w-none mx-auto">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={handleStartProjectClick}
-                className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white text-[14px] sm:text-[15px] font-bold px-7 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer flex items-center justify-center gap-2 group min-h-[48px]"
+                className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white text-[14px] sm:text-[15px] font-bold px-7 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 group min-h-[48px]"
               >
                 <span>Build With Fiverse</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#c8ff28]" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </button>
+              <button
                 onClick={onTalkToAI}
-                className="w-full sm:w-auto bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[14px] sm:text-[15px] font-semibold px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-2xs cursor-pointer flex items-center justify-center gap-2 min-h-[48px]"
+                className="w-full sm:w-auto bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[14px] sm:text-[15px] font-semibold px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-2xs hover:scale-[1.01] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <Bot className="w-4 h-4 text-[#2e6314]" />
                 <span>Talk to Our AI Team</span>
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
 
@@ -198,62 +192,48 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           <FadeIn direction="up" delay={0.25} duration={0.7}>
             <div className="bg-white rounded-[32px] sm:rounded-[44px] border border-[#e4e8dc] hero-card-shadow p-6 sm:p-10 lg:p-12 overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Left Column: Scope summary + visual imagery */}
+                {/* Left Column: Mission Narrative & Scope */}
                 <div className="lg:col-span-6 space-y-6">
                   <div className="space-y-3">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">Full-Lifecycle Product Partner</span>
-                    <h2 className="text-[26px] sm:text-[34px] font-bold text-[#111210] tracking-tight leading-[1.15] lowercase">
-                      from custom ai models <br />
-                      to enterprise saas platforms
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">
+                      End-to-End Product Lifecycle
+                    </span>
+                    <h2 className="text-[28px] sm:text-[36px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
+                      from breakthrough concept to enterprise production.
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] text-[#4d5247] leading-relaxed">
+                    <p className="text-[14px] sm:text-[15px] text-[#555a50] leading-relaxed">
                       We build everything from custom AI models and autonomous AI agents to SaaS platforms, enterprise software, web applications and mobile products—from strategy and architecture to development, deployment and continuous improvement.
                     </p>
                   </div>
 
-                  {/* Visual Engineering Spotlight Image */}
                   <div className="relative rounded-2xl overflow-hidden border border-[#e4e7dc] shadow-xs group">
                     <img
                       src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=75"
                       alt="Product engineering team collaborating"
-                      width={600}
-                      height={350}
-                      loading="lazy"
-                      decoding="async"
                       className="w-full h-44 sm:h-52 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
-                      <div className="text-white space-y-0.5">
-                        <p className="text-[13px] font-bold">Engineering Squad In Action</p>
-                        <p className="text-[11px] text-[#c8ff28]">Senior AI Researchers, Software Architects & UI/UX Designers</p>
-                      </div>
-                    </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 pt-1">
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-colors hover:border-[#111210]">
+                    <div className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-all hover:border-[#111210] hover:-translate-y-0.5">
                       <p className="text-[12px] font-bold text-[#111210] flex items-center gap-1.5">
                         <Brain className="w-3.5 h-3.5 text-[#528d2c]" />
                         <span>Autonomous Agents</span>
                       </p>
                       <p className="text-[11px] text-[#4d5247] font-medium mt-0.5">Contextual memory & tools</p>
-                    </motion.div>
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-colors hover:border-[#111210]">
+                    </div>
+                    <div className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-all hover:border-[#111210] hover:-translate-y-0.5">
                       <p className="text-[12px] font-bold text-[#111210] flex items-center gap-1.5">
                         <Layers className="w-3.5 h-3.5 text-[#0369a1]" />
                         <span>Scalable SaaS & Web</span>
                       </p>
                       <p className="text-[11px] text-[#4d5247] font-medium mt-0.5">Multi-tenant architecture</p>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Right Column: Interactive Multi-Agent Orchestration Diagram with Dark UI & Visuals */}
-                <motion.div
-                  whileHover={{ scale: 1.005 }}
-                  transition={{ duration: 0.3 }}
-                  className="lg:col-span-6 bg-[#111210] rounded-3xl p-6 sm:p-8 text-white border border-[#252822] shadow-2xl relative overflow-hidden space-y-5"
-                >
+                <div className="lg:col-span-6 bg-[#111210] rounded-3xl p-6 sm:p-8 text-white border border-[#252822] shadow-2xl relative overflow-hidden space-y-5">
                   <div className="flex items-center justify-between border-b border-[#2d302a] pb-3">
                     <div className="flex items-center gap-2">
                       <span className="relative flex h-2.5 w-2.5">
@@ -289,41 +269,41 @@ export const HomePage: React.FC<HomePageProps> = memo(({
 
                   {/* Agents Active Grid with interactive micro-lift */}
                   <div className="grid grid-cols-2 gap-2.5 text-[12px]">
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#c8ff28] transition-colors cursor-pointer">
+                    <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#c8ff28] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <Bot className="w-4 h-4 text-[#c8ff28]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Sales Agent</p>
                         <p className="text-[10px] text-[#8e9387]">CRM + Lead Sync</p>
                       </div>
-                    </motion.div>
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#38bdf8] transition-colors cursor-pointer">
+                    </div>
+                    <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#38bdf8] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <Database className="w-4 h-4 text-[#38bdf8]" />
                       <div>
                         <p className="font-bold text-white leading-tight">RAG Knowledge</p>
                         <p className="text-[10px] text-[#8e9387]">Vector DB Search</p>
                       </div>
-                    </motion.div>
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#fb923c] transition-colors cursor-pointer">
+                    </div>
+                    <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#fb923c] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <Workflow className="w-4 h-4 text-[#fb923c]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Ops Orchestrator</p>
                         <p className="text-[10px] text-[#8e9387]">ERP Auto-Action</p>
                       </div>
-                    </motion.div>
-                    <motion.div whileHover={{ y: -2 }} className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#a855f7] transition-colors cursor-pointer">
+                    </div>
+                    <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#a855f7] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <ShieldCheck className="w-4 h-4 text-[#a855f7]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Guardrails & Auth</p>
                         <p className="text-[10px] text-[#8e9387]">Strict Privacy</p>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
 
                   <div className="bg-[#22251f] p-3 rounded-xl border border-[#34382c] flex items-center justify-between text-[11px]">
                     <span className="text-[#a4a99d]">Goal: “Synthesize quarterly reports and alert ops team”</span>
                     <span className="text-[#c8ff28] font-bold font-mono">Completed (0.42s)</span>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -500,12 +480,10 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   const Icon = agent.icon;
                   const isSelected = selectedAgentCategory === idx;
                   return (
-                    <motion.button
+                    <button
                       key={idx}
-                      whileHover={{ x: 4 }}
-                      whileTap={{ scale: 0.99 }}
                       onClick={() => setSelectedAgentCategory(idx)}
-                      className={`w-full p-3.5 rounded-2xl text-left transition-all flex items-center justify-between border cursor-pointer ${
+                      className={`w-full p-3.5 rounded-2xl text-left transition-all flex items-center justify-between border cursor-pointer hover:translate-x-1 ${
                         isSelected
                           ? 'bg-[#22251f] border-[#c8ff28] text-white font-bold shadow-md'
                           : 'bg-[#181a16] border-[#292c25] text-[#9ca196] hover:bg-[#1f221c]'
@@ -516,75 +494,67 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                         <span className="text-[13px]">{agent.title}</span>
                       </div>
                       <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-[#c8ff28] translate-x-1' : 'text-[#82877c]'}`} />
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
 
               {/* Selected Agent Details Card with High-Res Tech Visual */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedAgentCategory}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
-                  className="lg:col-span-7 bg-[#1c1e19] rounded-3xl p-6 sm:p-8 border border-[#2e3328] space-y-5 shadow-2xl"
-                >
-                  {/* Agent Feature Visual */}
-                  <div className="relative rounded-2xl overflow-hidden h-36 border border-[#343a2d]">
-                    <img
-                      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=75"
-                      alt="Autonomous AI system neural representation"
-                      width={600}
-                      height={250}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover opacity-75"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1c1e19] via-[#1c1e19]/40 to-transparent flex items-end p-4">
-                      <div className="flex items-center gap-2">
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff28] opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8ff28]" />
-                        </span>
-                        <p className="text-[13px] font-bold text-white">Autonomous Agent Loop & Context Memory</p>
-                      </div>
+              <div
+                key={selectedAgentCategory}
+                className="lg:col-span-7 bg-[#1c1e19] rounded-3xl p-6 sm:p-8 border border-[#2e3328] space-y-5 shadow-2xl transition-all duration-200"
+              >
+                {/* Agent Feature Visual */}
+                <div className="relative rounded-2xl overflow-hidden h-36 border border-[#343a2d]">
+                  <img
+                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=75"
+                    alt="Autonomous AI system neural representation"
+                    width={600}
+                    height={250}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover opacity-75"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c1e19] via-[#1c1e19]/40 to-transparent flex items-end p-4">
+                    <div className="flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff28] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8ff28]" />
+                      </span>
+                      <p className="text-[13px] font-bold text-white">Autonomous Agent Loop & Context Memory</p>
                     </div>
                   </div>
+                </div>
 
-                  <div className="flex items-center gap-3 border-b border-[#2d3226] pb-3">
-                    <div className="w-10 h-10 rounded-2xl bg-[#c8ff28] text-[#111210] flex items-center justify-center font-bold">
-                      {React.createElement(agentCategories[selectedAgentCategory].icon, { className: 'w-5 h-5' })}
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#c8ff28]">Autonomous Agent Specialty</span>
-                      <h3 className="text-[20px] font-bold text-white">{agentCategories[selectedAgentCategory].title}</h3>
-                    </div>
+                <div className="flex items-center gap-3 border-b border-[#2d3226] pb-3">
+                  <div className="w-10 h-10 rounded-2xl bg-[#c8ff28] text-[#111210] flex items-center justify-center font-bold">
+                    {React.createElement(agentCategories[selectedAgentCategory].icon, { className: 'w-5 h-5' })}
                   </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#c8ff28]">Autonomous Agent Specialty</span>
+                    <h3 className="text-[20px] font-bold text-white">{agentCategories[selectedAgentCategory].title}</h3>
+                  </div>
+                </div>
 
-                  <p className="text-[14px] text-[#c4c9bd] leading-relaxed">
-                    {agentCategories[selectedAgentCategory].desc}
+                <p className="text-[14px] text-[#c4c9bd] leading-relaxed">
+                  {agentCategories[selectedAgentCategory].desc}
+                </p>
+
+                <div className="bg-[#242721] p-4 rounded-2xl border border-[#373c2e] space-y-1.5">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#8e9387]">Integrated Enterprise Connectors</p>
+                  <p className="text-[12px] text-[#d4d9cc]">
+                    Connected seamlessly with your APIs, databases, CRM, ERP, documents, email systems, internal software, and third-party SaaS tools.
                   </p>
+                </div>
 
-                  <div className="bg-[#242721] p-4 rounded-2xl border border-[#373c2e] space-y-1.5">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#8e9387]">Integrated Enterprise Connectors</p>
-                    <p className="text-[12px] text-[#d4d9cc]">
-                      Connected seamlessly with your APIs, databases, CRM, ERP, documents, email systems, internal software, and third-party SaaS tools.
-                    </p>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    onClick={handleStartProjectClick}
-                    className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] px-6 py-3 rounded-full transition-all cursor-pointer inline-flex items-center gap-2"
-                  >
-                    <span>Build an AI Agent</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#111210]" />
-                  </motion.button>
-                </motion.div>
-              </AnimatePresence>
+                <button
+                  onClick={handleStartProjectClick}
+                  className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] px-6 py-3 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2"
+                >
+                  <span>Build an AI Agent</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#111210]" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -603,10 +573,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
             <StaggerContainer staggerDelay={0.06} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {modelLifecycle.map((m, idx) => (
                 <StaggerItem key={idx}>
-                  <motion.div
-                    whileHover={{ y: -4, scale: 1.01 }}
+                  <div
                     onClick={() => setActiveModelStep(idx)}
-                    className={`p-5 rounded-2xl border transition-all cursor-pointer space-y-2 h-full ${
+                    className={`p-5 rounded-2xl border transition-all hover:-translate-y-1 hover:scale-[1.01] cursor-pointer space-y-2 h-full ${
                       activeModelStep === idx
                         ? 'bg-[#22251f] border-[#c8ff28] shadow-lg ring-1 ring-[#c8ff28]/40'
                         : 'bg-[#181a16] border-[#292d24] hover:border-[#3d4235]'
@@ -618,7 +587,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                     </div>
                     <h4 className="font-bold text-[15px] text-white">{m.title}</h4>
                     <p className="text-[12px] text-[#8e9388] leading-relaxed">{m.desc}</p>
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -642,15 +611,13 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 Public models understand general knowledge. We build LLM & Retrieval-Augmented Generation (RAG) systems that securely connect AI with your policies, products, documentation, and operational data.
               </p>
               <div className="pt-2">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                <button
                   onClick={handleStartProjectClick}
-                  className="bg-[#111210] hover:bg-[#252823] text-white text-[13px] font-bold px-6 py-3 rounded-full transition-all cursor-pointer inline-flex items-center gap-2 shadow-md"
+                  className="bg-[#111210] hover:bg-[#252823] text-white text-[13px] font-bold px-6 py-3 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2 shadow-md"
                 >
                   <span>Build Enterprise RAG</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#c8ff28]" />
-                </motion.button>
+                </button>
               </div>
             </FadeIn>
 
@@ -678,9 +645,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   'CRM Records', 'Product Docs', 'Internal APIs', 'Support Tickets',
                   'Company Policies', 'Audio Transcripts', 'Vector Embeddings', 'Live Web Data'
                 ].map((item, idx) => (
-                  <motion.div whileHover={{ y: -2 }} key={idx} className="bg-[#f8f9f5] p-2.5 rounded-xl border border-[#e7eae0] text-center hover:border-[#111210] transition-colors">
+                  <div key={idx} className="bg-[#f8f9f5] p-2.5 rounded-xl border border-[#e7eae0] text-center hover:border-[#111210] hover:-translate-y-0.5 transition-all">
                     {item}
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </FadeIn>
@@ -704,9 +671,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 'Operations & Ops', 'HR & Team', 'Recruitment', 'Procurement',
                 'Data Processing', 'Document Mgmt', 'Reporting Engine', 'Audit Compliance'
               ].map((domain, idx) => (
-                <motion.div whileHover={{ y: -3, scale: 1.02 }} key={idx} className="bg-white p-3.5 rounded-2xl border border-[#e4e7db] text-[12px] font-bold text-[#111210] text-center shadow-2xs hover:border-[#111210] transition-all cursor-pointer">
+                <div key={idx} className="bg-white p-3.5 rounded-2xl border border-[#e4e7db] text-[12px] font-bold text-[#111210] text-center shadow-2xs hover:border-[#111210] hover:-translate-y-0.5 transition-all cursor-pointer">
                   {domain}
-                </motion.div>
+                </div>
               ))}
             </div>
           </FadeIn>
@@ -739,9 +706,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 'Customer Portals', 'Business Platforms', 'Marketplace Apps', 'Enterprise Analytics'
               ].map((sys, i) => (
                 <StaggerItem key={i}>
-                  <motion.div whileHover={{ y: -3 }} className="bg-[#1c1e19] p-4 rounded-2xl border border-[#2c3026] text-[13px] font-medium text-[#d0d5c8] hover:border-[#c8ff28] hover:text-white transition-all cursor-pointer h-full">
+                  <div className="bg-[#1c1e19] p-4 rounded-2xl border border-[#2c3026] text-[13px] font-medium text-[#d0d5c8] hover:border-[#c8ff28] hover:text-white hover:-translate-y-0.5 transition-all cursor-pointer h-full">
                     {sys}
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -775,15 +742,13 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 </div>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={handleStartProjectClick}
-                className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] px-6 py-3 rounded-full transition-all cursor-pointer inline-flex items-center gap-2 shadow-lg"
+                className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] px-6 py-3 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer inline-flex items-center gap-2 shadow-lg"
               >
                 <span>Launch Your SaaS</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#111210]" />
-              </motion.button>
+              </button>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2} className="lg:col-span-7 bg-[#1c1e19] rounded-3xl p-6 sm:p-8 border border-[#2d3227] space-y-4">
@@ -794,9 +759,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   'Usage Metering', 'Admin Dashboards', 'Public APIs & SDKs', 'Real-time WebSockets',
                   'Full Audit Logging', 'Observability Tracing', 'AI Copilot Features', 'Automated CI/CD'
                 ].map((feature, idx) => (
-                  <motion.div whileHover={{ y: -2 }} key={idx} className="bg-[#242721] p-3 rounded-xl border border-[#34392c] hover:border-[#c8ff28] transition-colors">
+                  <div key={idx} className="bg-[#242721] p-3 rounded-xl border border-[#34392c] hover:border-[#c8ff28] hover:-translate-y-0.5 transition-all">
                     {feature}
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </FadeIn>
@@ -857,11 +822,11 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 { step: '07', title: 'Learn', desc: 'Telemetry & analytics' },
                 { step: '08', title: 'Evolve', desc: 'Continuous iteration' }
               ].map((j, i) => (
-                <motion.div whileHover={{ y: -3, scale: 1.03 }} key={i} className="bg-white p-4 rounded-2xl border border-[#e4e7dc] space-y-1 shadow-2xs hover:border-[#111210] transition-all cursor-pointer">
+                <div key={i} className="bg-white p-4 rounded-2xl border border-[#e4e7dc] space-y-1 shadow-2xs hover:border-[#111210] hover:-translate-y-0.5 transition-all cursor-pointer">
                   <span className="text-[10px] font-mono font-bold text-[#83897d]">{j.step}</span>
                   <p className="font-bold text-[13px] text-[#111210]">{j.title}</p>
                   <p className="text-[10px] text-[#71776c] leading-tight">{j.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </FadeIn>
@@ -916,13 +881,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
               {industries.map((ind, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                  className="bg-white p-3 rounded-xl border border-[#e5e8dc] text-center text-[12px] font-bold text-[#111210] card-soft-shadow hover:border-[#111210] transition-all cursor-pointer"
+                  className="bg-white p-3 rounded-xl border border-[#e5e8dc] text-center text-[12px] font-bold text-[#111210] card-soft-shadow hover:border-[#111210] hover:-translate-y-0.5 transition-all cursor-pointer"
                 >
                   {ind}
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { type ServiceDetail, servicesMasterData } from '../data/websiteMaster';
 import {
   ArrowRight,
@@ -151,24 +150,20 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={onStartProject}
                 className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white font-bold text-[14px] sm:text-[15px] px-7 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all shadow-md cursor-pointer flex items-center justify-center gap-2 group min-h-[48px]"
               >
                 <span>{service.ctaText}</span>
                 <ArrowRight className="w-4 h-4 text-[#c8ff28] group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </button>
+              <button
                 onClick={onTalkToAI}
                 className="w-full sm:w-auto bg-[#f7f8f4] hover:bg-[#ebefe2] text-[#111210] border border-[#d8dcd0] font-semibold text-[14px] sm:text-[15px] px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all cursor-pointer flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <Bot className="w-4 h-4 text-[#2e6314]" />
                 <span>{service.secondaryCtaText || 'Talk to an AI Engineer'}</span>
-              </motion.button>
+              </button>
             </div>
           </div>
         </FadeIn>
@@ -222,12 +217,12 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
               {service.operatorSteps.map((step, sIdx) => (
-                <motion.div whileHover={{ y: -2 }} key={sIdx} className="bg-[#1c1e19] p-4.5 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/50 transition-colors flex items-start gap-3">
+                <div key={sIdx} className="bg-[#1c1e19] p-4.5 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/50 transition-colors flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-[#c8ff28] text-[#111210] font-bold text-[12px] flex items-center justify-center shrink-0 mt-0.5">
                     {sIdx + 1}
                   </span>
                   <p className="text-[13.5px] text-[#d6dad0] leading-relaxed">{step}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -290,10 +285,10 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
               {service.architectureFlow.map((layer, lIdx) => (
-                <motion.div whileHover={{ y: -2 }} key={lIdx} className="bg-white p-4.5 rounded-2xl border border-[#e4e7dc] space-y-1.5 shadow-2xs hover:border-[#111210] transition-colors">
+                <div key={lIdx} className="bg-white p-4.5 rounded-2xl border border-[#e4e7dc] space-y-1.5 shadow-2xs hover:border-[#111210] transition-colors">
                   <span className="text-[10px] font-mono font-bold text-[#528d2c] uppercase">Layer 0{lIdx + 1}</span>
                   <p className="font-bold text-[13px] text-[#111210] leading-snug">{layer}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -341,9 +336,9 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {service.toolsUsed.map((t, tI) => (
-                    <motion.span whileHover={{ scale: 1.05 }} key={tI} className="bg-[#f7f8f4] text-[#2d312c] text-[12px] font-semibold px-3 py-1.5 rounded-xl border border-[#e4e7db] hover:border-[#111210] transition-colors cursor-default">
+                    <span key={tI} className="bg-[#f7f8f4] text-[#2d312c] text-[12px] font-semibold px-3 py-1.5 rounded-xl border border-[#e4e7db] hover:border-[#111210] transition-colors cursor-default">
                       {t}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </FadeIn>
@@ -444,32 +439,26 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                       className="w-full p-5 sm:p-6 text-left font-bold text-[16px] text-[#111210] flex items-center justify-between gap-4 cursor-pointer hover:bg-[#fcfdfa]"
                     >
                       <span>{faq.question}</span>
-                      <motion.div
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
+                      <div
                       >
                         {isOpen ? (
                           <Minus className="w-4 h-4 text-[#528d2c] shrink-0" />
                         ) : (
                           <Plus className="w-4 h-4 text-[#4d5247] shrink-0" />
                         )}
-                      </motion.div>
+                      </div>
                     </button>
-                    <AnimatePresence>
+                    
                       {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
+                        <div
                           className="overflow-hidden"
                         >
                           <div className="px-5 sm:px-6 pb-6 pt-1 text-[14px] text-[#4d5247] leading-relaxed border-t border-[#f0f2eb]">
                             {faq.answer}
                           </div>
-                        </motion.div>
+                        </div>
                       )}
-                    </AnimatePresence>
+                    
                   </div>
                 );
               })}
@@ -529,22 +518,18 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-3 relative z-10">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+            <button
               onClick={onStartProject}
               className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-extrabold text-[15px] px-9 py-4 rounded-full transition-all cursor-pointer shadow-lg"
             >
               Start Your Project
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </button>
+            <button
               onClick={onTalkToAI}
               className="bg-transparent hover:bg-white/10 text-white border border-[#3c4135] font-semibold text-[15px] px-8 py-4 rounded-full transition-all cursor-pointer"
             >
               Talk to Fiverse Systems
-            </motion.button>
+            </button>
           </div>
         </FadeIn>
       </div>

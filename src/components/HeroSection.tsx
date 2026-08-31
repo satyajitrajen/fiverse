@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { HeroTeamIllustration } from './TeamIllustration';
 import { SlackLogo, MicrosoftTeamsLogo, BambooHRLogo, GustoLogo, WorkdayLogo, HiBobLogo, FiverseIcon } from './Logos';
 import { ChevronDown, MapPin, Laptop, Check } from 'lucide-react';
@@ -39,9 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                 isOn ? 'bg-[#c8ff28]' : 'bg-[#d8dbd2]'
               }`}
             >
-              <motion.span
-                layout
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              <span
                 className={`inline-block h-5 w-5 rounded-full bg-white shadow-md ${
                   isOn ? 'translate-x-6' : 'translate-x-1'
                 }`}
@@ -78,14 +75,14 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                     integrate fiverse with your corporate chats to show statuses there
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
-                    <motion.div whileHover={{ scale: 1.05, y: -2 }} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f6f7f2] border border-[#e8ebe0] text-[13px] font-medium text-[#2d312e] shadow-2xs hover:bg-[#eff1ea] transition-colors cursor-pointer">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f6f7f2] border border-[#e8ebe0] text-[13px] font-medium text-[#2d312e] shadow-2xs hover:bg-[#eff1ea] transition-colors cursor-pointer">
                       <SlackLogo className="w-4 h-4" />
                       <span>Slack</span>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05, y: -2 }} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f6f7f2] border border-[#e8ebe0] text-[13px] font-medium text-[#2d312e] shadow-2xs hover:bg-[#eff1ea] transition-colors cursor-pointer">
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f6f7f2] border border-[#e8ebe0] text-[13px] font-medium text-[#2d312e] shadow-2xs hover:bg-[#eff1ea] transition-colors cursor-pointer">
                       <MicrosoftTeamsLogo className="w-4 h-4" />
                       <span>Microsoft Teams</span>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -96,9 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                 <div className="absolute inset-0 bg-radial from-[#d9fb48]/30 via-transparent to-transparent blur-2xl pointer-events-none rounded-full" />
 
                 {/* Main Lime / White App Window Card */}
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
+                <div
                   className="relative w-full max-w-[340px] sm:max-w-[380px] bg-white rounded-2xl border border-[#e4e7dc] shadow-xl overflow-hidden z-10 animate-float-slow"
                 >
                   {/* App Lime Header Bar */}
@@ -217,13 +212,10 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Overlapping Dark Floating Profile Widget */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  whileHover={{ scale: 1.05 }}
+                <div
                   className="absolute left-1 sm:-left-6 -bottom-4 bg-[#141513] text-white p-3 sm:p-3.5 rounded-2xl shadow-2xl border border-[#2a2c28] max-w-[190px] sm:max-w-[210px] z-20"
                 >
                   {/* Traffic lights */}
@@ -252,7 +244,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                     </span>
                     <Check className="w-3 h-3 text-[#c8ff28]" />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
@@ -265,10 +257,10 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-14 opacity-90 hover:opacity-100 transition-opacity">
-            <motion.div whileHover={{ scale: 1.08 }}><BambooHRLogo className="h-5 sm:h-6" /></motion.div>
-            <motion.div whileHover={{ scale: 1.08 }}><GustoLogo className="h-5 sm:h-6" /></motion.div>
-            <motion.div whileHover={{ scale: 1.08 }}><WorkdayLogo className="h-5 sm:h-6" /></motion.div>
-            <motion.div whileHover={{ scale: 1.08 }}><HiBobLogo className="h-5 sm:h-6" /></motion.div>
+            <div><BambooHRLogo className="h-5 sm:h-6" /></div>
+            <div><GustoLogo className="h-5 sm:h-6" /></div>
+            <div><WorkdayLogo className="h-5 sm:h-6" /></div>
+            <div><HiBobLogo className="h-5 sm:h-6" /></div>
           </div>
         </FadeIn>
       </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
   TrendingUp,
   FileText,
@@ -161,9 +160,9 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                     </div>
                     <div className="flex flex-wrap gap-2 pt-1 border-t border-[#e2e6d8]">
                       {cs.tech.map((t, tI) => (
-                        <motion.span whileHover={{ scale: 1.05 }} key={tI} className="bg-white text-[#2d312c] text-[11px] font-mono px-2.5 py-1 rounded-md border border-[#d8dcd0] cursor-default">
+                        <span key={tI} className="bg-white text-[#2d312c] text-[11px] font-mono px-2.5 py-1 rounded-md border border-[#d8dcd0] cursor-default">
                           {t}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -172,15 +171,13 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
             </div>
 
             <FadeIn direction="up" delay={0.2} className="text-center pt-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={onStartProject}
                 className="bg-[#111210] hover:bg-[#252823] text-white font-bold text-[14px] px-8 py-4 rounded-full transition-all cursor-pointer inline-flex items-center gap-2 shadow-md"
               >
                 <span>Have a Similar Challenge? Talk to Our Team</span>
                 <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-              </motion.button>
+              </button>
             </FadeIn>
           </div>
         )}
@@ -217,25 +214,23 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#528d2c]" /> Real-Time Analytics</p>
                 </div>
                 <div className="pt-3">
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                  <button
                     onClick={onExploreProduct}
                     className="bg-[#111210] hover:bg-[#252823] text-white font-bold text-[14px] px-7 py-3.5 rounded-full transition-all cursor-pointer inline-flex items-center gap-2 shadow-md"
                   >
                     <span>Launch Live Interactive Demo</span>
                     <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-                  </motion.button>
+                  </button>
                 </div>
               </div>
 
-              <motion.div whileHover={{ scale: 1.02 }} className="lg:col-span-5 rounded-2xl overflow-hidden border border-[#e4e7dc] relative z-10">
+              <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-[#e4e7dc] relative z-10">
                 <img
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&auto=format&fit=crop&q=80"
                   alt="Fiverse Workplace Platform modern flex office"
                   className="w-full h-72 object-cover"
                 />
-              </motion.div>
+              </div>
             </FadeIn>
           </div>
         )}
@@ -274,9 +269,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                       <p className="text-[13px] text-[#63685e] leading-relaxed">{res.desc}</p>
                     </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                    <button
                       onClick={() => handleDownload(res.title)}
                       className="w-full bg-[#f7f9f2] hover:bg-[#111210] hover:text-white text-[#111210] border border-[#e4e7dc] font-bold text-[13px] py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
@@ -290,7 +283,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                           <span>Download Free Guide</span>
                         </>
                       )}
-                    </motion.button>
+                    </button>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -343,14 +336,13 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                       </div>
                       <h3 className="font-bold text-[18px] text-[#111210] leading-snug">{post.title}</h3>
                     </div>
-                    <motion.button
-                      whileHover={{ x: 3 }}
+                    <button
                       onClick={onStartProject}
                       className="text-[13px] font-bold text-[#111210] hover:text-[#528d2c] flex items-center gap-1.5 cursor-pointer pt-2 border-t border-[#f0f2eb]"
                     >
                       <span>Read Article</span>
                       <ArrowRight className="w-3.5 h-3.5" />
-                    </motion.button>
+                    </button>
                   </HoverCard>
                 </StaggerItem>
               ))}

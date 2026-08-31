@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Target,
   Sparkles,
@@ -170,14 +169,12 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                 <h3 className="text-[22px] sm:text-[26px] font-bold text-white lowercase">ready to build technology that compounds?</h3>
                 <p className="text-[14px] text-[#a4a99d]">Talk to our senior engineering and AI leadership team.</p>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={onStartProject}
                 className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[14px] px-8 py-3.5 rounded-full transition-all whitespace-nowrap cursor-pointer shadow-md relative z-10"
               >
                 Find Out How We Can Help
-              </motion.button>
+              </button>
             </FadeIn>
           </div>
         )}
@@ -275,15 +272,13 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2} className="text-center pt-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={onStartProject}
                 className="bg-[#111210] hover:bg-[#252823] text-white font-bold text-[14px] px-8 py-4 rounded-full transition-all shadow-md cursor-pointer inline-flex items-center gap-2"
               >
                 <span>Start the Journey</span>
                 <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-              </motion.button>
+              </button>
             </FadeIn>
           </div>
         )}
@@ -348,9 +343,9 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                       </div>
                       <div className="flex flex-wrap gap-2 pt-2 border-t border-[#f0f2eb]">
                         {stack.techs.map((t, tIdx) => (
-                          <motion.span whileHover={{ scale: 1.05 }} key={tIdx} className="bg-[#f7f8f4] text-[#2d312c] text-[12px] font-semibold px-3 py-1 rounded-xl border border-[#e4e7db] hover:border-[#111210] transition-colors cursor-default">
+                          <span key={tIdx} className="bg-[#f7f8f4] text-[#2d312c] text-[12px] font-semibold px-3 py-1 rounded-xl border border-[#e4e7db] hover:border-[#111210] transition-colors cursor-default">
                             {t}
-                          </motion.span>
+                          </span>
                         ))}
                       </div>
                     </HoverCard>
@@ -364,14 +359,12 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                 <h3 className="font-bold text-[18px] text-[#111210]">Need guidance on your technology stack?</h3>
                 <p className="text-[14px] text-[#63685e]">Our architects provide comprehensive stack evaluations and technical feasibility reviews.</p>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={onStartProject}
                 className="bg-[#111210] hover:bg-[#252823] text-white font-bold text-[13px] px-7 py-3.5 rounded-full transition-all cursor-pointer whitespace-nowrap shadow-sm"
               >
                 Discuss Architecture
-              </motion.button>
+              </button>
             </FadeIn>
           </div>
         )}
@@ -427,20 +420,18 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                     { role: 'Lead Product Designer (UI/UX & Design Systems)', type: 'Full-Time · Remote / Hybrid' },
                     { role: 'Cloud Infrastructure & MLOps Architect', type: 'Full-Time · Remote / Hybrid' }
                   ].map((job, jIdx) => (
-                    <motion.div whileHover={{ y: -2 }} key={jIdx} className="bg-[#1c1e19] p-4 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/40 transition-colors flex items-center justify-between">
+                    <div key={jIdx} className="bg-[#1c1e19] p-4 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/40 transition-colors flex items-center justify-between">
                       <div>
                         <p className="font-bold text-[14px] text-white">{job.role}</p>
                         <p className="text-[11px] text-[#8e9387]">{job.type}</p>
                       </div>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                      <button
                         onClick={onStartProject}
                         className="text-[12px] font-bold text-[#c8ff28] hover:underline cursor-pointer"
                       >
                         Apply →
-                      </motion.button>
-                    </motion.div>
+                      </button>
+                    </div>
                   ))}
                 </div>
               </FadeIn>
@@ -466,13 +457,10 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Form Column */}
               <FadeIn direction="up" delay={0.1} className="lg:col-span-8 bg-white rounded-3xl p-8 sm:p-10 border border-[#e4e7dc] card-soft-shadow">
-                <AnimatePresence mode="wait">
+                
                   {isSubmitted ? (
-                    <motion.div
+                    <div
                       key="submitted"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
                       className="text-center py-16 space-y-4"
                     >
                       <div className="w-16 h-16 rounded-full bg-[#eef8cf] text-[#528d2c] flex items-center justify-center mx-auto">
@@ -482,13 +470,10 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                       <p className="text-[14px] text-[#63685e] max-w-md mx-auto">
                         A senior technology lead from Fiverse Systems will review your requirements and get in touch within 24 business hours.
                       </p>
-                    </motion.div>
+                    </div>
                   ) : (
-                    <motion.form
+                    <form
                       key="form"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
                       onSubmit={handleSubmit}
                       className="space-y-6"
                     >
@@ -604,18 +589,16 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                         </div>
                       </div>
 
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                      <button
                         type="submit"
                         className="w-full bg-[#111210] hover:bg-[#252823] text-white font-bold text-[15px] py-4 rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
                       >
                         <span>Start Your Project</span>
                         <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-                      </motion.button>
-                    </motion.form>
+                      </button>
+                    </form>
                   )}
-                </AnimatePresence>
+                
               </FadeIn>
 
               {/* Sidebar Info */}

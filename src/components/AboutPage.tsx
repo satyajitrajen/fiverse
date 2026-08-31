@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
   ArrowRight,
@@ -269,23 +268,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 pt-2 w-full max-w-md sm:max-w-none mx-auto">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={handleStartConvo}
                 className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-7 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 group min-h-[48px]"
               >
                 <span>Start a Conversation</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#c8ff28]" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </button>
+              <button
                 onClick={onExploreServices}
                 className="w-full sm:w-auto bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[14px] font-semibold px-6 py-3.5 rounded-full transition-all duration-200 shadow-2xs cursor-pointer flex items-center justify-center min-h-[48px]"
               >
                 Explore Our Services
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
 
@@ -331,30 +326,30 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                   <span className="text-[11px] bg-[#c8ff28] text-[#111210] px-2.5 py-0.5 rounded-full font-bold">Active & Autonomous</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2.5 text-[13px] text-[#c2c7ba]">
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Understand language</span>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Analyze documents</span>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Recognize images</span>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Generate info</span>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Discover patterns</span>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#1c1e1a] p-2.5 rounded-xl border border-[#2c3027]">
                     <Sparkles className="w-3.5 h-3.5 text-[#c8ff28]" />
                     <span>Hold conversations</span>
-                  </motion.div>
+                  </div>
                 </div>
 
                 <div className="bg-[#21241e] p-3.5 rounded-2xl border border-[#373c30] flex items-center justify-between">
@@ -496,14 +491,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 Sometimes the answer is an autonomous agent. Sometimes machine learning. Sometimes RAG. And sometimes—the best solution is simply well-engineered, high-performance software. We pick the right tool for the job.
               </p>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+            <button
               onClick={onExploreServices}
               className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] px-6 py-3 rounded-full transition-all cursor-pointer whitespace-nowrap shadow-sm"
             >
               Explore Capabilities
-            </motion.button>
+            </button>
           </FadeIn>
         </div>
       </section>
@@ -528,10 +521,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
               const Icon = p.icon;
               const isSelected = activePillar === key;
               return (
-                <motion.button
+                <button
                   key={key}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setActivePillar(key)}
                   className={`flex-1 min-w-[140px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl sm:rounded-full text-[13px] font-bold transition-all cursor-pointer ${
                     isSelected
@@ -541,19 +532,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 >
                   <Icon className="w-4 h-4" />
                   <span>{p.title}</span>
-                </motion.button>
+                </button>
               );
             })}
           </div>
 
           {/* Active Pillar Card */}
-          <AnimatePresence mode="wait">
-            <motion.div
+          
+            <div
               key={activePillar}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
               className="bg-white rounded-[32px] sm:rounded-[40px] border border-[#e3e6db] card-soft-shadow p-6 sm:p-10 space-y-8"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#edf0e6] pb-6">
@@ -580,9 +567,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 {pillars[activePillar].skills.map((skill, i) => {
                   const SkillIcon = skill.icon;
                   return (
-                    <motion.div
+                    <div
                       key={i}
-                      whileHover={{ y: -2 }}
                       className="p-4 rounded-2xl bg-[#f8f9f5] border border-[#e6e9df] hover:border-[#111210] hover:bg-white transition-all space-y-1.5 cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
@@ -590,12 +576,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                         <span className="font-bold text-[14px] text-[#111210]">{skill.name}</span>
                       </div>
                       <p className="text-[12px] text-[#6a7065] leading-normal">{skill.desc}</p>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          
         </div>
       </section>
 
@@ -618,8 +604,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
               const isSelected = activeJourneyStep === idx;
               return (
                 <StaggerItem key={idx}>
-                  <motion.div
-                    whileHover={{ y: -3 }}
+                  <div
                     onClick={() => setActiveJourneyStep(isSelected ? null : idx)}
                     className={`bg-white rounded-3xl p-5 border transition-all cursor-pointer relative flex flex-col justify-between space-y-3 h-full ${
                       isSelected
@@ -640,7 +625,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                     <p className="text-[11px] text-[#71776b] pt-2 border-t border-[#f0f2eb]">
                       {step.desc}
                     </p>
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               );
             })}
@@ -699,7 +684,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Mission */}
             <FadeIn direction="up" delay={0.1}>
-              <motion.div whileHover={{ y: -3 }} className="bg-[#1b1c1a] border border-[#2d302a] rounded-3xl p-8 sm:p-10 space-y-4 hover:border-[#c8ff28]/40 transition-colors h-full">
+              <div className="bg-[#1b1c1a] border border-[#2d302a] rounded-3xl p-8 sm:p-10 space-y-4 hover:border-[#c8ff28]/40 transition-colors h-full">
                 <span className="text-[12px] font-bold uppercase tracking-widest text-[#c8ff28]">Our Mission</span>
                 <h3 className="text-[24px] sm:text-[30px] font-bold tracking-tight leading-tight lowercase text-white">
                   to transform business problems, ideas and data into intelligent digital products capable of creating measurable value.
@@ -707,12 +692,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <p className="text-[14px] text-[#9ca196] leading-relaxed">
                   Making advanced software engineering and AI useful beyond big tech—for startups, ambitious founders, enterprises, and teams that know there must be a better way to work.
                 </p>
-              </motion.div>
+              </div>
             </FadeIn>
 
             {/* Vision */}
             <FadeIn direction="up" delay={0.2}>
-              <motion.div whileHover={{ y: -3 }} className="bg-[#1b1c1a] border border-[#2d302a] rounded-3xl p-8 sm:p-10 space-y-4 hover:border-[#c8ff28]/40 transition-colors h-full">
+              <div className="bg-[#1b1c1a] border border-[#2d302a] rounded-3xl p-8 sm:p-10 space-y-4 hover:border-[#c8ff28]/40 transition-colors h-full">
                 <span className="text-[12px] font-bold uppercase tracking-widest text-[#c8ff28]">Our Vision</span>
                 <h3 className="text-[24px] sm:text-[30px] font-bold tracking-tight leading-tight lowercase text-white">
                   to build a world-class AI-first product engineering company that helps create the next generation of intelligent businesses.
@@ -720,7 +705,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <p className="text-[14px] text-[#9ca196] leading-relaxed">
                   Where software understands users, agents collaborate alongside teams, organizational knowledge is conversational, and routine toil disappears into intelligent automation.
                 </p>
-              </motion.div>
+              </div>
             </FadeIn>
           </div>
         </div>
@@ -787,10 +772,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
             {/* Desktop Vertical Personas List (>= 1024px) */}
             <div className="hidden lg:block lg:col-span-5 space-y-2.5">
               {personas.map((p, i) => (
-                <motion.button
+                <button
                   key={i}
-                  whileHover={{ x: 4 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setActivePersona(i)}
                   className={`w-full p-4 rounded-2xl text-left transition-all flex items-center justify-between border cursor-pointer ${
                     activePersona === i
@@ -803,18 +786,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                     <span className="text-[14px]">{p.role}</span>
                   </div>
                   <ArrowRight className={`w-4 h-4 transition-transform ${activePersona === i ? 'text-[#111210] translate-x-1' : 'text-[#898f84]'}`} />
-                </motion.button>
+                </button>
               ))}
             </div>
 
             {/* Persona Quote & Solution Card */}
-            <AnimatePresence mode="wait">
-              <motion.div
+            
+              <div
                 key={activePersona}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
                 className="lg:col-span-7 bg-white rounded-3xl p-8 border border-[#e2e6d8] floating-card-shadow space-y-6"
               >
                 <div className="flex items-center gap-3 border-b border-[#edf0e5] pb-4">
@@ -839,17 +818,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                   </p>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                <button
                   onClick={handleStartConvo}
                   className="bg-[#111210] hover:bg-[#252823] text-white text-[13px] font-bold px-6 py-3 rounded-full transition-all cursor-pointer inline-flex items-center gap-2"
                 >
                   <span>Talk to our engineering team</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#c8ff28]" />
-                </motion.button>
-              </motion.div>
-            </AnimatePresence>
+                </button>
+              </div>
+            
           </div>
         </div>
       </section>
@@ -877,9 +854,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 'Produces measurable ROI',
                 'Grows smarter over time'
               ].map((item, idx) => (
-                <motion.div whileHover={{ y: -2 }} key={idx} className="bg-[#f8f9f5] p-3.5 rounded-2xl border border-[#e7eae0] text-[12px] font-bold text-[#111210] text-center flex items-center justify-center hover:border-[#111210] transition-colors cursor-default">
+                <div key={idx} className="bg-[#f8f9f5] p-3.5 rounded-2xl border border-[#e7eae0] text-[12px] font-bold text-[#111210] text-center flex items-center justify-center hover:border-[#111210] transition-colors cursor-default">
                   {item}
-                </motion.div>
+                </div>
               ))}
             </div>
           </FadeIn>
@@ -901,23 +878,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={handleStartConvo}
                 className="bg-[#c8ff28] hover:bg-[#baf51d] active:scale-98 text-[#111210] font-extrabold text-[15px] px-8 py-4 rounded-full transition-all duration-200 shadow-lg cursor-pointer flex items-center gap-2"
               >
                 <span>Start a Conversation</span>
                 <ArrowRight className="w-4 h-4 text-[#111210]" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </button>
+              <button
                 onClick={onExploreServices}
                 className="bg-transparent hover:bg-white/10 text-white border border-[#3b3e36] font-semibold text-[15px] px-7 py-4 rounded-full transition-all cursor-pointer"
               >
                 Explore Our Services
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
         </div>

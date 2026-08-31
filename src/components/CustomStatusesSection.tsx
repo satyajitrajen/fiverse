@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Home, RefreshCw, Sun, Palmtree, PartyPopper, Calendar, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { FadeIn, GlowOrb } from './Motion';
@@ -49,9 +48,7 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                   const Icon = s.icon;
                   const isCurrent = selectedStatus === s.id;
                   return (
-                    <motion.button
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
+                    <button
                       key={s.id}
                       onClick={() => setSelectedStatus(s.id)}
                       className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-medium transition-all duration-200 cursor-pointer text-left whitespace-nowrap shadow-xs ${
@@ -64,14 +61,13 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                         <Icon className="w-3 h-3" />
                       </span>
                       <span>{s.label}</span>
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
 
               {/* Main "swap working day" Modal Card */}
-              <motion.div
-                whileHover={{ y: -4 }}
+              <div
                 className="flex-1 bg-white rounded-3xl border border-[#e4e8db] floating-card-shadow p-5 sm:p-6 z-20 transition-all duration-300"
               >
                 {/* Header */}
@@ -122,9 +118,7 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
 
                   {/* Send Request Button */}
                   <div className="pt-2">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                    <button
                       onClick={handleSendRequest}
                       className="w-full bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[13px] py-3 rounded-2xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                     >
@@ -136,10 +130,10 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                       ) : (
                         <span>Send request</span>
                       )}
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </FadeIn>
 
@@ -161,15 +155,13 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
             </div>
 
             <div className="pt-2">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={onBetaClick}
                 className="bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-6 py-3 rounded-full transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2 group"
               >
                 <span>sign up for beta launch</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
         </div>

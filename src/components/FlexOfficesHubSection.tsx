@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
   AmazonLogo,
   GrammarlyLogo,
@@ -87,9 +86,9 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                 TwitterLogo, MastercardLogo, SoftserveLogo, SiemensLogo, LuxoftLogo, DeloitteLogo
               ].map((LogoComp, lIdx) => (
                 <StaggerItem key={lIdx} className="w-full flex items-center justify-center p-2">
-                  <motion.div whileHover={{ scale: 1.08 }} className="transition-transform">
+                  <div className="transition-transform">
                     <LogoComp />
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -109,14 +108,12 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
               </p>
 
               <div className="pt-2">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <button
                   onClick={onRequestDemoClick}
                   className="bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-6 py-3 rounded-full transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2"
                 >
                   <span>request a demo</span>
-                </motion.button>
+                </button>
               </div>
             </FadeIn>
 
@@ -136,9 +133,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                   {/* Desk Avatars Grid */}
                   <div className="grid grid-cols-2 gap-2.5">
                     {deskUsers.map((u) => (
-                      <motion.div
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
+                      <div
                         key={u.id}
                         onClick={() => setSelectedDesk(u.id)}
                         className={`bg-white/90 backdrop-blur-xs p-2 rounded-2xl border border-white/80 flex items-center gap-2 shadow-2xs cursor-pointer hover:bg-white transition-all ${
@@ -154,13 +149,11 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                           <p className="text-[11px] font-bold text-[#111210] truncate">{u.name}</p>
                           <p className="text-[9px] text-[#717869]">{u.desk}</p>
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
 
                     {/* Add / Pick Free Desk Button */}
-                    <motion.div
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
+                    <div
                       onClick={() => {
                         setSelectedDesk(99);
                         setDeskCount(prev => prev + 1);
@@ -171,7 +164,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                         <Plus className="w-3.5 h-3.5" />
                         <span>Pick Desk</span>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
 
@@ -225,9 +218,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                   </div>
 
                   {/* Book now button */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
                     onClick={handleBookNow}
                     className="w-full bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[12px] py-2.5 rounded-xl transition-all shadow-sm cursor-pointer flex items-center justify-center gap-1.5"
                   >
@@ -239,7 +230,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                     ) : (
                       <span>Book now</span>
                     )}
-                  </motion.button>
+                  </button>
                 </div>
               </div>
             </FadeIn>

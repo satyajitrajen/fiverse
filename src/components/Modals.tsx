@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Building2, Mail, User, Phone, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { FiverseLogo } from './Logos';
@@ -72,40 +71,30 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
     }, 3000);
   };
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/65 backdrop-blur-xs overflow-y-auto"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 15 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-heading-title"
-            className="relative w-full max-w-xl bg-white rounded-3xl p-5 sm:p-8 shadow-2xl border border-[#e4e7dc] space-y-4 sm:space-y-5 my-auto max-h-[92dvh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/65 backdrop-blur-xs overflow-y-auto"
+      onClick={onClose}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-heading-title"
+        className="relative w-full max-w-xl bg-white rounded-3xl p-5 sm:p-8 shadow-2xl border border-[#e4e7dc] space-y-4 sm:space-y-5 my-auto max-h-[92dvh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
             <GlowOrb color="lime" size="sm" className="top-0 right-0 opacity-20 pointer-events-none" />
 
             {/* Close Button */}
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={onClose}
               aria-label="Close dialog"
               className="absolute right-4 sm:right-5 top-4 sm:top-5 w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#f4f5ee] hover:bg-[#e7e9df] text-[#111210] flex items-center justify-center transition-colors cursor-pointer z-10"
             >
               <X className="w-4 h-4" />
-            </motion.button>
+            </button>
 
             {/* Modal Header */}
             <div className="space-y-1 relative z-10 pr-8">
@@ -125,9 +114,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
 
             {/* Modal Form */}
             {isDone ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+              <div
                 role="status"
                 aria-live="polite"
                 className="py-10 sm:py-12 text-center space-y-3 relative z-10"
@@ -139,7 +126,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                 <p className="text-[13px] text-[#4d5247] max-w-md mx-auto">
                   A senior AI and product engineering lead will review your requirements and reach out directly.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -267,20 +254,16 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                   </div>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   type="submit"
                   className="w-full bg-[#111210] hover:bg-[#252823] text-white font-bold text-[14px] py-3.5 rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2 mt-2 min-h-[48px]"
                 >
                   <span>Submit Project Request</span>
                   <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-                </motion.button>
+                </button>
               </form>
             )}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </div>
+        </div>
   );
 };

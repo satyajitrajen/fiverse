@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FooterTeamIllustration } from './TeamIllustration';
 import { ChevronDown, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -40,14 +39,12 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onBookDemoClick }) =
           </h2>
 
           <div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={onBookDemoClick}
               className="bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-7 py-3.5 rounded-full transition-all shadow-sm hover:shadow-md cursor-pointer"
             >
               book a demo
-            </motion.button>
+            </button>
           </div>
         </FadeIn>
 
@@ -100,9 +97,7 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onBookDemoClick }) =
                   </div>
 
                   {/* Send Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                  <button
                     type="submit"
                     className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-bold text-[14px] px-8 py-3.5 rounded-full sm:rounded-2xl transition-all shadow-md cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
                   >
@@ -114,7 +109,7 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onBookDemoClick }) =
                     ) : (
                       <span>send</span>
                     )}
-                  </motion.button>
+                  </button>
                 </div>
               </form>
             </div>

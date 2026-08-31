@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { FadeIn, GlowOrb, HoverCard } from './Motion';
 
@@ -201,15 +200,13 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
             </div>
 
             <div className="pt-2">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={onApplyClick}
                 className="bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-6 py-3 rounded-full transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2 group"
               >
                 <span>apply for 2 free months</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
         </div>
