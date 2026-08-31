@@ -1,10 +1,13 @@
-name: Deploy to Hostinger
+name: Build and Deploy to Production Branch (Hostinger Git Connector)
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -25,12 +28,9 @@ jobs:
       - name: Build Project & Pre-render Routes
         run: bun run build
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy Compiled Files to Production Branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
-          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
-          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./public_html/
-          dangerous-clean-slate: false
+          branch: production
+          folder: dist
+          clean: true
