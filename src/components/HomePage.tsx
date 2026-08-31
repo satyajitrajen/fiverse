@@ -165,7 +165,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
               into <span className="bg-gradient-to-r from-[#111210] via-[#2e6314] to-[#111210] bg-clip-text text-transparent">digital products.</span>
             </h1>
 
-            <p className="text-[14px] sm:text-[15px] text-[#61665c] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[14px] sm:text-[15px] text-[#3a4035] max-w-2xl mx-auto leading-relaxed">
               Fiverse Systems is an AI-first software development and product engineering company helping startups, growing businesses and enterprises turn ideas, workflows and data into intelligent digital products.
             </p>
 
@@ -195,13 +195,13 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 {/* Left Column: Mission Narrative & Scope */}
                 <div className="lg:col-span-6 space-y-6">
                   <div className="space-y-3">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">
                       End-to-End Product Lifecycle
                     </span>
                     <h2 className="text-[28px] sm:text-[36px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
                       from breakthrough concept to enterprise production.
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] text-[#555a50] leading-relaxed">
+                    <p className="text-[14px] sm:text-[15px] text-[#3a4035] leading-relaxed">
                       We build everything from custom AI models and autonomous AI agents to SaaS platforms, enterprise software, web applications and mobile products—from strategy and architecture to development, deployment and continuous improvement.
                     </p>
                   </div>
@@ -217,17 +217,17 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   <div className="grid grid-cols-2 gap-3 pt-1">
                     <div className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-all hover:border-[#111210] hover:-translate-y-0.5">
                       <p className="text-[12px] font-bold text-[#111210] flex items-center gap-1.5">
-                        <Brain className="w-3.5 h-3.5 text-[#528d2c]" />
+                        <Brain className="w-3.5 h-3.5 text-[#266314]" />
                         <span>Autonomous Agents</span>
                       </p>
-                      <p className="text-[11px] text-[#4d5247] font-medium mt-0.5">Contextual memory & tools</p>
+                      <p className="text-[11px] text-[#3a4035] font-medium mt-0.5">Contextual memory & tools</p>
                     </div>
                     <div className="bg-[#f7f8f4] p-3.5 rounded-2xl border border-[#e5e8dc] transition-all hover:border-[#111210] hover:-translate-y-0.5">
                       <p className="text-[12px] font-bold text-[#111210] flex items-center gap-1.5">
                         <Layers className="w-3.5 h-3.5 text-[#0369a1]" />
                         <span>Scalable SaaS & Web</span>
                       </p>
-                      <p className="text-[11px] text-[#4d5247] font-medium mt-0.5">Multi-tenant architecture</p>
+                      <p className="text-[11px] text-[#3a4035] font-medium mt-0.5">Multi-tenant architecture</p>
                     </div>
                   </div>
                 </div>
@@ -273,28 +273,28 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                       <Bot className="w-4 h-4 text-[#c8ff28]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Sales Agent</p>
-                        <p className="text-[10px] text-[#8e9387]">CRM + Lead Sync</p>
+                        <p className="text-[10px] text-[#3a4035]">CRM + Lead Sync</p>
                       </div>
                     </div>
                     <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#38bdf8] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <Database className="w-4 h-4 text-[#38bdf8]" />
                       <div>
                         <p className="font-bold text-white leading-tight">RAG Knowledge</p>
-                        <p className="text-[10px] text-[#8e9387]">Vector DB Search</p>
+                        <p className="text-[10px] text-[#3a4035]">Vector DB Search</p>
                       </div>
                     </div>
                     <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#fb923c] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <Workflow className="w-4 h-4 text-[#fb923c]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Ops Orchestrator</p>
-                        <p className="text-[10px] text-[#8e9387]">ERP Auto-Action</p>
+                        <p className="text-[10px] text-[#3a4035]">ERP Auto-Action</p>
                       </div>
                     </div>
                     <div className="bg-[#1c1e19] p-3 rounded-2xl border border-[#2e3227] flex items-center gap-2.5 hover:border-[#a855f7] hover:-translate-y-0.5 transition-all cursor-pointer">
                       <ShieldCheck className="w-4 h-4 text-[#a855f7]" />
                       <div>
                         <p className="font-bold text-white leading-tight">Guardrails & Auth</p>
-                        <p className="text-[10px] text-[#8e9387]">Strict Privacy</p>
+                        <p className="text-[10px] text-[#3a4035]">Strict Privacy</p>
                       </div>
                     </div>
                   </div>
@@ -318,12 +318,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Narrative */}
             <FadeIn direction="up" delay={0.1} className="lg:col-span-7 space-y-5">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">The Problem-First Approach</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">The Problem-First Approach</span>
               <h2 className="text-[32px] sm:text-[44px] md:text-[48px] font-bold text-[#111210] tracking-tight leading-[1.1] lowercase">
                 ideas are everywhere. <br />
                 building them is the hard part.
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-[#555a50] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#3a4035] leading-relaxed">
                 Every successful digital product begins with a moment. A founder sees a problem nobody has solved properly. A business realizes its team spends hundreds of hours on repetitive toil. An enterprise discovers valuable data scattered across silos. Someone asks: <span className="font-bold text-[#111210]">“Can technology do this better?”</span>
               </p>
             </FadeIn>
@@ -353,26 +353,26 @@ export const HomePage: React.FC<HomePageProps> = memo(({
             <div className="bg-white rounded-[32px] p-8 sm:p-12 border border-[#e3e6db] card-soft-shadow space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4">
-                  <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Where We Begin</span>
+                  <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Where We Begin</span>
                   <h3 className="text-[24px] sm:text-[28px] font-bold text-[#111210] leading-snug">
                     We don't start with frameworks, programming languages or fashionable technologies. We start with the problem.
                   </h3>
                 </div>
-                <div className="space-y-3 text-[14px] text-[#5e6359] border-l-0 md:border-l border-[#edf0e6] md:pl-8">
+                <div className="space-y-3 text-[14px] text-[#3a4035] border-l-0 md:border-l border-[#edf0e6] md:pl-8">
                   <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Understand how your business actually works</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Pinpoint where users and teams struggle</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Determine what can be automated and what can become intelligent</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Engineer the technology around real, measurable value</span>
                   </p>
                 </div>
@@ -388,12 +388,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
       <section className="w-full py-16 sm:py-24 relative">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-3xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Intelligent Software by Design</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Intelligent Software by Design</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               we don't just build software. <br />
               we build intelligent systems.
             </h2>
-            <p className="text-[15px] text-[#5e6359] leading-relaxed">
+            <p className="text-[15px] text-[#3a4035] leading-relaxed">
               Traditional software waits for instructions. The next generation of software understands context, analyzes information, predicts outcomes, communicates naturally and increasingly takes action on behalf of users.
             </p>
           </FadeIn>
@@ -421,7 +421,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                       <Icon className="w-4 h-4 text-[#111210]" />
                     </div>
                     <h3 className="font-bold text-[15px] text-[#111210] leading-snug">{cap.title}</h3>
-                    <p className="text-[12px] text-[#63685e] leading-normal">{cap.desc}</p>
+                    <p className="text-[12px] text-[#3a4035] leading-normal">{cap.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               );
@@ -486,14 +486,14 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                       className={`w-full p-3.5 rounded-2xl text-left transition-all flex items-center justify-between border cursor-pointer hover:translate-x-1 ${
                         isSelected
                           ? 'bg-[#22251f] border-[#c8ff28] text-white font-bold shadow-md'
-                          : 'bg-[#181a16] border-[#292c25] text-[#9ca196] hover:bg-[#1f221c]'
+                          : 'bg-[#181a16] border-[#292c25] text-[#3a4035] hover:bg-[#1f221c]'
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <Icon className={`w-4 h-4 ${isSelected ? 'text-[#c8ff28]' : 'text-[#82877c]'}`} />
+                        <Icon className={`w-4 h-4 ${isSelected ? 'text-[#c8ff28]' : 'text-[#3a4035]'}`} />
                         <span className="text-[13px]">{agent.title}</span>
                       </div>
-                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-[#c8ff28] translate-x-1' : 'text-[#82877c]'}`} />
+                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-[#c8ff28] translate-x-1' : 'text-[#3a4035]'}`} />
                     </button>
                   );
                 })}
@@ -541,7 +541,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 </p>
 
                 <div className="bg-[#242721] p-4 rounded-2xl border border-[#373c2e] space-y-1.5">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#8e9387]">Integrated Enterprise Connectors</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">Integrated Enterprise Connectors</p>
                   <p className="text-[12px] text-[#d4d9cc]">
                     Connected seamlessly with your APIs, databases, CRM, ERP, documents, email systems, internal software, and third-party SaaS tools.
                   </p>
@@ -565,7 +565,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
               <h3 className="text-[28px] sm:text-[38px] font-bold tracking-tight leading-tight lowercase text-white">
                 when existing ai isn't enough, build intelligence around your own problem.
               </h3>
-              <p className="text-[14px] text-[#9ca196]">
+              <p className="text-[14px] text-[#3a4035]">
                 From raw data to specialized domain intelligence—we guide organizations throughout the complete AI model training and fine-tuning lifecycle.
               </p>
             </FadeIn>
@@ -586,7 +586,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                       <span className="w-1.5 h-1.5 rounded-full bg-[#c8ff28]" />
                     </div>
                     <h4 className="font-bold text-[15px] text-white">{m.title}</h4>
-                    <p className="text-[12px] text-[#8e9388] leading-relaxed">{m.desc}</p>
+                    <p className="text-[12px] text-[#3a4035] leading-relaxed">{m.desc}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -603,11 +603,11 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* LLM & RAG Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <FadeIn direction="up" className="lg:col-span-6 space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">LLM & RAG Development</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">LLM & RAG Development</span>
               <h3 className="text-[30px] sm:text-[40px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
                 give ai access to the knowledge that makes your business unique.
               </h3>
-              <p className="text-[15px] text-[#5e6359] leading-relaxed">
+              <p className="text-[15px] text-[#3a4035] leading-relaxed">
                 Public models understand general knowledge. We build LLM & Retrieval-Augmented Generation (RAG) systems that securely connect AI with your policies, products, documentation, and operational data.
               </p>
               <div className="pt-2">
@@ -638,7 +638,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 </div>
               </div>
 
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#797f74] block">Connect AI With Your Stack</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035] block">Connect AI With Your Stack</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[12px] font-medium text-[#2d312c]">
                 {[
                   'PDFs & Documents', 'Knowledge Bases', 'Relational DBs', 'ERP Platforms',
@@ -656,11 +656,11 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* AI Automation Section */}
           <FadeIn direction="up" delay={0.2} className="bg-[#f0f2eb]/70 rounded-[36px] p-8 sm:p-12 border border-[#e2e6d8] space-y-8">
             <div className="max-w-3xl space-y-3">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Outcome-Driven Automation</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Outcome-Driven Automation</span>
               <h3 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
                 stop automating steps. start automating outcomes.
               </h3>
-              <p className="text-[14px] sm:text-[15px] text-[#61665c] leading-relaxed">
+              <p className="text-[14px] sm:text-[15px] text-[#3a4035] leading-relaxed">
                 Traditional automation fails when unstructured emails, surprise customer questions, or ambiguous documents arrive. AI automation interprets context before deciding the optimal action.
               </p>
             </div>
@@ -722,7 +722,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 you bring the vision. <br />
                 we engineer the product.
               </h3>
-              <p className="text-[14px] text-[#9ca196] leading-relaxed">
+              <p className="text-[14px] text-[#3a4035] leading-relaxed">
                 From discovery, architecture, and UI/UX design to high-throughput backend services, mobile apps, and multi-tenant billing—we take products from MVP to enterprise scale.
               </p>
 
@@ -752,7 +752,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2} className="lg:col-span-7 bg-[#1c1e19] rounded-3xl p-6 sm:p-8 border border-[#2d3227] space-y-4">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#8e9387]">SaaS Architectural Foundation</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">SaaS Architectural Foundation</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-[12px] text-[#c4c9bd]">
                 {[
                   'Multi-Tenant Data', 'Workspaces & Orgs', 'RBAC & Permissions', 'Billing & Subscriptions',
@@ -777,7 +777,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* The Fiverse Way (5 Core Principles) */}
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-2xl space-y-3">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">The Fiverse Way</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">The Fiverse Way</span>
               <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
                 how we think and engineer.
               </h2>
@@ -793,9 +793,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
               ].map((item, idx) => (
                 <StaggerItem key={idx}>
                   <HoverCard yOffset={-4} className="bg-white rounded-3xl p-5 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] space-y-2.5 h-full">
-                    <span className="text-[11px] font-mono font-bold text-[#528d2c]">{item.step}</span>
+                    <span className="text-[11px] font-mono font-bold text-[#266314]">{item.step}</span>
                     <h3 className="font-bold text-[16px] text-[#111210]">{item.title}</h3>
-                    <p className="text-[12px] text-[#63685e] leading-relaxed">{item.desc}</p>
+                    <p className="text-[12px] text-[#3a4035] leading-relaxed">{item.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -805,7 +805,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* Development Journey (8 Milestones) */}
           <FadeIn direction="up" delay={0.2} className="bg-[#f0f2eb]/70 rounded-[36px] p-8 sm:p-12 border border-[#e2e6d8] space-y-8">
             <div className="max-w-3xl space-y-3">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Execution Lifecycle</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Execution Lifecycle</span>
               <h3 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
                 our development journey.
               </h3>
@@ -823,9 +823,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                 { step: '08', title: 'Evolve', desc: 'Continuous iteration' }
               ].map((j, i) => (
                 <div key={i} className="bg-white p-4 rounded-2xl border border-[#e4e7dc] space-y-1 shadow-2xs hover:border-[#111210] hover:-translate-y-0.5 transition-all cursor-pointer">
-                  <span className="text-[10px] font-mono font-bold text-[#83897d]">{j.step}</span>
+                  <span className="text-[10px] font-mono font-bold text-[#3a4035]">{j.step}</span>
                   <p className="font-bold text-[13px] text-[#111210]">{j.title}</p>
-                  <p className="text-[10px] text-[#71776c] leading-tight">{j.desc}</p>
+                  <p className="text-[10px] text-[#3a4035] leading-tight">{j.desc}</p>
                 </div>
               ))}
             </div>
@@ -841,7 +841,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* Who We Partner With (5 Categories with Real Portraits) */}
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-2xl space-y-3">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Partnerships</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Partnerships</span>
               <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
                 who we partner with.
               </h2>
@@ -860,10 +860,10 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                       />
                       <div>
                         <h3 className="font-bold text-[16px] text-[#111210] leading-tight">{partner.title}</h3>
-                        <span className="text-[11px] text-[#73796e] font-medium">{partner.role}</span>
+                        <span className="text-[11px] text-[#3a4035] font-medium">{partner.role}</span>
                       </div>
                     </div>
-                    <p className="text-[12px] text-[#63685e] leading-relaxed pt-1 border-t border-[#f2f4ec]">{partner.desc}</p>
+                    <p className="text-[12px] text-[#3a4035] leading-relaxed pt-1 border-t border-[#f2f4ec]">{partner.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -873,7 +873,7 @@ export const HomePage: React.FC<HomePageProps> = memo(({
           {/* 18 Industries Grid */}
           <div className="space-y-6">
             <FadeIn direction="up" className="max-w-2xl space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Domain Expertise</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Domain Expertise</span>
               <h3 className="text-[26px] sm:text-[34px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
                 industries we develop technology for.
               </h3>

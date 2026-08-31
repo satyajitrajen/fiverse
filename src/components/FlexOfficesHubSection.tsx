@@ -74,7 +74,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                 flex offices with half-remote teams <br className="hidden sm:inline" />
                 are a new reality of management
               </h2>
-              <p className="text-[14px] sm:text-[15px] text-[#63685e]">
+              <p className="text-[14px] sm:text-[15px] text-[#3a4035]">
                 companies that already switched to hybrid model and use their offices as hubs
               </p>
             </FadeIn>
@@ -103,7 +103,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                 space via fiverse
               </h3>
 
-              <p className="text-[14px] sm:text-[15px] text-[#61665c] leading-relaxed max-w-md">
+              <p className="text-[14px] sm:text-[15px] text-[#3a4035] leading-relaxed max-w-md">
                 for hybrid teams who use their desks, open spaces and meeting rooms smart
               </p>
 
@@ -147,7 +147,7 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                         />
                         <div className="overflow-hidden">
                           <p className="text-[11px] font-bold text-[#111210] truncate">{u.name}</p>
-                          <p className="text-[9px] text-[#717869]">{u.desk}</p>
+                          <p className="text-[9px] text-[#3a4035]">{u.desk}</p>
                         </div>
                       </div>
                     ))}
@@ -172,22 +172,22 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
                 <div className="w-full sm:w-[240px] bg-white rounded-2xl p-4 shadow-xl border border-[#e5e8dc] space-y-3 z-10">
                   {/* Where input */}
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-[#7b8175] block mb-1">Where</label>
+                    <label className="text-[10px] uppercase font-bold text-[#3a4035] block mb-1">Where</label>
                     <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#f7f8f4] border border-[#e3e6db] rounded-lg text-[12px] font-semibold text-[#111210]">
                       <div className="flex items-center gap-1.5 truncate">
-                        <MapPin className="w-3 h-3 text-[#6c7265]" />
+                        <MapPin className="w-3 h-3 text-[#3a4035]" />
                         <span>{selectedOffice}</span>
                       </div>
-                      <ChevronDown className="w-3 h-3 text-[#7b8175]" />
+                      <ChevronDown className="w-3 h-3 text-[#3a4035]" />
                     </div>
                   </div>
 
                   {/* When input */}
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-[#7b8175] block mb-1">When</label>
+                    <label className="text-[10px] uppercase font-bold text-[#3a4035] block mb-1">When</label>
                     <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#f7f8f4] border border-[#e3e6db] rounded-lg text-[12px] font-semibold text-[#111210]">
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3 h-3 text-[#6c7265]" />
+                        <Calendar className="w-3 h-3 text-[#3a4035]" />
                         <span>{bookingDate}</span>
                       </div>
                     </div>
@@ -195,13 +195,13 @@ export const FlexOfficesHubSection: React.FC<FlexOfficesHubSectionProps> = ({ on
 
                   {/* Booking for */}
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-[#7b8175] block mb-1">Booking for</label>
-                    <p className="text-[10px] text-[#71776b] leading-tight mb-2">
+                    <label className="text-[10px] uppercase font-bold text-[#3a4035] block mb-1">Booking for</label>
+                    <p className="text-[10px] text-[#3a4035] leading-tight mb-2">
                       for hybrid teams that use their desks/meeting rooms...
                     </p>
                     <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#f7f8f4] border border-[#e3e6db] rounded-lg text-[12px] font-semibold text-[#111210]">
                       <div className="flex items-center gap-1.5">
-                        <Users className="w-3 h-3 text-[#6c7265]" />
+                        <Users className="w-3 h-3 text-[#3a4035]" />
                         <span>{deskCount} desks</span>
                       </div>
                       <div className="flex items-center gap-1">

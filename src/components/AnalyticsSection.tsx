@@ -67,12 +67,12 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
                     {/* Donut Center Percentage */}
                     <div className="absolute flex flex-col items-center justify-center">
                       <span className="text-[18px] font-extrabold text-[#111210] leading-none">82%</span>
-                      <span className="text-[9px] text-[#787d72] font-semibold">in office</span>
+                      <span className="text-[9px] text-[#3a4035] font-semibold">in office</span>
                     </div>
                   </div>
 
                   {/* Donut Legend */}
-                  <div className="flex items-center justify-between text-[10px] font-medium text-[#5c6158] pt-1">
+                  <div className="flex items-center justify-between text-[10px] font-medium text-[#3a4035] pt-1">
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-[#c8ff28]" /> 82% office
                     </span>
@@ -95,7 +95,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
                     />
                     <div>
                       <p className="text-[13px] font-bold text-[#111210] leading-tight">Ira Watson</p>
-                      <p className="text-[10px] text-[#71776d] leading-tight">Head of Sales, SF</p>
+                      <p className="text-[10px] text-[#3a4035] leading-tight">Head of Sales, SF</p>
                     </div>
                   </div>
 
@@ -122,11 +122,11 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
 
                     <div className="text-[11px] leading-tight">
                       <p className="font-bold text-[#111210]">Office attendance</p>
-                      <p className="text-[10px] text-[#7c8276] mt-0.5">30-day average</p>
+                      <p className="text-[10px] text-[#3a4035] mt-0.5">30-day average</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1 text-[10px] text-[#4f701c] font-semibold bg-[#eef7d5] px-2.5 py-1 rounded-lg">
+                  <div className="flex items-center gap-1 text-[10px] text-[#266314] font-semibold bg-[#eef7d5] px-2.5 py-1 rounded-lg">
                     <TrendingUp className="w-3 h-3" />
                     <span>+14% vs team benchmark</span>
                   </div>
@@ -137,7 +137,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
               <HoverCard yOffset={-4} className="bg-white rounded-3xl p-5 border border-[#e5e8dc] card-soft-shadow hover:border-[#111210] transition-colors space-y-4">
                 <div className="flex items-center justify-between">
                   <p className="text-[14px] font-bold text-[#111210]">Statuses</p>
-                  <div className="flex items-center gap-2 text-[10px] font-medium text-[#656a60]">
+                  <div className="flex items-center gap-2 text-[10px] font-medium text-[#3a4035]">
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-[#c8ff28]" /> In office
                     </span>
@@ -174,7 +174,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
                           className="w-full bg-[#fb923c] rounded-full"
                         />
                       </div>
-                      <span className="text-[11px] font-medium text-[#6c7166] lowercase">{bar.month}</span>
+                      <span className="text-[11px] font-medium text-[#3a4035] lowercase">{bar.month}</span>
                     </div>
                   ))}
                 </div>
@@ -194,7 +194,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ onApplyClick
               <p className="text-[15px] font-medium text-[#2b2e29] leading-snug">
                 data gives an opportunity to scale smart
               </p>
-              <p className="text-[14px] text-[#61665d] leading-relaxed">
+              <p className="text-[14px] text-[#3a4035] leading-relaxed">
                 analyze data from team attendance and office space occurence
               </p>
             </div>

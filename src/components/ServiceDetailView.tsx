@@ -102,14 +102,14 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {/* ========================================================
             1. BREADCRUMBS & TOP NAV
            ======================================================== */}
-        <div className="flex items-center gap-2 text-[12px] text-[#4d5247]">
+        <div className="flex items-center gap-2 text-[12px] text-[#3a4035]">
           <Link to="/" className="hover:text-black transition-colors cursor-pointer font-medium">Home</Link>
-          <ChevronRight className="w-3 h-3 text-[#797f74]" />
-          <span className="capitalize font-medium text-[#4d5247]">{service.category}</span>
-          <ChevronRight className="w-3 h-3 text-[#797f74]" />
+          <ChevronRight className="w-3 h-3 text-[#3a4035]" />
+          <span className="capitalize font-medium text-[#3a4035]">{service.category}</span>
+          <ChevronRight className="w-3 h-3 text-[#3a4035]" />
           <span className="font-bold text-[#111210]">{service.title}</span>
           {service.slug && (
-            <span className="ml-2 hidden md:inline-block font-mono text-[11px] text-[#4d5247] bg-[#f0f2eb] px-2 py-0.5 rounded font-semibold">
+            <span className="ml-2 hidden md:inline-block font-mono text-[11px] text-[#3a4035] bg-[#f0f2eb] px-2 py-0.5 rounded font-semibold">
               {service.slug}
             </span>
           )}
@@ -134,7 +134,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               {service.h1}
             </h1>
 
-            <p className="text-[17px] sm:text-[19px] text-[#4d5248] leading-relaxed font-normal">
+            <p className="text-[17px] sm:text-[19px] text-[#3a4035] leading-relaxed font-normal">
               {service.lead}
             </p>
 
@@ -174,11 +174,11 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.moreThanChatbot && service.moreThanChatbot.length > 0 && (
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-3xl space-y-3">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Beyond The Interface</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Beyond The Interface</span>
               <h2 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight lowercase">
                 ai is more than a chatbot.
               </h2>
-              <p className="text-[15px] text-[#5e6359] leading-relaxed">
+              <p className="text-[15px] text-[#3a4035] leading-relaxed">
                 Many businesses begin their AI journey by adding a conversational interface. That can be valuable, but it represents only a small part of what modern AI systems can do.
               </p>
             </FadeIn>
@@ -187,7 +187,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               {service.moreThanChatbot.map((item, idx) => (
                 <StaggerItem key={idx}>
                   <HoverCard yOffset={-3} className="bg-white rounded-2xl p-5 border border-[#e4e7dc] card-soft-shadow space-y-2.5 hover:border-[#111210] h-full">
-                    <div className="w-6 h-6 rounded-lg bg-[#f4f6ed] text-[#528d2c] flex items-center justify-center font-bold">
+                    <div className="w-6 h-6 rounded-lg bg-[#f4f6ed] text-[#266314] flex items-center justify-center font-bold">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
                     <p className="text-[13.5px] font-bold text-[#111210] leading-snug">{item}</p>
@@ -238,7 +238,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.bullets && service.bullets.length > 0 && (
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-3xl space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Comprehensive Capabilities</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Comprehensive Capabilities</span>
               <h2 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight lowercase">
                 {service.bulletsTitle || 'services & capabilities we engineer'}
               </h2>
@@ -252,12 +252,12 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   <StaggerItem key={idx}>
                     <HoverCard yOffset={-3} className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] space-y-2.5 h-full">
                       <div className="w-9 h-9 rounded-xl bg-[#f4f6ed] text-[#111210] flex items-center justify-center font-bold">
-                        <Sparkles className="w-4.5 h-4.5 text-[#528d2c]" />
+                        <Sparkles className="w-4.5 h-4.5 text-[#266314]" />
                       </div>
                       {hasTitle ? (
                         <>
                           <h3 className="font-bold text-[17px] text-[#111210]">{parts[0].trim()}</h3>
-                          <p className="text-[13.5px] text-[#5e6359] leading-relaxed">{parts[1].trim()}</p>
+                          <p className="text-[13.5px] text-[#3a4035] leading-relaxed">{parts[1].trim()}</p>
                         </>
                       ) : (
                         <p className="font-bold text-[15px] text-[#111210] leading-relaxed">{bullet}</p>
@@ -276,17 +276,17 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.architectureFlow && service.architectureFlow.length > 0 && (
           <FadeIn direction="up" className="bg-[#f0f2eb]/80 rounded-[36px] p-8 sm:p-12 border border-[#e2e6d9] space-y-6">
             <div className="space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Production Architecture</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Production Architecture</span>
               <h3 className="text-[26px] sm:text-[32px] font-bold text-[#111210] lowercase">
                 enterprise software architecture flow
               </h3>
-              <p className="text-[14px] text-[#5e6359]">How requests traverse security, context management, retrieval, and model execution.</p>
+              <p className="text-[14px] text-[#3a4035]">How requests traverse security, context management, retrieval, and model execution.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
               {service.architectureFlow.map((layer, lIdx) => (
                 <div key={lIdx} className="bg-white p-4.5 rounded-2xl border border-[#e4e7dc] space-y-1.5 shadow-2xs hover:border-[#111210] transition-colors">
-                  <span className="text-[10px] font-mono font-bold text-[#528d2c] uppercase">Layer 0{lIdx + 1}</span>
+                  <span className="text-[10px] font-mono font-bold text-[#266314] uppercase">Layer 0{lIdx + 1}</span>
                   <p className="font-bold text-[13px] text-[#111210] leading-snug">{layer}</p>
                 </div>
               ))}
@@ -294,7 +294,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
 
             {/* Semantic Accessible Table for Answer Engines and Screen Readers */}
             <div className="pt-2">
-              <div className="flex items-center justify-between pb-1.5 md:hidden text-[11px] font-medium text-[#4d5247]">
+              <div className="flex items-center justify-between pb-1.5 md:hidden text-[11px] font-medium text-[#3a4035]">
                 <span>Architecture Breakdown</span>
                 <span className="bg-[#e4e8dc] px-2 py-0.5 rounded text-[10px] font-mono">← Scroll table horizontally →</span>
               </div>
@@ -313,7 +313,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                       <tr key={lIdx} className="hover:bg-[#fcfdfa] transition-colors">
                         <th scope="row" className="py-2.5 px-4 font-mono font-bold text-[#2e6314]">Layer 0{lIdx + 1}</th>
                         <td className="py-2.5 px-4 font-medium">{layer}</td>
-                        <td className="py-2.5 px-4 text-[#4d5247]">Deterministic / SOC2 Compliant</td>
+                        <td className="py-2.5 px-4 text-[#3a4035]">Deterministic / SOC2 Compliant</td>
                       </tr>
                     ))}
                   </tbody>
@@ -331,7 +331,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             {service.toolsUsed && (
               <FadeIn direction="up" delay={0.1} className="bg-white rounded-3xl p-7 border border-[#e4e7dc] card-soft-shadow space-y-4">
                 <div className="flex items-center gap-2.5">
-                  <Wrench className="w-5 h-5 text-[#528d2c]" />
+                  <Wrench className="w-5 h-5 text-[#266314]" />
                   <h3 className="font-bold text-[18px] text-[#111210]">Software Tools & APIs</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -347,13 +347,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             {service.securityPillars && (
               <FadeIn direction="up" delay={0.2} className="bg-white rounded-3xl p-7 border border-[#e4e7dc] card-soft-shadow space-y-4">
                 <div className="flex items-center gap-2.5">
-                  <Lock className="w-5 h-5 text-[#528d2c]" />
+                  <Lock className="w-5 h-5 text-[#266314]" />
                   <h3 className="font-bold text-[18px] text-[#111210]">Enterprise Guardrails & Security</h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] text-[#4d5248]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] text-[#3a4035]">
                   {service.securityPillars.map((sec, sI) => (
                     <p key={sI} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#528d2c] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#266314] shrink-0" />
                       <span>{sec}</span>
                     </p>
                   ))}
@@ -369,7 +369,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.processSteps && service.processSteps.length > 0 && (
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-3xl space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Structured Delivery</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Structured Delivery</span>
               <h2 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight lowercase">
                 our development process.
               </h2>
@@ -379,9 +379,9 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               {service.processSteps.map((step, pIdx) => (
                 <StaggerItem key={pIdx}>
                   <HoverCard yOffset={-3} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] space-y-2.5 h-full">
-                    <span className="text-[11px] font-bold font-mono text-[#528d2c] uppercase">Phase {pIdx + 1}</span>
+                    <span className="text-[11px] font-bold font-mono text-[#266314] uppercase">Phase {pIdx + 1}</span>
                     <h3 className="font-bold text-[16px] text-[#111210]">{step.title}</h3>
-                    <p className="text-[13px] text-[#63685e] leading-relaxed">{step.desc}</p>
+                    <p className="text-[13px] text-[#3a4035] leading-relaxed">{step.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -395,7 +395,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.whyUs && service.whyUs.length > 0 && (
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-3xl space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Why Fiverse Systems</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Why Fiverse Systems</span>
               <h2 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight lowercase">
                 why businesses partner with us.
               </h2>
@@ -406,7 +406,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 <StaggerItem key={wIdx}>
                   <HoverCard yOffset={-3} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] space-y-2.5 h-full">
                     <h3 className="font-bold text-[17px] text-[#111210]">{item.title}</h3>
-                    <p className="text-[13px] text-[#63685e] leading-relaxed">{item.desc}</p>
+                    <p className="text-[13px] text-[#3a4035] leading-relaxed">{item.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -420,7 +420,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {service.faqs && service.faqs.length > 0 && (
           <div className="space-y-8">
             <FadeIn direction="up" className="max-w-3xl space-y-2">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Frequently Asked Questions</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Frequently Asked Questions</span>
               <h2 className="text-[28px] sm:text-[38px] font-bold text-[#111210] tracking-tight lowercase">
                 common questions & technical clarifications.
               </h2>
@@ -442,9 +442,9 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                       <div
                       >
                         {isOpen ? (
-                          <Minus className="w-4 h-4 text-[#528d2c] shrink-0" />
+                          <Minus className="w-4 h-4 text-[#266314] shrink-0" />
                         ) : (
-                          <Plus className="w-4 h-4 text-[#4d5247] shrink-0" />
+                          <Plus className="w-4 h-4 text-[#3a4035] shrink-0" />
                         )}
                       </div>
                     </button>
@@ -453,7 +453,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                         <div
                           className="overflow-hidden"
                         >
-                          <div className="px-5 sm:px-6 pb-6 pt-1 text-[14px] text-[#4d5247] leading-relaxed border-t border-[#f0f2eb]">
+                          <div className="px-5 sm:px-6 pb-6 pt-1 text-[14px] text-[#3a4035] leading-relaxed border-t border-[#f0f2eb]">
                             {faq.answer}
                           </div>
                         </div>
@@ -472,7 +472,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         {internalLinks.length > 0 && (
           <FadeIn direction="up" className="space-y-6 pt-10 border-t border-[#e2e6d9]">
             <div className="space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">Connected Topic Clusters</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">Connected Topic Clusters</span>
               <h3 className="text-[22px] font-bold text-[#111210] lowercase">explore connected capabilities</h3>
             </div>
 
@@ -484,8 +484,8 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   className="bg-white p-5 rounded-2xl border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] transition-all cursor-pointer space-y-2 group block"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#528d2c]">Related Page</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#9da297] group-hover:translate-x-1 group-hover:text-black transition-all" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#266314]">Related Page</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#3a4035] group-hover:translate-x-1 group-hover:text-black transition-all" />
                   </div>
                   <p className="font-bold text-[14px] text-[#111210]">{link.label}</p>
                 </Link>

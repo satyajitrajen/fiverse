@@ -4,7 +4,7 @@ import { FiverseLogo } from './Logos';
 
 export const Footer: React.FC = memo(() => {
   return (
-    <footer className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-14 border-t border-[#e8ebd9] mt-8 text-[13px] text-[#4d5247]">
+    <footer className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-14 border-t border-[#e8ebd9] mt-8 text-[13px] text-[#3a4035]">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
         {/* Left Side: Navigation & contact */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 lg:gap-8">
@@ -50,7 +50,7 @@ export const Footer: React.FC = memo(() => {
           >
             contact
           </Link>
-          <div className="text-[#4d5247] w-full sm:w-auto text-center sm:text-left pt-2 sm:pt-0">
+          <div className="text-[#3a4035] w-full sm:w-auto text-center sm:text-left pt-2 sm:pt-0">
             <span>inquiries: </span>
             <a
               href="mailto:hi@fiversesystems.com"
@@ -63,7 +63,7 @@ export const Footer: React.FC = memo(() => {
 
         {/* Right Side: Logo & Socials */}
         <div className="flex items-center justify-center gap-6 sm:gap-8 w-full md:w-auto pt-2 md:pt-0 border-t md:border-t-0 border-[#edf0e5]">
-          <div className="flex items-center gap-4 text-[12px] font-semibold text-[#484d43]">
+          <div className="flex items-center gap-4 text-[12px] font-semibold text-[#3a4035]">
             {['tw', 'tg', 'in', 'gh'].map((social, sI) => (
               <a
                 key={sI}
@@ -83,7 +83,7 @@ export const Footer: React.FC = memo(() => {
           <FiverseLogo imgClassName="h-8 sm:h-9 md:h-10 w-auto object-contain" />
         </div>
       </div>
-      <div className="pt-6 text-center sm:text-left text-[11px] text-[#4d5247] font-medium">
+      <div className="pt-6 text-center sm:text-left text-[11px] text-[#3a4035] font-medium">
         © {new Date().getFullYear()} Fiverse Systems Inc. All rights reserved. Building intelligent digital products for the AI-first era.
       </div>
     </footer>

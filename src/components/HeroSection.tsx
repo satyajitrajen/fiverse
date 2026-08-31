@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 
           {/* Interactive Toggle Switch */}
           <div className="flex items-center justify-center gap-3 pt-2">
-            <span className="text-[13px] sm:text-[14px] font-medium text-[#464a43] lowercase select-none">
+            <span className="text-[13px] sm:text-[14px] font-medium text-[#3a4035] lowercase select-none">
               turn on fiverse
             </span>
             <button
@@ -64,14 +64,14 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                     for remote teams and <br />
                     flex offices
                   </h2>
-                  <p className="text-[14px] sm:text-[15px] text-[#5e635a] leading-relaxed max-w-md">
+                  <p className="text-[14px] sm:text-[15px] text-[#3a4035] leading-relaxed max-w-md">
                     easy to find and track who works from the office, who is remote/from home or is not available at all
                   </p>
                 </div>
 
                 {/* Chat integrations box */}
                 <div className="pt-4 border-t border-[#f0f2eb] space-y-3">
-                  <p className="text-[12px] sm:text-[13px] text-[#787d74]">
+                  <p className="text-[12px] sm:text-[13px] text-[#3a4035]">
                     integrate fiverse with your corporate chats to show statuses there
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
@@ -113,9 +113,9 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                   <div className="p-3.5 space-y-3 text-[12px]">
                     {/* Category: In Office */}
                     <div>
-                      <div className="flex items-center justify-between text-[11px] font-bold text-[#62675e] uppercase tracking-wider px-1 mb-1.5">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-[#3a4035] uppercase tracking-wider px-1 mb-1.5">
                         <span>in office</span>
-                        <span className="bg-[#eaf8cf] text-[#497014] px-1.5 py-0.5 rounded text-[10px] font-bold">8 / 12</span>
+                        <span className="bg-[#eaf8cf] text-[#266314] px-1.5 py-0.5 rounded text-[10px] font-bold">8 / 12</span>
                       </div>
 
                       <div className="space-y-1.5">
@@ -129,11 +129,11 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                             />
                             <div>
                               <p className="font-semibold text-[#111210] text-[12px] leading-tight">Alex Howard</p>
-                              <p className="text-[10px] text-[#7e837a]">Product Designer</p>
+                              <p className="text-[10px] text-[#3a4035]">Product Designer</p>
                             </div>
                           </div>
                           <span className="bg-white border border-[#e4e7dd] text-[#333730] px-2 py-0.5 rounded-md text-[10px] font-medium flex items-center gap-1">
-                            <MapPin className="w-2.5 h-2.5 text-[#5e8b1b]" /> Desk 4
+                            <MapPin className="w-2.5 h-2.5 text-[#266314]" /> Desk 4
                           </span>
                         </div>
 
@@ -147,11 +147,11 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                             />
                             <div>
                               <p className="font-semibold text-[#111210] text-[12px] leading-tight">Courtney Henry</p>
-                              <p className="text-[10px] text-[#7e837a]">Marketing Lead</p>
+                              <p className="text-[10px] text-[#3a4035]">Marketing Lead</p>
                             </div>
                           </div>
                           <span className="bg-white border border-[#e4e7dd] text-[#333730] px-2 py-0.5 rounded-md text-[10px] font-medium flex items-center gap-1">
-                            <MapPin className="w-2.5 h-2.5 text-[#5e8b1b]" /> Desk 2
+                            <MapPin className="w-2.5 h-2.5 text-[#266314]" /> Desk 2
                           </span>
                         </div>
 
@@ -165,11 +165,11 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                             />
                             <div>
                               <p className="font-semibold text-[#111210] text-[12px] leading-tight">Darrell Steward</p>
-                              <p className="text-[10px] text-[#7e837a]">Engineering</p>
+                              <p className="text-[10px] text-[#3a4035]">Engineering</p>
                             </div>
                           </div>
                           <span className="bg-white border border-[#e4e7dd] text-[#333730] px-2 py-0.5 rounded-md text-[10px] font-medium flex items-center gap-1">
-                            <MapPin className="w-2.5 h-2.5 text-[#5e8b1b]" /> Room 1
+                            <MapPin className="w-2.5 h-2.5 text-[#266314]" /> Room 1
                           </span>
                         </div>
                       </div>
@@ -177,7 +177,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 
                     {/* Category: Remote */}
                     <div>
-                      <div className="flex items-center justify-between text-[11px] font-bold text-[#62675e] uppercase tracking-wider px-1 mb-1.5">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-[#3a4035] uppercase tracking-wider px-1 mb-1.5">
                         <span>remote</span>
                         <span className="bg-[#e4eff8] text-[#1c6499] px-1.5 py-0.5 rounded text-[10px] font-bold">4 / 12</span>
                       </div>
@@ -191,7 +191,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
                           />
                           <div>
                             <p className="font-semibold text-[#111210] text-[12px] leading-tight">Jenny Wilson</p>
-                            <p className="text-[10px] text-[#7e837a]">People & HR</p>
+                            <p className="text-[10px] text-[#3a4035]">People & HR</p>
                           </div>
                         </div>
                         <span className="bg-[#e7f3fd] text-[#0f5c9e] border border-[#d2e7fa] px-2 py-0.5 rounded-md text-[10px] font-medium flex items-center gap-1">
@@ -202,7 +202,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 
                     {/* Avatar stack footer */}
                     <div className="pt-2 flex items-center justify-between px-1 border-t border-[#f0f2eb]">
-                      <span className="text-[11px] text-[#7a7f76]">Day off & Vacation</span>
+                      <span className="text-[11px] text-[#3a4035]">Day off & Vacation</span>
                       <div className="flex items-center -space-x-2">
                         <img className="w-5 h-5 rounded-full border border-white" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&auto=format&fit=crop&q=80" alt="Avatar" />
                         <img className="w-5 h-5 rounded-full border border-white" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=60&auto=format&fit=crop&q=80" alt="Avatar" />
@@ -252,7 +252,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 
         {/* Integration Logos Bar */}
         <FadeIn direction="up" delay={0.4} className="mt-10 sm:mt-14 text-center space-y-4">
-          <p className="text-[12px] sm:text-[13px] font-medium text-[#4d5247] tracking-wide">
+          <p className="text-[12px] sm:text-[13px] font-medium text-[#3a4035] tracking-wide">
             import employee/team data directly from
           </p>
 

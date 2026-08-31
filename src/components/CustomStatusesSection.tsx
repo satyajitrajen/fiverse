@@ -54,7 +54,7 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                       className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-medium transition-all duration-200 cursor-pointer text-left whitespace-nowrap shadow-xs ${
                         isCurrent
                           ? 'bg-white border-2 border-[#111210] text-[#111210] shadow-md'
-                          : 'bg-white/80 backdrop-blur-xs border border-[#e4e7dd] text-[#555a50] hover:bg-white hover:text-[#111210]'
+                          : 'bg-white/80 backdrop-blur-xs border border-[#e4e7dd] text-[#3a4035] hover:bg-white hover:text-[#111210]'
                       }`}
                     >
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center ${s.color} bg-[#f5f6f1]`}>
@@ -77,30 +77,30 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                   </div>
                   <div>
                     <h3 className="font-bold text-[15px] text-[#111210] leading-tight">swap working day</h3>
-                    <p className="text-[11px] text-[#7a8076]">Request team lead approval</p>
+                    <p className="text-[11px] text-[#3a4035]">Request team lead approval</p>
                   </div>
                 </div>
 
                 {/* Form fields */}
                 <div className="space-y-4">
                   <div>
-                    <p className="text-[12px] font-medium text-[#464b42] mb-1.5">
+                    <p className="text-[12px] font-medium text-[#3a4035] mb-1.5">
                       I want a day off on
                     </p>
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex items-center justify-between px-3 py-2 bg-[#f7f8f4] border border-[#e5e8dc] rounded-xl text-[12px] font-medium text-[#111210]">
                         <span>{dayOffDate}</span>
-                        <Calendar className="w-3.5 h-3.5 text-[#73786e]" />
+                        <Calendar className="w-3.5 h-3.5 text-[#3a4035]" />
                       </div>
                       <div className="flex items-center justify-between px-3 py-2 bg-[#f7f8f4] border border-[#e5e8dc] rounded-xl text-[12px] font-medium text-[#111210]">
                         <span>{workOnDate}</span>
-                        <Calendar className="w-3.5 h-3.5 text-[#73786e]" />
+                        <Calendar className="w-3.5 h-3.5 text-[#3a4035]" />
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-[12px] font-medium text-[#464b42] mb-1.5">
+                    <p className="text-[12px] font-medium text-[#3a4035] mb-1.5">
                       When I'm out of office please contact
                     </p>
                     <div className="flex items-center justify-between px-3 py-2 bg-[#f7f8f4] border border-[#e5e8dc] rounded-xl text-[12px] font-medium text-[#111210] cursor-pointer hover:border-[#cbd0c0]">
@@ -112,7 +112,7 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
                         />
                         <span>{contactPerson}</span>
                       </div>
-                      <ChevronDown className="w-3.5 h-3.5 text-[#73786e]" />
+                      <ChevronDown className="w-3.5 h-3.5 text-[#3a4035]" />
                     </div>
                   </div>
 
@@ -149,7 +149,7 @@ export const CustomStatusesSection: React.FC<CustomStatusesSectionProps> = ({ on
               <p className="text-[15px] font-medium text-[#2b2e29] leading-snug">
                 every team has individual processes
               </p>
-              <p className="text-[14px] text-[#61665d] leading-relaxed">
+              <p className="text-[14px] text-[#3a4035] leading-relaxed">
                 in addition to standard statuses, you can set up your own statuses with customised rules
               </p>
             </div>

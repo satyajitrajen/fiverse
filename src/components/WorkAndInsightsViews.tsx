@@ -99,11 +99,11 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
         {activeView === 'casestudies' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Case Studies</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Case Studies</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 technology built around real business outcomes.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 Ideas matter. Execution creates impact. Explore how Fiverse Systems approaches complex business challenges through custom software, product engineering and artificial intelligence.
               </p>
             </FadeIn>
@@ -134,7 +134,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                 <FadeIn direction="up" delay={idx * 0.1} key={idx} className="bg-white rounded-3xl p-8 sm:p-12 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] transition-colors space-y-6">
                   <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#f0f2eb] pb-4">
                     <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#528d2c]">{cs.domain}</span>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#266314]">{cs.domain}</span>
                       <h3 className="text-[22px] font-bold text-[#111210]">{cs.client}</h3>
                     </div>
                     <span className="bg-[#f4f6ed] text-[#111210] text-[12px] font-bold px-3 py-1.5 rounded-full border border-[#e4e7db]">
@@ -145,17 +145,17 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px]">
                     <div className="space-y-2">
                       <p className="font-bold text-[#111210]">The Challenge</p>
-                      <p className="text-[#5e6359] leading-relaxed">{cs.challenge}</p>
+                      <p className="text-[#3a4035] leading-relaxed">{cs.challenge}</p>
                     </div>
                     <div className="space-y-2">
                       <p className="font-bold text-[#111210]">Our Approach & Solution</p>
-                      <p className="text-[#5e6359] leading-relaxed">{cs.solution}</p>
+                      <p className="text-[#3a4035] leading-relaxed">{cs.solution}</p>
                     </div>
                   </div>
 
                   <div className="bg-[#f8f9f5] rounded-2xl p-5 border border-[#e6eade] space-y-3">
                     <div className="flex items-center gap-2">
-                      <TrendingUp className="w-4 h-4 text-[#528d2c]" />
+                      <TrendingUp className="w-4 h-4 text-[#266314]" />
                       <p className="font-bold text-[#111210] text-[14px]">Measurable Business Impact: {cs.impact}</p>
                     </div>
                     <div className="flex flex-wrap gap-2 pt-1 border-t border-[#e2e6d8]">
@@ -188,11 +188,11 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
         {activeView === 'products' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Product Innovation</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Product Innovation</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 products built from problems worth solving.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 Beyond client engineering, Fiverse Systems creates technology products around recurring business challenges. We believe the best way to understand product engineering is to build products ourselves.
               </p>
             </FadeIn>
@@ -204,14 +204,14 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                   Featured Product
                 </span>
                 <h3 className="text-[28px] font-bold text-[#111210]">Fiverse Workplace Platform</h3>
-                <p className="text-[15px] text-[#5e6359] leading-relaxed">
+                <p className="text-[15px] text-[#3a4035] leading-relaxed">
                   The hybrid and flex-office management system designed for high-growth tech companies and distributed teams. Features real-time desk reservations, custom working routines, team presence sync, and office workload analytics.
                 </p>
-                <div className="grid grid-cols-2 gap-3 text-[13px] text-[#3b4036] pt-2">
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#528d2c]" /> Interactive Desk Maps</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#528d2c]" /> Status & Routine Swap</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#528d2c]" /> Slack & Teams Bot Sync</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#528d2c]" /> Real-Time Analytics</p>
+                <div className="grid grid-cols-2 gap-3 text-[13px] text-[#3a4035] pt-2">
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#266314]" /> Interactive Desk Maps</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#266314]" /> Status & Routine Swap</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#266314]" /> Slack & Teams Bot Sync</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#266314]" /> Real-Time Analytics</p>
                 </div>
                 <div className="pt-3">
                   <button
@@ -241,11 +241,11 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
         {(activeView === 'guides' || activeView === 'resources') && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Guides & Frameworks</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Guides & Frameworks</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 practical resources for founders and engineering leaders.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 Downloadable blueprints, architecture checklists, and requirement workbooks curated by Fiverse Systems senior architects.
               </p>
             </FadeIn>
@@ -266,7 +266,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                         <FileText className="w-5 h-5 text-[#111210]" />
                       </div>
                       <h3 className="font-bold text-[17px] text-[#111210] leading-snug">{res.title}</h3>
-                      <p className="text-[13px] text-[#63685e] leading-relaxed">{res.desc}</p>
+                      <p className="text-[13px] text-[#3a4035] leading-relaxed">{res.desc}</p>
                     </div>
 
                     <button
@@ -274,12 +274,12 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                       className="w-full bg-[#f7f9f2] hover:bg-[#111210] hover:text-white text-[#111210] border border-[#e4e7dc] font-bold text-[13px] py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       {downloadedResource === res.title ? (
-                        <span className="text-[#528d2c] font-bold flex items-center gap-1.5">
+                        <span className="text-[#266314] font-bold flex items-center gap-1.5">
                           <CheckCircle2 className="w-4 h-4" /> Downloaded!
                         </span>
                       ) : (
                         <>
-                          <Download className="w-4 h-4 text-[#528d2c]" />
+                          <Download className="w-4 h-4 text-[#266314]" />
                           <span>Download Free Guide</span>
                         </>
                       )}
@@ -297,11 +297,11 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
         {(activeView === 'blog' || activeView === 'ai-insights' || activeView === 'success-stories') && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Insights & Perspectives</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Insights & Perspectives</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 ideas, engineering and the future of software.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 Practical perspectives on agentic AI, software architecture, RAG, and scaling digital technology businesses.
               </p>
             </FadeIn>
@@ -330,7 +330,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                 <StaggerItem key={pIdx}>
                   <HoverCard yOffset={-4} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow space-y-4 flex flex-col justify-between hover:border-[#111210] h-full">
                     <div className="space-y-2.5">
-                      <div className="flex items-center justify-between text-[11px] text-[#787e72]">
+                      <div className="flex items-center justify-between text-[11px] text-[#3a4035]">
                         <span className="bg-[#f4f6ed] font-bold text-[#111210] px-2.5 py-0.5 rounded-full">{post.tag}</span>
                         <span>{post.readTime}</span>
                       </div>
@@ -338,7 +338,7 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
                     </div>
                     <button
                       onClick={onStartProject}
-                      className="text-[13px] font-bold text-[#111210] hover:text-[#528d2c] flex items-center gap-1.5 cursor-pointer pt-2 border-t border-[#f0f2eb]"
+                      className="text-[13px] font-bold text-[#111210] hover:text-[#266314] flex items-center gap-1.5 cursor-pointer pt-2 border-t border-[#f0f2eb]"
                     >
                       <span>Read Article</span>
                       <ArrowRight className="w-3.5 h-3.5" />

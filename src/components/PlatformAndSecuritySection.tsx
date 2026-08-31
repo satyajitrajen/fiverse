@@ -41,7 +41,7 @@ export const PlatformAndSecuritySection: React.FC = () => {
                   from mobile and desktop
                 </h3>
 
-                <ul className="space-y-2 text-[13px] sm:text-[14px] text-[#5e635a]">
+                <ul className="space-y-2 text-[13px] sm:text-[14px] text-[#3a4035]">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#111210]" />
                     <span>iOS app for iPhone and iPad</span>
@@ -89,7 +89,7 @@ export const PlatformAndSecuritySection: React.FC = () => {
                   are secured
                 </h3>
 
-                <ul className="space-y-2 text-[13px] sm:text-[14px] text-[#5e635a]">
+                <ul className="space-y-2 text-[13px] sm:text-[14px] text-[#3a4035]">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#111210]" />
                     <span>PIN-code and Face/Touch ID</span>

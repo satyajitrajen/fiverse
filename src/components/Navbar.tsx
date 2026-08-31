@@ -254,7 +254,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                     className={`px-2.5 2xl:px-3 py-1.5 rounded-full transition-colors cursor-pointer text-[12.5px] 2xl:text-[13px] ${
                       isActive
                         ? 'font-bold text-[#111210] bg-[#eaeede]'
-                        : 'text-[#4d5247] hover:text-[#111210] hover:bg-[#ebefe2]'
+                        : 'text-[#3a4035] hover:text-[#111210] hover:bg-[#ebefe2]'
                     }`}
                   >
                     {item.label}
@@ -273,7 +273,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                     className={`px-2.5 2xl:px-3 py-1.5 rounded-full transition-colors cursor-pointer text-[12.5px] 2xl:text-[13px] flex items-center gap-1 ${
                       isOpen || isActive
                         ? 'font-bold text-[#111210] bg-[#eaeede]'
-                        : 'text-[#4d5247] hover:text-[#111210] hover:bg-[#ebefe2]'
+                        : 'text-[#3a4035] hover:text-[#111210] hover:bg-[#ebefe2]'
                     }`}
                   >
                     <span>{item.label}</span>
@@ -295,7 +295,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                       }`}
                     >
                       <div className="col-span-full pb-2 mb-1 border-b border-[#f0f2eb] flex items-center justify-between">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">
                           {item.label} Capabilities & Services
                         </span>
                         <span className="text-[10px] bg-[#f0f4e4] text-[#2e6314] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
@@ -332,7 +332,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                                   </span>
                                 )}
                               </div>
-                              <p className="text-[11px] text-[#4d5247] line-clamp-1 leading-tight">
+                              <p className="text-[11px] text-[#3a4035] line-clamp-1 leading-tight">
                                 {subItem.desc}
                               </p>
                             </div>
@@ -405,7 +405,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                     aria-expanded={isExpanded}
                   >
                     <span>{item.label}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#528d2c]' : 'text-[#8e9387]'}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#266314]' : 'text-[#3a4035]'}`} />
                   </button>
 
                   {isExpanded && (
@@ -420,7 +420,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                             className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white active:bg-white text-[13px] font-medium text-[#2d312c] min-h-[42px] transition-colors"
                           >
                             <div className="w-7 h-7 rounded-lg bg-[#f0f4e4] flex items-center justify-center shrink-0">
-                              <Icon className="w-3.5 h-3.5 text-[#528d2c]" />
+                              <Icon className="w-3.5 h-3.5 text-[#266314]" />
                             </div>
                             <span>{subItem.title}</span>
                           </Link>
@@ -441,7 +441,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
               }}
               className="w-full bg-[#f3f5ed] hover:bg-[#eaeede] border border-[#d8dcd0] text-[#111210] font-semibold text-[13px] py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer min-h-[48px] shadow-2xs"
             >
-              <Bot className="w-4 h-4 text-[#528d2c]" />
+              <Bot className="w-4 h-4 text-[#266314]" />
               <span>Talk to an AI Expert</span>
             </button>
             <button

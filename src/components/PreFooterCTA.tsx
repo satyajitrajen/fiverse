@@ -63,7 +63,7 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onBookDemoClick }) =
                   try two months of <br />
                   full functionality for free
                 </h3>
-                <p className="text-[14px] sm:text-[15px] text-[#9ca096]">
+                <p className="text-[14px] sm:text-[15px] text-[#3a4035]">
                   for companies and teams that sign up for early access
                 </p>
               </div>
@@ -78,7 +78,7 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onBookDemoClick }) =
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="email"
                     required
-                    className="flex-1 bg-white text-[#111210] placeholder:text-[#888d83] px-5 py-3.5 rounded-full sm:rounded-2xl text-[14px] font-medium outline-none focus:ring-2 focus:ring-[#c8ff28] transition-all"
+                    className="flex-1 bg-white text-[#111210] placeholder:text-[#3a4035] px-5 py-3.5 rounded-full sm:rounded-2xl text-[14px] font-medium outline-none focus:ring-2 focus:ring-[#c8ff28] transition-all"
                   />
 
                   {/* Team Size Select Dropdown */}

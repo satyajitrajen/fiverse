@@ -51,7 +51,7 @@ export const FiverseLogo: React.FC<FiverseLogoProps> = memo(({
         </picture>
         <div className="flex flex-col leading-none">
           <span className="text-[17px] font-black tracking-tight uppercase text-[#111210]">FIVERSE</span>
-          <span className="text-[9px] font-bold tracking-widest text-[#555a50] uppercase mt-0.5">SYSTEMS</span>
+          <span className="text-[9px] font-bold tracking-widest text-[#3a4035] uppercase mt-0.5">SYSTEMS</span>
         </div>
       </div>
     );
@@ -107,12 +107,12 @@ export const TimsoLogo = FiverseLogo;
 
 // HR Integration Logos
 export const BambooHRLogo: React.FC<{ className?: string }> = ({ className = "h-7" }) => (
-  <div className={`flex items-center gap-1.5 font-bold text-[#62973b] ${className}`}>
+  <div className={`flex items-center gap-1.5 font-bold text-[#266314] ${className}`}>
     <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current" aria-label="BambooHR">
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5S10.52 7.5 13 7.5c1.47 0 2.78.71 3.59 1.81l-1.63 1.22c-.44-.64-1.16-1.03-1.96-1.03-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5c.8 0 1.52-.39 1.96-1.03l1.63 1.22c-.81 1.1-2.12 1.81-3.59 1.81z"/>
       <circle cx="17.5" cy="8.5" r="1.5" fill="#62973b" />
     </svg>
-    <span className="text-[17px] tracking-tight font-extrabold text-[#528d2c] lowercase">bamboohr</span>
+    <span className="text-[17px] tracking-tight font-extrabold text-[#266314] lowercase">bamboohr</span>
   </div>
 );
 

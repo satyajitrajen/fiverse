@@ -130,11 +130,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
         {activeSection === 'why' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Why Fiverse</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Why Fiverse</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 why businesses build with fiverse.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 We combine artificial intelligence with deep product engineering discipline to build software that scales, adapts, and creates enduring commercial value.
               </p>
             </FadeIn>
@@ -156,7 +156,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                         <Icon className="w-5 h-5 text-[#111210]" />
                       </div>
                       <h3 className="font-bold text-[18px] text-[#111210]">{item.title}</h3>
-                      <p className="text-[13px] text-[#63685e] leading-relaxed">{item.desc}</p>
+                      <p className="text-[13px] text-[#3a4035] leading-relaxed">{item.desc}</p>
                     </HoverCard>
                   </StaggerItem>
                 );
@@ -185,11 +185,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
         {activeSection === 'process' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">The Development Journey</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">The Development Journey</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 a clear path from problem to production.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 Great products are not built by accident. We guide organizations through a structured, predictable 9-step execution framework.
               </p>
             </FadeIn>
@@ -209,11 +209,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                 <StaggerItem key={idx}>
                   <HoverCard yOffset={-3} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow hover:border-[#111210] space-y-2.5 h-full">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono font-bold text-[13px] text-[#528d2c]">{item.step}</span>
+                      <span className="font-mono font-bold text-[13px] text-[#266314]">{item.step}</span>
                       <span className="w-2 h-2 rounded-full bg-[#c8ff28]" />
                     </div>
                     <h3 className="font-bold text-[18px] text-[#111210]">{item.title}</h3>
-                    <p className="text-[13px] text-[#63685e] leading-relaxed">{item.desc}</p>
+                    <p className="text-[13px] text-[#3a4035] leading-relaxed">{item.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               ))}
@@ -224,9 +224,9 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="space-y-1">
                   <h3 className="font-bold text-[20px] text-[#111210]">9-Step Execution Lifecycle & Timeline</h3>
-                  <p className="text-[13px] text-[#4d5247]">Standard sprint durations and core deliverables across our software delivery methodology.</p>
+                  <p className="text-[13px] text-[#3a4035]">Standard sprint durations and core deliverables across our software delivery methodology.</p>
                 </div>
-                <span className="md:hidden bg-[#e4e8dc] text-[#4d5247] px-2.5 py-1 rounded text-[10px] font-mono self-start sm:self-auto">
+                <span className="md:hidden bg-[#e4e8dc] text-[#3a4035] px-2.5 py-1 rounded text-[10px] font-mono self-start sm:self-auto">
                   ← Scroll horizontally →
                 </span>
               </div>
@@ -289,11 +289,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
         {activeSection === 'technology' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Technology Ecosystem</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Technology Ecosystem</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 technology selected around the product.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 We don't believe technology stacks should become marketing checklists. The right technology depends entirely on your product requirements, team, and scaling horizons.
               </p>
             </FadeIn>
@@ -357,7 +357,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
             <FadeIn direction="up" delay={0.2} className="bg-[#f0f2eb]/70 rounded-3xl p-8 border border-[#e2e6d9] flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="space-y-1">
                 <h3 className="font-bold text-[18px] text-[#111210]">Need guidance on your technology stack?</h3>
-                <p className="text-[14px] text-[#63685e]">Our architects provide comprehensive stack evaluations and technical feasibility reviews.</p>
+                <p className="text-[14px] text-[#3a4035]">Our architects provide comprehensive stack evaluations and technical feasibility reviews.</p>
               </div>
               <button
                 onClick={onStartProject}
@@ -375,11 +375,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
         {activeSection === 'careers' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Join Fiverse Systems</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Join Fiverse Systems</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 build technology that challenges you.
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 The most interesting products rarely come with obvious answers. They require curiosity, experimentation, engineering discipline, and people willing to master new paradigms.
               </p>
             </FadeIn>
@@ -387,25 +387,25 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <FadeIn direction="up" delay={0.1} className="bg-white rounded-3xl p-8 border border-[#e4e7dc] card-soft-shadow space-y-4">
                 <h3 className="font-bold text-[20px] text-[#111210]">We Look for People Who</h3>
-                <div className="space-y-2.5 text-[14px] text-[#555a50]">
+                <div className="space-y-2.5 text-[14px] text-[#3a4035]">
                   <p className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Learn continuously and stay ahead of AI breakthroughs</span>
                   </p>
                   <p className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Ask better questions and challenge default assumptions</span>
                   </p>
                   <p className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Take ownership of end outcomes rather than isolated tasks</span>
                   </p>
                   <p className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Care deeply about engineering quality and type safety</span>
                   </p>
                   <p className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#528d2c] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#266314] shrink-0" />
                     <span>Enjoy solving difficult, ambiguous business problems</span>
                   </p>
                 </div>
@@ -423,7 +423,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                     <div key={jIdx} className="bg-[#1c1e19] p-4 rounded-2xl border border-[#2d3227] hover:border-[#c8ff28]/40 transition-colors flex items-center justify-between">
                       <div>
                         <p className="font-bold text-[14px] text-white">{job.role}</p>
-                        <p className="text-[11px] text-[#8e9387]">{job.type}</p>
+                        <p className="text-[11px] text-[#3a4035]">{job.type}</p>
                       </div>
                       <button
                         onClick={onStartProject}
@@ -445,11 +445,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
         {activeSection === 'contact' && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#528d2c]">Start a Conversation</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Start a Conversation</span>
               <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
                 what are you trying to build?
               </h1>
-              <p className="text-[16px] text-[#5e6359] leading-relaxed">
+              <p className="text-[16px] text-[#3a4035] leading-relaxed">
                 You don't need a complete technical specification before speaking with us. Tell us where you are today—we'll help identify what should happen next.
               </p>
             </FadeIn>
@@ -463,11 +463,11 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                       key="submitted"
                       className="text-center py-16 space-y-4"
                     >
-                      <div className="w-16 h-16 rounded-full bg-[#eef8cf] text-[#528d2c] flex items-center justify-center mx-auto">
+                      <div className="w-16 h-16 rounded-full bg-[#eef8cf] text-[#266314] flex items-center justify-center mx-auto">
                         <CheckCircle2 className="w-8 h-8" />
                       </div>
                       <h3 className="text-[24px] font-bold text-[#111210]">Thank you! We've received your project inquiry.</h3>
-                      <p className="text-[14px] text-[#63685e] max-w-md mx-auto">
+                      <p className="text-[14px] text-[#3a4035] max-w-md mx-auto">
                         A senior technology lead from Fiverse Systems will review your requirements and get in touch within 24 business hours.
                       </p>
                     </div>
@@ -617,7 +617,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                   </a>
                 </div>
 
-                <div className="bg-[#f0f2eb]/70 rounded-3xl p-6 border border-[#e2e6d9] space-y-3 text-[13px] text-[#5e6359]">
+                <div className="bg-[#f0f2eb]/70 rounded-3xl p-6 border border-[#e2e6d9] space-y-3 text-[13px] text-[#3a4035]">
                   <p className="font-bold text-[#111210]">What happens after submitting?</p>
                   <p>1. We review your goals and verify technical feasibility.</p>
                   <p>2. We schedule a 30-minute discovery call with a technical lead.</p>

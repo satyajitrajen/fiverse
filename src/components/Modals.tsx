@@ -107,7 +107,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
               <h3 id="modal-heading-title" className="text-[20px] sm:text-[24px] font-bold text-[#111210] tracking-tight leading-tight lowercase">
                 {title}
               </h3>
-              <p className="text-[12px] sm:text-[13px] text-[#4d5247] leading-relaxed">
+              <p className="text-[12px] sm:text-[13px] text-[#3a4035] leading-relaxed">
                 Tell us about your project or business problem. Our technology team will connect within 24 hours.
               </p>
             </div>
@@ -123,7 +123,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h4 className="text-[18px] sm:text-[20px] font-bold text-[#111210]">Your inquiry is received!</h4>
-                <p className="text-[13px] text-[#4d5247] max-w-md mx-auto">
+                <p className="text-[13px] text-[#3a4035] max-w-md mx-auto">
                   A senior AI and product engineering lead will review your requirements and reach out directly.
                 </p>
               </div>
@@ -131,9 +131,9 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
               <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Your Name *</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Your Name *</label>
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-[#f7f8f4] border border-[#e4e7dc] focus-within:border-[#111210] rounded-xl text-[16px] sm:text-[13px] transition-colors">
-                      <User className="w-4 h-4 text-[#7b8175] shrink-0" />
+                      <User className="w-4 h-4 text-[#3a4035] shrink-0" />
                       <input
                         type="text"
                         required
@@ -146,9 +146,9 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Work Email *</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Work Email *</label>
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-[#f7f8f4] border border-[#e4e7dc] focus-within:border-[#111210] rounded-xl text-[16px] sm:text-[13px] transition-colors">
-                      <Mail className="w-4 h-4 text-[#7b8175] shrink-0" />
+                      <Mail className="w-4 h-4 text-[#3a4035] shrink-0" />
                       <input
                         type="email"
                         required
@@ -163,9 +163,9 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Phone Number</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Phone Number</label>
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-[#f7f8f4] border border-[#e4e7dc] focus-within:border-[#111210] rounded-xl text-[16px] sm:text-[13px] transition-colors">
-                      <Phone className="w-4 h-4 text-[#7b8175] shrink-0" />
+                      <Phone className="w-4 h-4 text-[#3a4035] shrink-0" />
                       <input
                         type="tel"
                         placeholder="+1 (555) 000-0000"
@@ -177,9 +177,9 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Company</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Company</label>
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-[#f7f8f4] border border-[#e4e7dc] focus-within:border-[#111210] rounded-xl text-[16px] sm:text-[13px] transition-colors">
-                      <Building2 className="w-4 h-4 text-[#7b8175] shrink-0" />
+                      <Building2 className="w-4 h-4 text-[#3a4035] shrink-0" />
                       <input
                         type="text"
                         placeholder="Acme Inc."
@@ -192,7 +192,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">What are you looking for? *</label>
+                  <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">What are you looking for? *</label>
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -212,7 +212,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Project Description *</label>
+                  <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Project Description *</label>
                   <textarea
                     required
                     rows={3}
@@ -225,7 +225,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Timeline</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Timeline</label>
                     <select
                       value={formData.timeline}
                       onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
@@ -239,7 +239,7 @@ export const ActionModal: React.FC<ModalProps> = ({ isOpen, onClose, title, type
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-bold uppercase text-[#4d5247] block mb-1">Budget Range</label>
+                    <label className="text-[11px] font-bold uppercase text-[#3a4035] block mb-1">Budget Range</label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}

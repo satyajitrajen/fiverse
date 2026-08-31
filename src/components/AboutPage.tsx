@@ -52,7 +52,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
     ai: {
       title: 'Artificial Intelligence',
       icon: Brain,
-      color: 'bg-[#eef8cf] text-[#4f701c]',
+      color: 'bg-[#eef8cf] text-[#266314]',
       badge: '11 Core Specializations',
       description: 'Beyond basic wrappers—we design custom agentic architectures, fine-tuned domain models, RAG knowledge systems, and autonomous workflows.',
       skills: [
@@ -252,7 +252,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
               entering a new era.
             </h1>
 
-            <p className="text-[16px] sm:text-[18px] text-[#555a50] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-[16px] sm:text-[18px] text-[#3a4035] leading-relaxed max-w-2xl mx-auto">
               Meet Fiverse Systems. We combine artificial intelligence with complete software product engineering to build intelligent applications, AI agents, SaaS platforms, and enterprise digital products.
             </p>
 
@@ -290,10 +290,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
               {/* Left Column: Old Pattern */}
               <div className="bg-[#f8f9f5] rounded-3xl p-6 sm:p-8 border border-[#e8ebe1] space-y-5">
                 <div className="flex items-center justify-between border-b border-[#e5e8dd] pb-3">
-                  <span className="text-[12px] font-bold uppercase tracking-wider text-[#4d5247]">For Decades (The Old Pattern)</span>
-                  <span className="text-[11px] bg-[#e8ebe0] text-[#5b6156] px-2 py-0.5 rounded-full font-medium">Passive</span>
+                  <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">For Decades (The Old Pattern)</span>
+                  <span className="text-[11px] bg-[#e8ebe0] text-[#3a4035] px-2 py-0.5 rounded-full font-medium">Passive</span>
                 </div>
-                <ul className="space-y-3 text-[14px] text-[#555a50]">
+                <ul className="space-y-3 text-[14px] text-[#3a4035]">
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#9da297]" />
                     <span>People entered information manually</span>
@@ -373,7 +373,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           {/* Section Heading */}
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Why Fiverse Exists</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Why Fiverse Exists</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               businesses don't wake up wanting another application. <br />
               they want a problem solved.
@@ -413,7 +413,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                     0{idx + 1}
                   </div>
                   <h3 className="font-bold text-[17px] text-[#111210]">{item.title}</h3>
-                  <p className="text-[13px] text-[#61665c] leading-relaxed">{item.desc}</p>
+                  <p className="text-[13px] text-[#3a4035] leading-relaxed">{item.desc}</p>
                 </HoverCard>
               </StaggerItem>
             ))}
@@ -425,12 +425,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section className="w-full py-16 sm:py-20 bg-[#f0f2eb]/70 border-y border-[#e2e6d9]">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">The Meaning Behind Our Approach</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">The Meaning Behind Our Approach</span>
             <h2 className="text-[32px] sm:text-[42px] font-bold text-[#111210] tracking-tight leading-[1.15] lowercase">
               we don't simply convert tickets into code. <br />
               we sit where products are imagined.
             </h2>
-            <p className="text-[15px] text-[#5f645b]">
+            <p className="text-[15px] text-[#3a4035]">
               We sit at the table where processes are challenged, ideas are validated, and the boldest questions are explored.
             </p>
           </FadeIn>
@@ -439,13 +439,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
           <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StaggerItem>
               <HoverCard yOffset={-4} className="bg-white rounded-3xl p-7 border border-[#e2e6d9] card-soft-shadow hover:border-[#111210] space-y-4 h-full">
-                <div className="w-10 h-10 rounded-2xl bg-[#eef8cf] text-[#4f701c] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-[#eef8cf] text-[#266314] flex items-center justify-center">
                   <Bot className="w-5 h-5" />
                 </div>
                 <h3 className="text-[18px] font-bold text-[#111210] leading-snug">
                   “What if this entire workflow could happen automatically?”
                 </h3>
-                <p className="text-[13px] text-[#63685e] leading-relaxed">
+                <p className="text-[13px] text-[#3a4035] leading-relaxed">
                   Transforming multi-step human approvals and handoffs into autonomous agentic pipelines that run 24/7 without error.
                 </p>
               </HoverCard>
@@ -459,7 +459,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <h3 className="text-[18px] font-bold text-[#111210] leading-snug">
                   “What if our customers could simply talk to the system?”
                 </h3>
-                <p className="text-[13px] text-[#63685e] leading-relaxed">
+                <p className="text-[13px] text-[#3a4035] leading-relaxed">
                   Replacing dense form inputs with natural language interfaces, voice interactions, and semantic conversational search.
                 </p>
               </HoverCard>
@@ -473,7 +473,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <h3 className="text-[18px] font-bold text-[#111210] leading-snug">
                   “What if our software could make this decision itself?”
                 </h3>
-                <p className="text-[13px] text-[#63685e] leading-relaxed">
+                <p className="text-[13px] text-[#3a4035] leading-relaxed">
                   Deploying deterministic logic combined with probabilistic AI models to resolve complex business decisions in real-time.
                 </p>
               </HoverCard>
@@ -483,11 +483,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
           {/* AI-First But Not AI Everywhere Callout */}
           <FadeIn direction="up" delay={0.2} className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e2e6d9] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
             <div className="space-y-2 max-w-2xl">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#4d5247]">Engineering Pragmatism</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Engineering Pragmatism</span>
               <h3 className="text-[20px] sm:text-[24px] font-bold text-[#111210] leading-snug">
                 We are AI-first. But AI-first doesn't mean AI everywhere.
               </h3>
-              <p className="text-[13px] sm:text-[14px] text-[#5e6359] leading-relaxed">
+              <p className="text-[13px] sm:text-[14px] text-[#3a4035] leading-relaxed">
                 Sometimes the answer is an autonomous agent. Sometimes machine learning. Sometimes RAG. And sometimes—the best solution is simply well-engineered, high-performance software. We pick the right tool for the job.
               </p>
             </div>
@@ -505,11 +505,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section id="services" className="w-full py-16 sm:py-24 relative">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Our Full-Stack Capabilities</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Our Full-Stack Capabilities</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               from intelligence to complete product engineering.
             </h2>
-            <p className="text-[15px] text-[#5f645b]">
+            <p className="text-[15px] text-[#3a4035]">
               AI alone rarely creates a complete product. It needs APIs, databases, authentication, security, beautiful UI/UX, and cloud infrastructure. We engineer all of it.
             </p>
           </FadeIn>
@@ -527,7 +527,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                   className={`flex-1 min-w-[140px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl sm:rounded-full text-[13px] font-bold transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-white text-[#111210] shadow-sm'
-                      : 'text-[#5d6357] hover:text-[#111210] hover:bg-white/50'
+                      : 'text-[#3a4035] hover:text-[#111210] hover:bg-white/50'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -553,7 +553,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                       {pillars[activePillar].title}
                     </h3>
                   </div>
-                  <p className="text-[14px] text-[#63685c] max-w-xl">
+                  <p className="text-[14px] text-[#3a4035] max-w-xl">
                     {pillars[activePillar].description}
                   </p>
                 </div>
@@ -575,7 +575,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                         <SkillIcon className="w-4 h-4 text-[#111210]" />
                         <span className="font-bold text-[14px] text-[#111210]">{skill.name}</span>
                       </div>
-                      <p className="text-[12px] text-[#6a7065] leading-normal">{skill.desc}</p>
+                      <p className="text-[12px] text-[#3a4035] leading-normal">{skill.desc}</p>
                     </div>
                   );
                 })}
@@ -589,11 +589,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section className="w-full py-16 sm:py-24 bg-[#f0f2eb]/60 border-t border-[#e2e6d9]">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">The Product Journey</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">The Product Journey</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               we work from the first question.
             </h2>
-            <p className="text-[15px] text-[#5f645b]">
+            <p className="text-[15px] text-[#3a4035]">
               Whether you arrive with a 50-page spec or simply “we think there is a better way to do this”—we guide you across the entire journey.
             </p>
           </FadeIn>
@@ -613,16 +613,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black tracking-widest text-[#81877c] uppercase">STEP {idx + 1}</span>
+                      <span className="text-[10px] font-black tracking-widest text-[#3a4035] uppercase">STEP {idx + 1}</span>
                       <span className="w-2 h-2 rounded-full bg-[#c8ff28]" />
                     </div>
 
                     <div>
                       <h3 className="font-extrabold text-[16px] text-[#111210]">{step.title}</h3>
-                      <p className="text-[12px] font-medium text-[#4b5046] mt-0.5">{step.question}</p>
+                      <p className="text-[12px] font-medium text-[#3a4035] mt-0.5">{step.question}</p>
                     </div>
 
-                    <p className="text-[11px] text-[#71776b] pt-2 border-t border-[#f0f2eb]">
+                    <p className="text-[11px] text-[#3a4035] pt-2 border-t border-[#f0f2eb]">
                       {step.desc}
                     </p>
                   </div>
@@ -637,11 +637,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section className="w-full py-16 sm:py-24 relative">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Architectural Compounding</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Architectural Compounding</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               we build technology that compounds.
             </h2>
-            <p className="text-[15px] text-[#5f645b]">
+            <p className="text-[15px] text-[#3a4035]">
               The easiest software is built only for today’s requirement. We architect foundations that don’t limit tomorrow.
             </p>
           </FadeIn>
@@ -659,12 +659,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                     {idx + 1}
                   </div>
                   <div className="space-y-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#888e83]">Today</span>
-                    <p className="text-[14px] font-medium text-[#50554b]">{comp.today}</p>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">Today</span>
+                    <p className="text-[14px] font-medium text-[#3a4035]">{comp.today}</p>
                   </div>
                   <div className="flex items-center gap-1.5 text-[#111210]">
-                    <ArrowDown className="w-4 h-4 text-[#528d2c]" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#528d2c]">Compounds Into</span>
+                    <ArrowDown className="w-4 h-4 text-[#266314]" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#266314]">Compounds Into</span>
                   </div>
                   <div className="bg-[#f8f9f5] p-3 rounded-2xl border border-[#e5e8dc]">
                     <p className="text-[13px] font-bold text-[#111210]">{comp.tomorrow}</p>
@@ -689,7 +689,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <h3 className="text-[24px] sm:text-[30px] font-bold tracking-tight leading-tight lowercase text-white">
                   to transform business problems, ideas and data into intelligent digital products capable of creating measurable value.
                 </h3>
-                <p className="text-[14px] text-[#9ca196] leading-relaxed">
+                <p className="text-[14px] text-[#3a4035] leading-relaxed">
                   Making advanced software engineering and AI useful beyond big tech—for startups, ambitious founders, enterprises, and teams that know there must be a better way to work.
                 </p>
               </div>
@@ -702,7 +702,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <h3 className="text-[24px] sm:text-[30px] font-bold tracking-tight leading-tight lowercase text-white">
                   to build a world-class AI-first product engineering company that helps create the next generation of intelligent businesses.
                 </h3>
-                <p className="text-[14px] text-[#9ca196] leading-relaxed">
+                <p className="text-[14px] text-[#3a4035] leading-relaxed">
                   Where software understands users, agents collaborate alongside teams, organizational knowledge is conversational, and routine toil disappears into intelligent automation.
                 </p>
               </div>
@@ -715,7 +715,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section className="w-full py-16 sm:py-24 relative">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">What We Value</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">What We Value</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               principles that guide every line of code.
             </h2>
@@ -731,7 +731,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                       <ValueIcon className="w-4 h-4" />
                     </div>
                     <h3 className="font-bold text-[17px] text-[#111210]">{v.title}</h3>
-                    <p className="text-[13px] text-[#63685e] leading-relaxed">{v.desc}</p>
+                    <p className="text-[13px] text-[#3a4035] leading-relaxed">{v.desc}</p>
                   </HoverCard>
                 </StaggerItem>
               );
@@ -744,7 +744,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
       <section className="w-full py-16 sm:py-24 bg-[#f0f2eb]/70 border-t border-[#e2e6d9]">
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
           <FadeIn direction="up" className="space-y-4 max-w-2xl">
-            <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Client Scenarios</span>
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Client Scenarios</span>
             <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12] lowercase">
               different businesses. different starting points.
             </h2>
@@ -760,7 +760,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                   className={`px-3.5 py-2.5 rounded-full whitespace-nowrap text-[13px] font-semibold flex items-center gap-2 border transition-all shrink-0 cursor-pointer min-h-[42px] ${
                     activePersona === i
                       ? 'bg-[#111210] text-white border-[#111210] shadow-md'
-                      : 'bg-white border-[#e3e6db] text-[#4d5247] hover:bg-[#f7f8f4]'
+                      : 'bg-white border-[#e3e6db] text-[#3a4035] hover:bg-[#f7f8f4]'
                   }`}
                 >
                   <span className="text-base">{p.icon}</span>
@@ -778,14 +778,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                   className={`w-full p-4 rounded-2xl text-left transition-all flex items-center justify-between border cursor-pointer ${
                     activePersona === i
                       ? 'bg-white border-[#111210] shadow-md font-bold text-[#111210]'
-                      : 'bg-white/60 border-[#e3e6db] text-[#4d5247] hover:bg-white'
+                      : 'bg-white/60 border-[#e3e6db] text-[#3a4035] hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xl">{p.icon}</span>
                     <span className="text-[14px]">{p.role}</span>
                   </div>
-                  <ArrowRight className={`w-4 h-4 transition-transform ${activePersona === i ? 'text-[#111210] translate-x-1' : 'text-[#898f84]'}`} />
+                  <ArrowRight className={`w-4 h-4 transition-transform ${activePersona === i ? 'text-[#111210] translate-x-1' : 'text-[#3a4035]'}`} />
                 </button>
               ))}
             </div>
@@ -799,13 +799,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <div className="flex items-center gap-3 border-b border-[#edf0e5] pb-4">
                   <span className="text-3xl">{personas[activePersona].icon}</span>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">Selected Scenario</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">Selected Scenario</span>
                     <h3 className="text-[18px] font-bold text-[#111210]">{personas[activePersona].role}</h3>
                   </div>
                 </div>
 
                 <div className="bg-[#f8f9f5] p-5 rounded-2xl border border-[#e6e9df] space-y-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">The Challenge</span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#3a4035]">The Challenge</span>
                   <p className="text-[16px] font-semibold text-[#111210] italic">
                     {personas[activePersona].quote}
                   </p>
@@ -813,7 +813,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
 
                 <div className="space-y-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#2e6314]">How Fiverse Delivers</span>
-                  <p className="text-[14px] text-[#4d5247] leading-relaxed">
+                  <p className="text-[14px] text-[#3a4035] leading-relaxed">
                     {personas[activePersona].solution}
                   </p>
                 </div>
@@ -836,11 +836,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
         <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6">
           <FadeIn direction="up" className="bg-white rounded-[36px] sm:rounded-[44px] p-8 sm:p-14 border border-[#e3e6da] card-soft-shadow space-y-8">
             <div className="space-y-3 max-w-3xl">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#697063]">Human-Centered Systems</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Human-Centered Systems</span>
               <h2 className="text-[30px] sm:text-[40px] font-bold text-[#111210] tracking-tight leading-[1.15] lowercase">
                 we build for people, not just systems.
               </h2>
-              <p className="text-[15px] text-[#5b6156] leading-relaxed">
+              <p className="text-[15px] text-[#3a4035] leading-relaxed">
                 Behind every API request is a person trying to accomplish something. Behind every dashboard is someone trying to understand what is happening. Behind every automation is someone whose time could be spent doing something more important.
               </p>
             </div>
