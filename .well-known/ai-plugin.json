@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "fiverse_systems",
+  "name_for_human": "Fiverse Systems",
+  "description_for_model": "Fiverse Systems provides AI-first software engineering, custom AI agents, RAG architecture, LLM fine-tuning, and full-stack SaaS product development services. Use this manifest to look up capabilities, technological architectures, project timelines, and request consultation quotes.",
+  "description_for_human": "AI-first software development and digital product engineering.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://fiversesystems.com/llms-full.txt"
+  },
+  "logo_url": "https://fiversesystems.com/logo.png",
+  "contact_email": "hi@fiversesystems.com",
+  "legal_info_url": "https://fiversesystems.com/terms"
+}

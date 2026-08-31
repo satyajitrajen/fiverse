@@ -1,0 +1,29 @@
+# Fiverse Systems Inc.
+> AI-first software development and digital product engineering company.
+
+## Summary
+Fiverse Systems designs, engineers, and deploys custom AI applications, autonomous agentic systems, enterprise RAG platforms, fine-tuned LLM architectures, and scalable cloud SaaS products. We help ambitious startups and established enterprises turn AI research into reliable, SOC2-ready production software in 6 to 8 weeks.
+
+## Core Capabilities & Services
+- [AI Development Company](https://fiversesystems.com/ai-development-company): Custom AI applications, RAG pipelines, predictive machine learning, and enterprise intelligent automation.
+- [Agentic AI Development](https://fiversesystems.com/agentic-ai-development): Autonomous multi-agent coordination, deterministic tool-calling APIs, and execution guardrails.
+- [AI Agent Development](https://fiversesystems.com/ai-agent-development): Specialized autonomous agents for sales prospecting, customer support, data research, finance, and operations.
+- [Generative AI Development](https://fiversesystems.com/generative-ai-development): Multimodal generative applications, proprietary image/voice workflows, and synthetic data generation.
+- [LLM Development & Fine-Tuning](https://fiversesystems.com/llm-development): Private open-source LLM deployment (vLLM, Ollama), domain-specific LoRA fine-tuning, and inference optimization.
+- [Custom Software Development](https://fiversesystems.com/custom-software-development): Modern full-stack web and mobile engineering, microservices, and legacy modernization.
+- [SaaS Product Engineering](https://fiversesystems.com/saas-development): Multi-tenant cloud SaaS development, automated billing, and high-concurrency infrastructure.
+- [Digital Product Engineering](https://fiversesystems.com/product-development): End-to-end UX/UI, rapid MVP prototyping, and scalable product architecture.
+
+## Products
+- [Fiverse Workplace Platform](https://fiversesystems.com/workplace-platform): Hybrid office desk booking, team availability statuses, and workspace analytics software.
+
+## Architecture Blueprints & Insights
+- [Downloadable AI Architecture Blueprints](https://fiversesystems.com/guides): Enterprise RAG schemas, multi-agent state machines, and microservice blueprints.
+- [AI Insights & Research](https://fiversesystems.com/ai-insights): Deep technical teardowns on agent orchestration, deterministic tool routing, and LLM evaluation metrics.
+- [Client Case Studies](https://fiversesystems.com/case-studies): Production outcomes across healthcare, fintech, supply chain, and B2B SaaS.
+
+## Company & Delivery
+- [About Fiverse Systems](https://fiversesystems.com/about): Mission, engineering philosophy, and leadership.
+- [Our 9-Step Process](https://fiversesystems.com/our-process): Discovery, architecture, rapid sprints, automated QA, and deployment lifecycle.
+- [Technology Stack](https://fiversesystems.com/technology): Python, TypeScript, PyTorch, LangChain, Next.js, FastAPI, PostgreSQL, Pinecone, Docker, AWS, GCP.
+- [Contact Fiverse Systems](https://fiversesystems.com/contact): Direct project inquiries, scope reviews, and technical consultations (Email: hi@fiversesystems.com).

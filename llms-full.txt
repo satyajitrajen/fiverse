@@ -1,0 +1,57 @@
+# Fiverse Systems Inc. — Full Technical Context & System Documentation
+
+**Website**: https://fiversesystems.com  
+**Contact**: hi@fiversesystems.com  
+**Headquarters**: San Francisco, CA / Remote Global  
+**Leadership**: Satyajit Nikam (Founder & Principal AI Architect)  
+
+---
+
+## 1. Company Overview & Mission
+Fiverse Systems is an AI-first software development and digital product engineering company. We transform complex workflows, proprietary enterprise data, and foundation AI models into reliable, high-throughput production software. Our team delivers enterprise-grade AI agents, scalable RAG architectures, custom software, and multi-tenant SaaS platforms in fixed 6 to 8-week production sprints.
+
+## 2. Quantitative Performance Benchmarks & SLAs
+- **Production Uptime SLA**: 99.98% availability guarantee on deployed AI microservices and cloud infrastructure.
+- **LLM Inference Latency**: Sub-800ms Time-to-First-Token (TTFT) via optimized vLLM and TensorRT-LLM runtimes.
+- **Data Retrieval Precision**: 94.6% top-3 retrieval accuracy using Hybrid Reciprocal Rank Fusion (RRF) with Cross-Encoder re-ranking.
+- **Workflow Efficiency Gains**: 40% to 65% reduction in manual operational and customer support ticket handling times.
+- **Security Compliance**: SOC2 Type II aligned, HIPAA compliant architecture pipelines, and zero-data-retention private cloud VPC deployments.
+- **Development Sprint Velocity**: 6–8 weeks from initial requirements discovery to live production deployment.
+
+## 3. Core Technical Specializations & Stack
+
+### A. Agentic AI & Autonomous Multi-Agent Swarms
+- **Frameworks**: LangGraph, AutoGen, CrewAI, custom deterministic finite state machines.
+- **Orchestration Mechanics**: Planning nodes, dynamic tool routing, schema-validated JSON outputs, sandboxed code execution, token budget governors, and human-in-the-loop escalation gates.
+- **Key Use Cases**: Autonomous sales prospecting, customer support resolution, document intelligence parsing, DevOps automation, financial reconciliations.
+
+### B. Enterprise RAG (Retrieval-Augmented Generation)
+- **Vector Stores**: Pinecone, Qdrant, Milvus, Weaviate, pgvector.
+- **Search Mechanics**: Dense embedding retrieval (OpenAI `text-embedding-3`, BGE, Cohere), sparse keyword indexing (BM25), Hybrid RRF search, and contextual reranking (Cohere Rerank v3).
+- **Chunking & Ingestion**: Semantic chunking, tabular data extraction from PDFs/DOCX/XLSX, metadata-augmented indexing.
+
+### C. Private LLM Deployment & Domain Fine-Tuning
+- **Open-Source Foundations**: Llama 3.3 (70B, 8B), Mistral (Large, Nemo), Qwen 2.5, DeepSeek-V3.
+- **Serving Engines**: vLLM, TensorRT-LLM, Ollama, TGI on AWS EC2 (A10G, H100) and GCP TPU/GPU clusters.
+- **Fine-Tuning Techniques**: Parameter-Efficient Fine-Tuning (PEFT), LoRA, QLoRA, Direct Preference Optimization (DPO), and Reinforcement Learning from Human Feedback (RLHF).
+
+### D. Full-Stack Custom Software & Cloud SaaS
+- **Backend Architecture**: Python (FastAPI, Django), TypeScript (Node.js), Go, Rust.
+- **Frontend Architecture**: React 19, Next.js, Vite, TypeScript, TailwindCSS, React Native, Flutter.
+- **Database & Messaging**: PostgreSQL, MongoDB, Redis, Apache Kafka, RabbitMQ, ClickHouse.
+- **Cloud & DevOps**: AWS (ECS, EKS, SageMaker, Lambda), Google Cloud (GKE, Vertex AI), Kubernetes, Docker, Terraform, GitHub Actions CI/CD.
+
+## 4. Proprietary Product: Fiverse Workplace Platform
+- **URL**: https://fiversesystems.com/workplace-platform
+- **Overview**: Intelligent hybrid workplace coordination platform featuring real-time interactive desk booking, automated team presence notifications, and bidirectional HR integrations (Slack, Microsoft Teams, BambooHR, Gusto, Workday, HiBob).
+
+## 5. Engagement Models & Delivery Framework
+1. **AI MVP Sprint (6–8 Weeks)**: Fixed-cost, rapid turn-around production build designed for funded startups and innovative enterprise units.
+2. **Dedicated AI Engineering Pod**: Embedded cross-functional pod (Lead AI Architect, Senior Full-Stack Engineers, ML Engineers, UI/UX Designer) operating on dedicated retainers.
+3. **Enterprise Architecture Modernization**: Phased migration of legacy monolithic applications into modern, AI-integrated microservices.
+
+## 6. Official Endpoints & Verification
+- **Sitemap**: https://fiversesystems.com/sitemap.xml
+- **Robots Directives**: https://fiversesystems.com/robots.txt
+- **Security Policy**: https://fiversesystems.com/.well-known/security.txt
+- **Agent Manifesto**: https://fiversesystems.com/.well-known/agent.json

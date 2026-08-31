@@ -1,0 +1,42 @@
+# robots.txt for https://fiversesystems.com
+# Search Engine Crawlers (Standard Indexing)
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: Slurp
+User-agent: Baiduspider
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# AI Search & Retrieval Crawlers (Live Per-Query Citations)
+User-agent: OAI-SearchBot
+User-agent: PerplexityBot
+User-agent: Claude-SearchBot
+User-agent: ChatGPT-User
+User-agent: Perplexity-User
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# AI Model Training Scrapers
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Default Policy for All Other Agents
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Host & Sitemaps
+Host: https://fiversesystems.com
+Sitemap: https://fiversesystems.com/sitemap.xml

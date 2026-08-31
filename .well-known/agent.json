@@ -1,0 +1,25 @@
+{
+  "agent_protocol": "agentic-web-v1",
+  "name": "Fiverse Systems",
+  "domain": "fiversesystems.com",
+  "capabilities": [
+    "ai_development",
+    "agentic_ai_orchestration",
+    "enterprise_rag",
+    "llm_fine_tuning",
+    "custom_software_development",
+    "saas_product_engineering",
+    "workplace_management_platform"
+  ],
+  "context_endpoints": {
+    "llms_summary": "https://fiversesystems.com/llms.txt",
+    "llms_full": "https://fiversesystems.com/llms-full.txt",
+    "sitemap": "https://fiversesystems.com/sitemap.xml",
+    "security": "https://fiversesystems.com/.well-known/security.txt"
+  },
+  "engagement_sprints": {
+    "mvp_sprint_weeks": 8,
+    "typical_pod_size": "3-6 engineers",
+    "inquiry_endpoint": "mailto:hi@fiversesystems.com"
+  }
+}
