@@ -214,8 +214,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   {/* Visual Engineering Spotlight Image */}
                   <div className="relative rounded-2xl overflow-hidden border border-[#e4e7dc] shadow-xs group">
                     <img
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=80"
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=75"
                       alt="Product engineering team collaborating"
+                      width={600}
+                      height={350}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-44 sm:h-52 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
@@ -266,8 +270,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   {/* Visual Architecture Banner inside Card with Telemetry Counter */}
                   <div className="relative rounded-2xl overflow-hidden border border-[#2d3227] h-28">
                     <img
-                      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80"
+                      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=75"
                       alt="High-speed data servers and neural processing"
+                      width={600}
+                      height={200}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#111210] via-[#111210]/75 to-transparent p-4 flex flex-col justify-center">
@@ -344,8 +352,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
             <FadeIn direction="up" delay={0.2} className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden border border-[#e2e6d9] shadow-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&auto=format&fit=crop&q=75"
                   alt="Software architecture and system design whiteboard"
+                  width={600}
+                  height={350}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-5">
@@ -522,8 +534,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   {/* Agent Feature Visual */}
                   <div className="relative rounded-2xl overflow-hidden h-36 border border-[#343a2d]">
                     <img
-                      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&auto=format&fit=crop&q=80"
+                      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=75"
                       alt="Autonomous AI system neural representation"
+                      width={600}
+                      height={250}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-75"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1c1e19] via-[#1c1e19]/40 to-transparent flex items-end p-4">
@@ -642,8 +658,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
               {/* Visual Knowledge Graph Graphic */}
               <div className="relative rounded-2xl overflow-hidden h-36 border border-[#e4e7dc] group">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=75"
                   alt="Enterprise RAG knowledge graphs and analytics dashboard"
+                  width={600}
+                  height={250}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-3.5">
@@ -742,8 +762,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
               {/* Multi-Device Visual */}
               <div className="relative rounded-2xl overflow-hidden border border-[#343a2c] h-40 group">
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=75"
                   alt="SaaS Analytics and responsive web dashboards"
+                  width={600}
+                  height={250}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover opacity-75 transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111210] via-transparent to-transparent flex items-end p-4">
@@ -912,8 +936,12 @@ export const HomePage: React.FC<HomePageProps> = memo(({
         {/* Subtle background image overlay */}
         <div className="absolute inset-0 opacity-15 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&auto=format&fit=crop&q=70"
             alt="Engineering team collaboration background"
+            width={1000}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

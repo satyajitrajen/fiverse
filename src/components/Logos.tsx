@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 export interface FiverseLogoProps {
   className?: string;
@@ -8,8 +8,8 @@ export interface FiverseLogoProps {
   alt?: string;
 }
 
-// Brand Logo Component - displays /logo.png or /icon.png from public folder
-export const FiverseLogo: React.FC<FiverseLogoProps> = ({
+// Brand Logo Component - displays /logo.webp or /icon.webp from public folder
+export const FiverseLogo: React.FC<FiverseLogoProps> = memo(({
   className = "",
   imgClassName = "h-11 sm:h-12 md:h-13 lg:h-[56px] w-auto object-contain",
   variant = 'full',
@@ -18,12 +18,18 @@ export const FiverseLogo: React.FC<FiverseLogoProps> = ({
   if (variant === 'icon') {
     return (
       <div className={`inline-flex items-center select-none ${className}`}>
-        <img
-          src="/icon.png"
-          alt={alt}
-          className={imgClassName || "h-7 w-7 object-contain"}
-          loading="eager"
-        />
+        <picture>
+          <source srcSet="/icon.webp" type="image/webp" />
+          <img
+            src="/icon.png"
+            alt={alt}
+            width={128}
+            height={128}
+            className={imgClassName || "h-7 w-7 object-contain"}
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </div>
     );
   }
@@ -31,12 +37,18 @@ export const FiverseLogo: React.FC<FiverseLogoProps> = ({
   if (variant === 'icon-text') {
     return (
       <div className={`inline-flex items-center gap-2.5 select-none font-bold text-[#111210] ${className}`}>
-        <img
-          src="/icon.png"
-          alt={alt}
-          className="h-7 w-7 object-contain"
-          loading="eager"
-        />
+        <picture>
+          <source srcSet="/icon.webp" type="image/webp" />
+          <img
+            src="/icon.png"
+            alt={alt}
+            width={128}
+            height={128}
+            className="h-7 w-7 object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
         <div className="flex flex-col leading-none">
           <span className="text-[17px] font-black tracking-tight uppercase text-[#111210]">FIVERSE</span>
           <span className="text-[9px] font-bold tracking-widest text-[#555a50] uppercase mt-0.5">SYSTEMS</span>
@@ -47,30 +59,46 @@ export const FiverseLogo: React.FC<FiverseLogoProps> = ({
 
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
-      <img
-        src="/logo.png"
-        alt={alt}
-        className={imgClassName}
-        loading="eager"
-      />
+      <picture>
+        <source srcSet="/logo.webp" type="image/webp" />
+        <img
+          src="/logo.png"
+          alt={alt}
+          width={480}
+          height={200}
+          className={imgClassName}
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
     </div>
   );
-};
+});
+
+FiverseLogo.displayName = 'FiverseLogo';
 
 // Standalone Brand Icon component
-export const FiverseIcon: React.FC<{ className?: string; alt?: string }> = ({
+export const FiverseIcon: React.FC<{ className?: string; alt?: string }> = memo(({
   className = "w-7 h-7",
   alt = "Fiverse Systems Icon"
 }) => {
   return (
-    <img
-      src="/icon.png"
-      alt={alt}
-      className={`object-contain inline-block ${className}`}
-      loading="eager"
-    />
+    <picture>
+      <source srcSet="/icon.webp" type="image/webp" />
+      <img
+        src="/icon.png"
+        alt={alt}
+        width={128}
+        height={128}
+        className={`object-contain inline-block ${className}`}
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
   );
-};
+});
+
+FiverseIcon.displayName = 'FiverseIcon';
 
 // Backwards compatibility alias
 export const TimsoLogo = FiverseLogo;
