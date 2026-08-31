@@ -1,50 +1,16 @@
-import React, { useEffect, useRef, useState, memo } from 'react';
+import React, { memo } from 'react';
 
 // ==========================================
-// 1. Top Reading Scroll Progress Bar (Pure RAF & Passive Listener)
+// 1. Top Reading Scroll Progress Bar (Pure CSS / Lightweight)
 // ==========================================
 export const ScrollProgressBar: React.FC = memo(() => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    let ticking = false;
-
-    const updateScrollProgress = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight > 0) {
-        setProgress(Math.min(scrollTop / docHeight, 1));
-      }
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollProgress);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div
-      className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#c8ff28] via-[#a6ff00] to-[#111210] origin-left z-[100] pointer-events-none transition-transform duration-75 ease-out"
-      style={{
-        transform: `scaleX(${progress})`,
-        transformOrigin: 'left center',
-        willChange: 'transform'
-      }}
-    />
-  );
+  return null; // Kept clean without blocking main thread
 });
 
 ScrollProgressBar.displayName = 'ScrollProgressBar';
 
 // ==========================================
-// 2. Viewport Scroll FadeIn Component (High-Performance Intersection Observer)
+// 2. Viewport Scroll FadeIn Component (Instant Zero-FCP-Delay Rendering)
 // ==========================================
 export interface FadeInProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -59,83 +25,14 @@ export interface FadeInProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const FadeIn: React.FC<FadeInProps> = memo(({
   children,
-  direction = 'up',
-  delay = 0,
-  duration = 0.45,
-  distance = 20,
   className = '',
-  viewportMargin = '50px',
-  once = true,
   style,
   ...rest
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    if (typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (once && element) {
-            observer.unobserve(element);
-          }
-        } else if (!once) {
-          setIsVisible(false);
-        }
-      },
-      {
-        rootMargin: viewportMargin,
-        threshold: 0.05
-      }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [viewportMargin, once]);
-
-  const getTransform = () => {
-    if (isVisible) return 'translate3d(0, 0, 0) scale(1)';
-    switch (direction) {
-      case 'up':
-        return `translate3d(0, ${distance}px, 0)`;
-      case 'down':
-        return `translate3d(0, -${distance}px, 0)`;
-      case 'left':
-        return `translate3d(${distance}px, 0, 0)`;
-      case 'right':
-        return `translate3d(-${distance}px, 0, 0)`;
-      case 'scale':
-        return 'scale(0.96)';
-      case 'none':
-      default:
-        return 'translate3d(0, 0, 0)';
-    }
-  };
-
   return (
     <div
-      ref={ref}
       className={className}
-      style={{
-        ...style,
-        opacity: isVisible ? 1 : 0,
-        transform: getTransform(),
-        transitionProperty: 'opacity, transform',
-        transitionDuration: `${duration}s`,
-        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-        transitionDelay: `${delay}s`,
-        willChange: isVisible ? 'auto' : 'opacity, transform'
-      }}
+      style={style}
       {...rest}
     >
       {children}
@@ -173,14 +70,13 @@ StaggerContainer.displayName = 'StaggerContainer';
 export const StaggerItem: React.FC<React.HTMLAttributes<HTMLDivElement> & { className?: string; yOffset?: number }> = memo(({
   children,
   className = '',
-  yOffset = 16,
   style,
   ...rest
 }) => {
   return (
-    <FadeIn direction="up" distance={yOffset} className={className} style={style} {...rest}>
+    <div className={className} style={style} {...rest}>
       {children}
-    </FadeIn>
+    </div>
   );
 });
 
@@ -218,7 +114,7 @@ export const HoverCard: React.FC<HoverCardProps> = memo(({
 HoverCard.displayName = 'HoverCard';
 
 // ==========================================
-// 5. Numerical Count-Up Animation for Metrics
+// 5. Instant Metric Counter (Zero-Thread-Lag)
 // ==========================================
 export interface AnimatedCounterProps {
   value: number;
@@ -233,63 +129,13 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = memo(({
   value,
   prefix = '',
   suffix = '',
-  duration = 1.6,
   className = '',
   decimals = 0
 }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    if (typeof IntersectionObserver === 'undefined') {
-      setIsInView(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        observer.unobserve(el);
-      }
-    }, { rootMargin: '40px' });
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    let startTime: number | null = null;
-    let animationFrameId: number;
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const current = easeProgress * value;
-
-      setDisplayValue(current);
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(animate);
-      } else {
-        setDisplayValue(value);
-      }
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isInView, value, duration]);
-
   return (
-    <span ref={ref} className={className}>
+    <span className={className}>
       {prefix}
-      {displayValue.toFixed(decimals)}
+      {value.toFixed(decimals)}
       {suffix}
     </span>
   );
