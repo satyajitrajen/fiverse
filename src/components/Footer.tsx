@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { FiverseLogo } from './Logos';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = memo(() => {
   return (
     <footer className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-14 border-t border-[#e8ebd9] mt-8 text-[13px] text-[#4d5247]">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
@@ -66,9 +65,7 @@ export const Footer: React.FC = () => {
         <div className="flex items-center justify-center gap-6 sm:gap-8 w-full md:w-auto pt-2 md:pt-0 border-t md:border-t-0 border-[#edf0e5]">
           <div className="flex items-center gap-4 text-[12px] font-semibold text-[#484d43]">
             {['tw', 'tg', 'in', 'gh'].map((social, sI) => (
-              <motion.a
-                whileHover={{ scale: 1.15, y: -1 }}
-                whileTap={{ scale: 0.9 }}
+              <a
                 key={sI}
                 href={
                   social === 'tw' ? 'https://twitter.com' :
@@ -77,10 +74,10 @@ export const Footer: React.FC = () => {
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-black transition-colors p-1"
+                className="hover:text-black transition-transform duration-150 inline-block hover:scale-110 hover:-translate-y-0.5 active:scale-95 p-1"
               >
                 {social}
-              </motion.a>
+              </a>
             ))}
           </div>
           <FiverseLogo imgClassName="h-8 sm:h-9 md:h-10 w-auto object-contain" />
@@ -91,4 +88,6 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';

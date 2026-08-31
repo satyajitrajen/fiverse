@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
@@ -21,7 +21,6 @@ import {
   ChevronRight,
   Target
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { FadeIn, StaggerContainer, StaggerItem, HoverCard, GlowOrb, AnimatedCounter } from './Motion';
 import { SEOHead } from './SEOHead';
 
@@ -31,19 +30,23 @@ interface HomePageProps {
   onExploreServices?: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({
+export const HomePage: React.FC<HomePageProps> = memo(({
   onStartProject,
   onTalkToAI
 }) => {
   const [activeModelStep, setActiveModelStep] = useState<number>(0);
   const [selectedAgentCategory, setSelectedAgentCategory] = useState<number>(0);
 
-  const handleStartProjectClick = () => {
-    confetti({
-      particleCount: 60,
-      spread: 70,
-      origin: { y: 0.7 }
-    });
+  const handleStartProjectClick = async () => {
+    try {
+      const confettiModule = await import('canvas-confetti');
+      const confetti = confettiModule.default;
+      confetti({
+        particleCount: 60,
+        spread: 70,
+        origin: { y: 0.7 }
+      });
+    } catch {}
     onStartProject();
   };
 
@@ -934,27 +937,25 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={handleStartProjectClick}
-                className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-extrabold text-[15px] px-9 py-4 rounded-full transition-all duration-200 shadow-xl cursor-pointer flex items-center gap-2"
+                className="bg-[#c8ff28] hover:bg-[#baf51d] text-[#111210] font-extrabold text-[15px] px-9 py-4 rounded-full transition-all duration-200 shadow-xl cursor-pointer flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Start Your Project</span>
                 <ArrowRight className="w-4 h-4 text-[#111210]" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </button>
+              <button
                 onClick={onTalkToAI}
-                className="bg-transparent hover:bg-white/10 text-white border border-[#3b3e36] font-semibold text-[15px] px-8 py-4 rounded-full transition-all cursor-pointer"
+                className="bg-transparent hover:bg-white/10 text-white border border-[#3b3e36] font-semibold text-[15px] px-8 py-4 rounded-full transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
               >
                 Talk to Fiverse
-              </motion.button>
+              </button>
             </div>
           </FadeIn>
         </div>
       </section>
     </div>
   );
-};
+});
+
+HomePage.displayName = 'HomePage';

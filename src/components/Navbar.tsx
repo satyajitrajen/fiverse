@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FiverseLogo, FiverseIcon } from './Logos';
 import {
   ChevronDown,
@@ -28,7 +27,6 @@ import {
   Activity,
   Briefcase,
   BookOpen,
-  HelpCircle,
   Menu,
   X,
   ArrowRight
@@ -57,7 +55,7 @@ interface NavMenuItem {
   items?: NavSubItem[];
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar: React.FC<NavbarProps> = memo(({
   onStartProject,
   onTalkToAI
 }) => {
@@ -148,7 +146,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         { path: '/services/web-applications', title: 'Web Application Development', desc: 'High-throughput, reactive SaaS and cloud web portals', icon: Globe },
         { path: '/services/mobile-development', title: 'Mobile App Development', desc: 'Native and cross-platform iOS & Android mobile applications', icon: Smartphone },
         { path: '/services/api-development', title: 'API Development & Integration', desc: 'Secure REST/GraphQL APIs, microservices, and webhooks', icon: Workflow },
-        { path: '/services/application-modernization', title: 'Application Modernization', desc: 'Migrate legacy architectures to modern cloud-native systems', icon: RefreshCw }
+        { path: '/services/cloud-engineering', title: 'Cloud Engineering & DevOps', desc: 'AWS/GCP/Azure architecture, CI/CD, Kubernetes, and IaC', icon: Database },
+        { path: '/services/software-modernization', title: 'Software Modernization', desc: 'Refactor monoliths to performant modern cloud microservices', icon: RefreshCw },
+        { path: '/services/mvp-development', title: 'MVP Development', desc: 'Rapid prototype-to-production engineering for high-growth startups', icon: Rocket }
       ]
     },
     {
@@ -156,12 +156,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       label: 'Product',
       hasDropdown: true,
       items: [
-        { path: '/product-development', title: 'Product Development', desc: 'End-to-end strategy, software architecture, and execution', icon: Rocket },
-        { path: '/services/mvp-development', title: 'MVP Development', desc: 'Fast-to-market validated MVPs for startups and innovators', icon: Sparkles },
-        { path: '/saas-development', title: 'SaaS Development', desc: 'Multi-tenant architecture, billing, and self-serve onboarding', icon: Layers },
-        { path: '/services/startup-product-development', title: 'Startup Product Development', desc: 'Agile sprints designed for rapid venture traction and scale', icon: TrendingUp },
-        { path: '/services/ui-ux-design', title: 'UI/UX Product Design', desc: 'Design systems, customer journeys, wireframes, and prototypes', icon: Palette },
-        { path: '/services/dedicated-teams', title: 'Dedicated Product Teams', desc: 'Embedded senior engineers, AI researchers, and product leads', icon: Users }
+        { path: '/product-development', title: 'Product Engineering', desc: 'End-to-end digital product design, architecture, and deployment', icon: Layers },
+        { path: '/saas-development', title: 'SaaS Product Development', desc: 'Scalable multi-tenant architectures, billing systems, and cloud portals', icon: Globe },
+        { path: '/services/ui-ux-design', title: 'UI/UX Design', desc: 'Human-centered interfaces, interaction design systems, and rapid wireframes', icon: Palette },
+        { path: '/services/product-discovery', title: 'Product Discovery & Strategy', desc: 'Architecture blueprints, feasibility validation, and technical roadmaps', icon: Search }
       ]
     },
     {
@@ -169,15 +167,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       label: 'Solutions',
       hasDropdown: true,
       items: [
-        { path: '/services/ai-agents-business', title: 'AI Agents for Business', desc: 'Autonomous workforce handling customer, ops, and data tasks', icon: Bot },
-        { path: '/services/intelligent-automation', title: 'Intelligent Automation', desc: 'Context-aware automation that interprets unstructured information', icon: Workflow },
-        { path: '/services/enterprise-knowledge-ai', title: 'Enterprise Knowledge AI', desc: 'Centralized vector retrieval across all company silos', icon: Database },
-        { path: '/services/document-intelligence', title: 'Document Intelligence', desc: 'Extract, analyze, and verify data from PDFs, invoices & contracts', icon: FileText },
-        { path: '/services/ai-customer-support', title: 'AI Customer Support', desc: '24/7 intelligent resolution with transactional API actions', icon: HelpCircle },
-        { path: '/services/ai-sales-automation', title: 'AI Sales Automation', desc: 'Inbound lead enrichment, scoring, and personalized outreach', icon: TrendingUp },
-        { path: '/services/ai-recruitment', title: 'AI Recruitment', desc: 'Automated candidate screening and technical assessment parsing', icon: Users },
-        { path: '/services/ai-data-analytics', title: 'AI Data Analytics', desc: 'Natural language queries over data warehouses with automated charts', icon: Activity },
-        { path: '/services/ai-voice-solutions', title: 'AI Voice Solutions', desc: 'Bidirectional conversational voice bots for inbound call centers', icon: Mic }
+        { path: '/services/enterprise-modernization', title: 'Enterprise Modernization', desc: 'Transform legacy business operations into agile digital systems', icon: Building2 },
+        { path: '/services/startup-acceleration', title: 'Startup Acceleration', desc: 'Dedicated technical squads to build, launch, and scale MVPs', icon: Rocket },
+        { path: '/services/dedicated-ai-teams', title: 'Dedicated AI Squads', desc: 'Full-stack AI engineers, data scientists, and ML architects on demand', icon: Users },
+        { path: '/services/security-compliance', title: 'Security & Compliance', desc: 'Enterprise data sovereignty, SOC 2, HIPAA, and ISO guardrails', icon: ShieldCheck }
       ]
     },
     {
@@ -234,13 +227,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <div ref={navRef} className="sticky top-0 z-50 w-full bg-[#f7f8f4]/90 backdrop-blur-md border-b border-[#e5e9dc] transition-all">
+    <div ref={navRef} className="sticky top-0 z-50 w-full bg-[#f7f8f4]/95 backdrop-blur-md border-b border-[#e5e9dc] transition-all">
       <header className="w-full sm:w-[92%] lg:w-[94%] xl:w-[88%] 2xl:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
         {/* Brand Logo */}
         <div className="flex items-center gap-4 2xl:gap-8 min-w-0">
           <Link
             to="/"
-            className="flex items-center shrink-0 group transition-transform duration-200 hover:scale-102 cursor-pointer"
+            className="flex items-center shrink-0 group transition-transform duration-200 hover:scale-[1.02] cursor-pointer"
           >
             <FiverseLogo imgClassName="h-11 sm:h-12 md:h-13 lg:h-[56px] w-auto object-contain" />
           </Link>
@@ -287,73 +280,67 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
-                  {/* Mega Dropdown Menu */}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                        transition={{ duration: 0.18, ease: [0.2, 0.8, 0.2, 1] }}
-                        onMouseLeave={() => setActiveDropdown(null)}
-                        className={`absolute top-full left-0 mt-2 bg-white rounded-3xl border border-[#e2e6d9] shadow-2xl p-6 z-50 ${
-                          item.id === 'ai'
-                            ? 'w-[780px] -left-12 grid grid-cols-3 gap-3'
-                            : item.id === 'industries'
-                            ? 'w-[700px] -left-16 grid grid-cols-3 gap-3'
-                            : item.id === 'solutions' || item.id === 'software' || item.id === 'product'
-                            ? 'w-[600px] -left-8 grid grid-cols-2 gap-3'
-                            : 'w-[480px] -left-4 grid grid-cols-2 gap-2.5'
-                        }`}
-                      >
-                        <div className="col-span-full pb-2 mb-1 border-b border-[#f0f2eb] flex items-center justify-between">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">
-                            {item.label} Capabilities & Services
-                          </span>
-                          <span className="text-[10px] bg-[#f0f4e4] text-[#2e6314] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                            <FiverseIcon className="w-3 h-3" />
-                            <span>Fiverse Systems</span>
-                          </span>
-                        </div>
+                  {/* Mega Dropdown Menu (CSS Transition) */}
+                  {isOpen && (
+                    <div
+                      onMouseLeave={() => setActiveDropdown(null)}
+                      className={`absolute top-full left-0 mt-2 bg-white rounded-3xl border border-[#e2e6d9] shadow-2xl p-6 z-50 transition-all duration-150 animate-in fade-in slide-in-from-top-2 ${
+                        item.id === 'ai'
+                          ? 'w-[780px] -left-12 grid grid-cols-3 gap-3'
+                          : item.id === 'industries'
+                          ? 'w-[700px] -left-16 grid grid-cols-3 gap-3'
+                          : item.id === 'solutions' || item.id === 'software' || item.id === 'product'
+                          ? 'w-[600px] -left-8 grid grid-cols-2 gap-3'
+                          : 'w-[480px] -left-4 grid grid-cols-2 gap-2.5'
+                      }`}
+                    >
+                      <div className="col-span-full pb-2 mb-1 border-b border-[#f0f2eb] flex items-center justify-between">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#4d5247]">
+                          {item.label} Capabilities & Services
+                        </span>
+                        <span className="text-[10px] bg-[#f0f4e4] text-[#2e6314] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                          <FiverseIcon className="w-3 h-3" />
+                          <span>Fiverse Systems</span>
+                        </span>
+                      </div>
 
-                        {item.items?.map((subItem, subIdx) => {
-                          const Icon = subItem.icon;
-                          const isSubActive = location.pathname === subItem.path;
-                          return (
-                            <Link
-                              key={subIdx}
-                              to={subItem.path}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`group p-2.5 rounded-2xl flex items-start gap-3 transition-all duration-200 border cursor-pointer ${
-                                isSubActive
-                                  ? 'bg-[#f4f6ed] border-[#c8ff28]'
-                                  : 'border-transparent hover:bg-[#f7f9f2] hover:border-[#e3e7db]'
-                              }`}
-                            >
-                              <div className="w-8 h-8 rounded-xl bg-[#f4f6ed] group-hover:bg-[#111210] group-hover:text-[#c8ff28] text-[#111210] flex items-center justify-center shrink-0 transition-all duration-200 group-hover:rotate-3">
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="space-y-0.5">
-                                <div className="flex items-center gap-1.5">
-                                  <p className="text-[12.5px] font-bold text-[#111210] leading-tight group-hover:text-black">
-                                    {subItem.title}
-                                  </p>
-                                  {'badge' in subItem && subItem.badge && (
-                                    <span className="text-[9px] bg-[#c8ff28] text-[#111210] font-extrabold px-1.5 py-0.2 rounded-sm">
-                                      {subItem.badge}
-                                    </span>
-                                  )}
-                                </div>
-                                <p className="text-[11px] text-[#4d5247] line-clamp-1 leading-tight">
-                                  {subItem.desc}
+                      {item.items?.map((subItem, subIdx) => {
+                        const Icon = subItem.icon;
+                        const isSubActive = location.pathname === subItem.path;
+                        return (
+                          <Link
+                            key={subIdx}
+                            to={subItem.path}
+                            onClick={() => setActiveDropdown(null)}
+                            className={`group p-2.5 rounded-2xl flex items-start gap-3 transition-all duration-150 border cursor-pointer ${
+                              isSubActive
+                                ? 'bg-[#f4f6ed] border-[#c8ff28]'
+                                : 'border-transparent hover:bg-[#f7f9f2] hover:border-[#e3e7db]'
+                            }`}
+                          >
+                            <div className="w-8 h-8 rounded-xl bg-[#f4f6ed] group-hover:bg-[#111210] group-hover:text-[#c8ff28] text-[#111210] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:rotate-3">
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div className="space-y-0.5">
+                              <div className="flex items-center gap-1.5">
+                                <p className="text-[12.5px] font-bold text-[#111210] leading-tight group-hover:text-black">
+                                  {subItem.title}
                                 </p>
+                                {'badge' in subItem && subItem.badge && (
+                                  <span className="text-[9px] bg-[#c8ff28] text-[#111210] font-extrabold px-1.5 py-0.2 rounded-sm">
+                                    {subItem.badge}
+                                  </span>
+                                )}
                               </div>
-                            </Link>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                              <p className="text-[11px] text-[#4d5247] line-clamp-1 leading-tight">
+                                {subItem.desc}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -362,25 +349,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Header CTAs */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <button
             onClick={onTalkToAI}
-            className="hidden 2xl:inline-flex bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[12px] font-semibold px-3.5 py-2 rounded-full transition-all duration-200 shadow-2xs cursor-pointer items-center gap-1.5"
+            className="hidden 2xl:inline-flex bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[12px] font-semibold px-3.5 py-2 rounded-full transition-all duration-150 shadow-2xs cursor-pointer items-center gap-1.5 hover:scale-[1.02] active:scale-[0.98]"
           >
             <Bot className="w-3.5 h-3.5 text-[#2e6314]" />
             <span>Talk to an AI Expert</span>
-          </motion.button>
+          </button>
 
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+          <button
             onClick={onStartProject}
-            className="bg-[#111210] hover:bg-[#252823] text-white text-[12px] sm:text-[13px] font-semibold px-3.5 sm:px-5 py-2 min-h-[38px] rounded-full transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap flex items-center gap-1.5 group"
+            className="bg-[#111210] hover:bg-[#252823] text-white text-[12px] sm:text-[13px] font-semibold px-3.5 sm:px-5 py-2 min-h-[38px] rounded-full transition-all duration-150 shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap flex items-center gap-1.5 group hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Start a Project</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#c8ff28] group-hover:translate-x-0.5 transition-transform" />
-          </motion.button>
+          </button>
 
           {/* Mobile/Tablet Hamburger Button */}
           <button
@@ -395,101 +378,87 @@ export const Navbar: React.FC<NavbarProps> = ({
       </header>
 
       {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden bg-white/98 backdrop-blur-md border-b border-[#e2e6d9] px-4 pt-3 pb-8 space-y-4 max-h-[calc(100dvh-75px)] overflow-y-auto shadow-2xl"
-          >
-            <div className="space-y-1">
-              {navMenuItems.map(item => {
-                if (!item.hasDropdown && item.path) {
-                  return (
-                    <Link
-                      key={item.id}
-                      to={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full text-left py-3 px-3.5 rounded-xl font-bold text-[14px] text-[#111210] hover:bg-[#f7f8f4] active:bg-[#edf0e5] min-h-[44px] flex items-center"
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-
-                const isExpanded = mobileExpandedSection === item.id;
-
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white/98 backdrop-blur-md border-b border-[#e2e6d9] px-4 pt-3 pb-8 space-y-4 max-h-[calc(100dvh-75px)] overflow-y-auto shadow-2xl transition-all duration-200">
+          <div className="space-y-1">
+            {navMenuItems.map(item => {
+              if (!item.hasDropdown && item.path) {
                 return (
-                  <div key={item.id} className="border-b border-[#f1f3ec] pb-1">
-                    <button
-                      onClick={() => setMobileExpandedSection(isExpanded ? null : item.id)}
-                      className="w-full flex items-center justify-between py-3 px-3.5 rounded-xl font-bold text-[14px] text-[#111210] hover:bg-[#f7f8f4] active:bg-[#edf0e5] min-h-[44px]"
-                      aria-expanded={isExpanded}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#528d2c]' : 'text-[#8e9387]'}`} />
-                    </button>
-
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="pl-3 pr-2 py-2 space-y-1 bg-[#fbfcfa] rounded-2xl my-1 border border-[#eef1e6] overflow-hidden"
-                        >
-                          {item.items?.map((subItem, sIdx) => {
-                            const Icon = subItem.icon;
-                            return (
-                              <Link
-                                key={sIdx}
-                                to={subItem.path}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white active:bg-white text-[13px] font-medium text-[#2d312c] min-h-[42px] transition-colors"
-                              >
-                                <div className="w-7 h-7 rounded-lg bg-[#f0f4e4] flex items-center justify-center shrink-0">
-                                  <Icon className="w-3.5 h-3.5 text-[#528d2c]" />
-                                </div>
-                                <span>{subItem.title}</span>
-                              </Link>
-                            );
-                          })}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <Link
+                    key={item.id}
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-left py-3 px-3.5 rounded-xl font-bold text-[14px] text-[#111210] hover:bg-[#f7f8f4] active:bg-[#edf0e5] min-h-[44px] flex items-center"
+                  >
+                    {item.label}
+                  </Link>
                 );
-              })}
-            </div>
+              }
 
-            <div className="pt-4 border-t border-[#e2e6d9] space-y-2.5">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onTalkToAI();
-                }}
-                className="w-full bg-[#f3f5ed] hover:bg-[#eaeede] border border-[#d8dcd0] text-[#111210] font-semibold text-[13px] py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer min-h-[48px] shadow-2xs"
-              >
-                <Bot className="w-4 h-4 text-[#528d2c]" />
-                <span>Talk to an AI Expert</span>
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onStartProject();
-                }}
-                className="w-full bg-[#111210] hover:bg-[#222520] text-white font-bold text-[13px] py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer min-h-[48px] shadow-sm"
-              >
-                <span>Start a Project</span>
-                <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              const isExpanded = mobileExpandedSection === item.id;
+
+              return (
+                <div key={item.id} className="border-b border-[#f1f3ec] pb-1">
+                  <button
+                    onClick={() => setMobileExpandedSection(isExpanded ? null : item.id)}
+                    className="w-full flex items-center justify-between py-3 px-3.5 rounded-xl font-bold text-[14px] text-[#111210] hover:bg-[#f7f8f4] active:bg-[#edf0e5] min-h-[44px]"
+                    aria-expanded={isExpanded}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#528d2c]' : 'text-[#8e9387]'}`} />
+                  </button>
+
+                  {isExpanded && (
+                    <div className="pl-3 pr-2 py-2 space-y-1 bg-[#fbfcfa] rounded-2xl my-1 border border-[#eef1e6] overflow-hidden transition-all duration-150">
+                      {item.items?.map((subItem, sIdx) => {
+                        const Icon = subItem.icon;
+                        return (
+                          <Link
+                            key={sIdx}
+                            to={subItem.path}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white active:bg-white text-[13px] font-medium text-[#2d312c] min-h-[42px] transition-colors"
+                          >
+                            <div className="w-7 h-7 rounded-lg bg-[#f0f4e4] flex items-center justify-center shrink-0">
+                              <Icon className="w-3.5 h-3.5 text-[#528d2c]" />
+                            </div>
+                            <span>{subItem.title}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="pt-4 border-t border-[#e2e6d9] space-y-2.5">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onTalkToAI();
+              }}
+              className="w-full bg-[#f3f5ed] hover:bg-[#eaeede] border border-[#d8dcd0] text-[#111210] font-semibold text-[13px] py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer min-h-[48px] shadow-2xs"
+            >
+              <Bot className="w-4 h-4 text-[#528d2c]" />
+              <span>Talk to an AI Expert</span>
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onStartProject();
+              }}
+              className="w-full bg-[#111210] hover:bg-[#222520] text-white font-bold text-[13px] py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer min-h-[48px] shadow-sm"
+            >
+              <span>Start a Project</span>
+              <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';

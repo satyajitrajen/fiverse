@@ -1,30 +1,52 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useSpring, useInView } from 'framer-motion';
-import type { Variants, HTMLMotionProps } from 'framer-motion';
+import React, { useEffect, useRef, useState, memo } from 'react';
 
 // ==========================================
-// 1. Top Reading Scroll Progress Bar
+// 1. Top Reading Scroll Progress Bar (Pure RAF & Passive Listener)
 // ==========================================
-export const ScrollProgressBar: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+export const ScrollProgressBar: React.FC = memo(() => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        setProgress(Math.min(scrollTop / docHeight, 1));
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollProgress);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#c8ff28] via-[#a6ff00] to-[#111210] origin-left z-[100] pointer-events-none"
-      style={{ scaleX }}
+    <div
+      className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#c8ff28] via-[#a6ff00] to-[#111210] origin-left z-[100] pointer-events-none transition-transform duration-75 ease-out"
+      style={{
+        transform: `scaleX(${progress})`,
+        transformOrigin: 'left center',
+        willChange: 'transform'
+      }}
     />
   );
-};
+});
+
+ScrollProgressBar.displayName = 'ScrollProgressBar';
 
 // ==========================================
-// 2. Viewport Scroll FadeIn Component
+// 2. Viewport Scroll FadeIn Component (High-Performance Intersection Observer)
 // ==========================================
-export interface FadeInProps extends HTMLMotionProps<'div'> {
+export interface FadeInProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   direction?: 'up' | 'down' | 'left' | 'right' | 'scale' | 'none';
   delay?: number;
@@ -35,62 +57,98 @@ export interface FadeInProps extends HTMLMotionProps<'div'> {
   once?: boolean;
 }
 
-export const FadeIn: React.FC<FadeInProps> = ({
+export const FadeIn: React.FC<FadeInProps> = memo(({
   children,
   direction = 'up',
   delay = 0,
-  duration = 0.5,
-  distance = 24,
+  duration = 0.45,
+  distance = 20,
   className = '',
-  viewportMargin = '-60px',
+  viewportMargin = '50px',
   once = true,
+  style,
   ...rest
 }) => {
-  const getInitial = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once && element) {
+            observer.unobserve(element);
+          }
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      {
+        rootMargin: viewportMargin,
+        threshold: 0.05
+      }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [viewportMargin, once]);
+
+  const getTransform = () => {
+    if (isVisible) return 'translate3d(0, 0, 0) scale(1)';
     switch (direction) {
       case 'up':
-        return { opacity: 0, y: distance };
+        return `translate3d(0, ${distance}px, 0)`;
       case 'down':
-        return { opacity: 0, y: -distance };
+        return `translate3d(0, -${distance}px, 0)`;
       case 'left':
-        return { opacity: 0, x: distance };
+        return `translate3d(${distance}px, 0, 0)`;
       case 'right':
-        return { opacity: 0, x: -distance };
+        return `translate3d(-${distance}px, 0, 0)`;
       case 'scale':
-        return { opacity: 0, scale: 0.94 };
+        return 'scale(0.96)';
       case 'none':
       default:
-        return { opacity: 0 };
+        return 'translate3d(0, 0, 0)';
     }
   };
 
   return (
-    <motion.div
-      initial={getInitial()}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        x: 0,
-        scale: 1,
-        transition: {
-          duration,
-          delay,
-          ease: [0.21, 0.47, 0.32, 0.98]
-        }
-      }}
-      viewport={{ once, margin: viewportMargin as any }}
+    <div
+      ref={ref}
       className={className}
+      style={{
+        ...style,
+        opacity: isVisible ? 1 : 0,
+        transform: getTransform(),
+        transitionProperty: 'opacity, transform',
+        transitionDuration: `${duration}s`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        transitionDelay: `${delay}s`,
+        willChange: isVisible ? 'auto' : 'opacity, transform'
+      }}
       {...rest}
     >
       {children}
-    </motion.div>
+    </div>
   );
-};
+});
+
+FadeIn.displayName = 'FadeIn';
 
 // ==========================================
 // 3. Stagger Container & Stagger Item
 // ==========================================
-export interface StaggerContainerProps extends HTMLMotionProps<'div'> {
+export interface StaggerContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   staggerDelay?: number;
   delayChildren?: number;
@@ -98,69 +156,40 @@ export interface StaggerContainerProps extends HTMLMotionProps<'div'> {
   once?: boolean;
 }
 
-export const StaggerContainer: React.FC<StaggerContainerProps> = ({
-  children,
-  staggerDelay = 0.08,
-  delayChildren = 0.05,
-  className = '',
-  once = true,
-  ...rest
-}) => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: staggerDelay,
-        delayChildren: delayChildren
-      }
-    }
-  };
-
-  return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: '-50px' }}
-      className={className}
-      {...rest}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-export const StaggerItem: React.FC<HTMLMotionProps<'div'> & { className?: string; yOffset?: number }> = ({
+export const StaggerContainer: React.FC<StaggerContainerProps> = memo(({
   children,
   className = '',
-  yOffset = 20,
   ...rest
 }) => {
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: yOffset, scale: 0.97 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.45,
-        ease: [0.21, 0.47, 0.32, 0.98]
-      }
-    }
-  };
-
   return (
-    <motion.div variants={itemVariants} className={className} {...rest}>
+    <div className={className} {...rest}>
       {children}
-    </motion.div>
+    </div>
   );
-};
+});
+
+StaggerContainer.displayName = 'StaggerContainer';
+
+export const StaggerItem: React.FC<React.HTMLAttributes<HTMLDivElement> & { className?: string; yOffset?: number }> = memo(({
+  children,
+  className = '',
+  yOffset = 16,
+  style,
+  ...rest
+}) => {
+  return (
+    <FadeIn direction="up" distance={yOffset} className={className} style={style} {...rest}>
+      {children}
+    </FadeIn>
+  );
+});
+
+StaggerItem.displayName = 'StaggerItem';
 
 // ==========================================
-// 4. Interactive Hover & 3D Tilt Card
+// 4. Interactive Hover Card (CSS Hardware-Accelerated)
 // ==========================================
-export interface HoverCardProps extends HTMLMotionProps<'div'> {
+export interface HoverCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   scale?: number;
@@ -168,29 +197,25 @@ export interface HoverCardProps extends HTMLMotionProps<'div'> {
   glow?: boolean;
 }
 
-export const HoverCard: React.FC<HoverCardProps> = ({
+export const HoverCard: React.FC<HoverCardProps> = memo(({
   children,
   className = '',
-  scale = 1.02,
-  yOffset = -4,
   glow = false,
   ...rest
 }) => {
   return (
-    <motion.div
-      whileHover={{
-        y: yOffset,
-        scale: scale,
-        transition: { duration: 0.22, ease: 'easeOut' }
-      }}
-      whileTap={{ scale: 0.99 }}
-      className={`transition-shadow duration-300 ${glow ? 'hover:shadow-[0_12px_35px_-10px_rgba(200,255,40,0.35)]' : ''} ${className}`}
+    <div
+      className={`transition-all duration-200 ease-out hover:-translate-y-1 hover:scale-[1.01] ${
+        glow ? 'hover:shadow-[0_12px_35px_-10px_rgba(200,255,40,0.35)]' : ''
+      } ${className}`}
       {...rest}
     >
       {children}
-    </motion.div>
+    </div>
   );
-};
+});
+
+HoverCard.displayName = 'HoverCard';
 
 // ==========================================
 // 5. Numerical Count-Up Animation for Metrics
@@ -204,17 +229,37 @@ export interface AnimatedCounterProps {
   decimals?: number;
 }
 
-export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
+export const AnimatedCounter: React.FC<AnimatedCounterProps> = memo(({
   value,
   prefix = '',
   suffix = '',
-  duration = 1.8,
+  duration = 1.6,
   className = '',
   decimals = 0
 }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        observer.unobserve(el);
+      }
+    }, { rootMargin: '40px' });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isInView) return;
@@ -225,7 +270,6 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      // Ease out cubic
       const easeProgress = 1 - Math.pow(1 - progress, 3);
       const current = easeProgress * value;
 
@@ -249,16 +293,18 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       {suffix}
     </span>
   );
-};
+});
+
+AnimatedCounter.displayName = 'AnimatedCounter';
 
 // ==========================================
-// 6. Ambient Drifting Glow Orbs
+// 6. Ambient Drifting Glow Orbs (GPU Keyframe Offloaded)
 // ==========================================
 export const GlowOrb: React.FC<{
   className?: string;
   color?: 'lime' | 'blue' | 'purple' | 'cyan';
   size?: 'sm' | 'md' | 'lg' | 'xl';
-}> = ({
+}> = memo(({
   className = '',
   color = 'lime',
   size = 'md'
@@ -278,26 +324,16 @@ export const GlowOrb: React.FC<{
   }[color];
 
   return (
-    <motion.div
-      animate={{
-        scale: [1, 1.12, 0.95, 1],
-        opacity: [0.6, 0.9, 0.7, 0.6],
-        x: [0, 15, -12, 0],
-        y: [0, -15, 10, 0]
-      }}
-      transition={{
-        duration: 9,
-        repeat: Infinity,
-        repeatType: 'reverse',
-        ease: 'easeInOut'
-      }}
-      className={`absolute pointer-events-none rounded-full bg-radial ${colorGradients} ${sizeClasses} ${className}`}
+    <div
+      className={`absolute pointer-events-none rounded-full bg-radial animate-glow-drift ${colorGradients} ${sizeClasses} ${className}`}
     />
   );
-};
+});
+
+GlowOrb.displayName = 'GlowOrb';
 
 // ==========================================
-// 7. Infinite Continuous Marquee Ticker
+// 7. Infinite Continuous Marquee Ticker (GPU Keyframe Offloaded)
 // ==========================================
 export const InfiniteMarquee: React.FC<{
   children: React.ReactNode;
@@ -305,33 +341,21 @@ export const InfiniteMarquee: React.FC<{
   direction?: 'left' | 'right';
   className?: string;
   pauseOnHover?: boolean;
-}> = ({
+}> = memo(({
   children,
-  speed = 28,
-  direction = 'left',
-  className = '',
-  pauseOnHover = true
+  className = ''
 }) => {
   return (
     <div className={`overflow-hidden flex select-none ${className}`}>
-      <motion.div
-        animate={{
-          x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%']
-        }}
-        transition={{
-          duration: speed,
-          repeat: Infinity,
-          ease: 'linear'
-        }}
-        whileHover={pauseOnHover ? { animationPlayState: 'paused' } : undefined}
-        className="flex shrink-0 items-center gap-8 min-w-full"
-      >
+      <div className="animate-marquee shrink-0 items-center gap-8 min-w-full">
         {children}
         {children}
-      </motion.div>
+      </div>
     </div>
   );
-};
+});
+
+InfiniteMarquee.displayName = 'InfiniteMarquee';
 
 // ==========================================
 // 8. Pulsing Status Indicator Node
@@ -340,7 +364,7 @@ export const PulseBadge: React.FC<{
   label: string;
   dotColor?: string;
   className?: string;
-}> = ({
+}> = memo(({
   label,
   dotColor = 'bg-[#c8ff28]',
   className = ''
@@ -354,4 +378,6 @@ export const PulseBadge: React.FC<{
       <span>{label}</span>
     </div>
   );
-};
+});
+
+PulseBadge.displayName = 'PulseBadge';
