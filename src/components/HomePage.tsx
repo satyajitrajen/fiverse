@@ -270,9 +270,9 @@ export const HomePage: React.FC<HomePageProps> = memo(({
                   {/* Visual Architecture Banner inside Card with Telemetry Counter */}
                   <div className="relative rounded-2xl overflow-hidden border border-[#2d3227] h-28">
                     <img
-                      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=75"
+                      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&auto=format&fit=crop&q=60"
                       alt="High-speed data servers and neural processing"
-                      width={600}
+                      width={480}
                       height={200}
                       loading="lazy"
                       decoding="async"

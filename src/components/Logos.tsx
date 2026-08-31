@@ -62,13 +62,14 @@ export const FiverseLogo: React.FC<FiverseLogoProps> = memo(({
       <picture>
         <source srcSet="/logo.webp" type="image/webp" />
         <img
-          src="/logo.png"
+          src="/logo.webp"
           alt={alt}
           width={480}
           height={200}
           className={imgClassName}
           loading="eager"
           decoding="async"
+          fetchPriority="high"
         />
       </picture>
     </div>
