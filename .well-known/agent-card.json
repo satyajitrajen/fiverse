@@ -1,0 +1,21 @@
+{
+  "name": "Fiverse Systems AI Architecture Agent",
+  "description": "Autonomous AI architecture, scoping, and enterprise software engineering consultation agent for Fiverse Systems.",
+  "version": "1.0.0",
+  "url": "https://fiversesystems.com",
+  "protocol": "a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "endpoints": {
+    "default": "https://fiversesystems.com/api/v1/agent"
+  },
+  "skills": [
+    {
+      "id": "project-scoping",
+      "name": "AI Project Scoping & Estimation",
+      "description": "Calculates development timelines, engineering pod sizes, and tech stacks for custom software and AI agents."
+    }
+  ]
+}

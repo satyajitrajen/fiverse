@@ -1,5 +1,5 @@
 {
-  "resource": "https://fiversesystems.com/api/v1",
+  "resource": "https://fiversesystems.com",
   "authorization_servers": [
     "https://fiversesystems.com"
   ],
