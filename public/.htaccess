@@ -6,20 +6,29 @@
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # 2. Redirect non-www to canonical domain (or preserve whatever domain is configured)
-  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  # 2. Markdown Negotiation for AI Agents (Accept: text/markdown)
+  # When an agent requests markdown, serve matching .md pre-rendered snapshot or fallback to llms-full.txt
+  RewriteCond %{HTTP:Accept} text/markdown [NC]
+  RewriteCond %{DOCUMENT_ROOT}/$1.md -f
+  RewriteRule ^(.+?)/?$ /$1.md [L]
 
-  # 3. Serve existing files or directories directly
+  RewriteCond %{HTTP:Accept} text/markdown [NC]
+  RewriteCond %{REQUEST_URI} ^/?$
+  RewriteRule ^$ /llms-full.txt [L]
+
+  # 3. Direct route to .well-known/api-catalog.json if requested as /api-catalog
+  RewriteRule ^\.well-known/api-catalog$ /.well-known/api-catalog.json [L]
+
+  # 4. Serve existing files or directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # 4. Check if a pre-rendered route/index.html exists (e.g. /about -> /about/index.html)
+  # 5. Check if a pre-rendered route/index.html exists (e.g. /about -> /about/index.html)
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # 5. SPA Fallback for client-side routing
+  # 6. SPA Fallback for client-side routing
   RewriteRule ^ index.html [L]
 </IfModule>
 
@@ -27,18 +36,43 @@
 <IfModule mod_mime.c>
   AddType application/manifest+json .webmanifest
   AddType application/json .json .jsonld
+  AddType application/linkset+json .linkset
+  AddType text/markdown .md
   AddType image/svg+xml .svg
   AddType image/webp .webp
   AddType image/avif .avif
   AddType font/woff2 .woff2
 </IfModule>
 
-# Security Headers
+# Security & AI Discovery Headers
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header set X-XSS-Protection "1; mode=block"
+
+  # AI Content Signals (https://contentsignals.org/)
+  Header set Content-Signal "search=yes, ai-input=yes, ai-train=no"
+
+  # RFC 8288 Link Headers for AI Agent Discovery
+  Header set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </auth.md>; rel=\"auth-metadata\", </llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\""
+  Header set Vary "Accept, Accept-Encoding"
+
+  # Enable CORS for AI discovery endpoints & APIs
+  <FilesMatch "\.(json|txt|md|linkset)$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+  </FilesMatch>
+
+  <FilesMatch "api-catalog$">
+    Header set Content-Type "application/linkset+json; charset=utf-8"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  <FilesMatch "auth\.md$">
+    Header set Content-Type "text/markdown; charset=utf-8"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
 
   # Cache Control for static assets (Vite hashed bundles)
   <FilesMatch "\.(css|js|woff2|png|jpg|jpeg|gif|svg|ico|webp|avif)$">
@@ -55,8 +89,8 @@
 
 # Enable GZIP Compression
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
-  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript text/markdown
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json application/linkset+json
   AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
   AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>

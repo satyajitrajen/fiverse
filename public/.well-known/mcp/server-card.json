@@ -1,0 +1,103 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card-v1.json",
+  "serverInfo": {
+    "name": "fiverse-mcp-server",
+    "version": "1.0.0",
+    "title": "Fiverse Systems MCP Server",
+    "description": "Model Context Protocol interface to explore Fiverse AI development capabilities, architecture blueprints, case studies, and book consultations."
+  },
+  "transport": {
+    "type": "sse",
+    "url": "https://fiversesystems.com/api/mcp/sse"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "get_services",
+      "description": "Get detailed service offerings and technical capabilities of Fiverse Systems.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "all",
+              "ai_development",
+              "agentic_ai",
+              "generative_ai",
+              "llm_development",
+              "custom_software",
+              "saas_development",
+              "workplace_platform"
+            ],
+            "default": "all",
+            "description": "Filter by service domain"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_case_studies",
+      "description": "Browse verified enterprise case studies and real-world outcomes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "industry": {
+            "type": "string",
+            "description": "Industry domain such as healthcare, fintech, supply chain, SaaS"
+          }
+        }
+      }
+    },
+    {
+      "name": "estimate_project",
+      "description": "Calculate project development timeline, engineering pod composition, and roadmap.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_type": {
+            "type": "string",
+            "enum": ["agentic_ai", "enterprise_rag", "custom_saas", "llm_fine_tuning"],
+            "description": "Category of project"
+          },
+          "integrations_count": {
+            "type": "integer",
+            "description": "Estimated number of third-party API or database integrations"
+          },
+          "target_timeline_weeks": {
+            "type": "integer",
+            "description": "Desired deadline in weeks"
+          }
+        },
+        "required": ["project_type"]
+      }
+    },
+    {
+      "name": "submit_inquiry",
+      "description": "Submit a technical consultation request or RFP to Fiverse Systems engineering leadership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "company": { "type": "string" },
+          "project_brief": { "type": "string" },
+          "service_interest": { "type": "string" },
+          "budget_range": { "type": "string" }
+        },
+        "required": ["name", "email", "company", "project_brief"]
+      }
+    }
+  ]
+}

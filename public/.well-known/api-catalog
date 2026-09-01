@@ -1,0 +1,39 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://fiversesystems.com/api/v1",
+      "service-desc": [
+        {
+          "href": "https://fiversesystems.com/api/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://fiversesystems.com/technology",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://fiversesystems.com/api/health",
+          "type": "application/json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://fiversesystems.com/api/v1/services",
+          "title": "Fiverse Engineering Services"
+        },
+        {
+          "href": "https://fiversesystems.com/api/v1/case-studies",
+          "title": "Client Case Studies & Outcomes"
+        },
+        {
+          "href": "https://fiversesystems.com/api/v1/inquiries",
+          "title": "Consultation Inquiries Endpoint"
+        }
+      ]
+    }
+  ]
+}

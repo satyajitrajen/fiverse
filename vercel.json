@@ -1,19 +1,65 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Content-Signal", "value": "search=yes, ai-input=yes, ai-train=no" },
+        {
+          "key": "Link",
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </auth.md>; rel=\"auth-metadata\", </llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\""
+        },
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/.well-known/api-catalog",
+      "headers": [
+        { "key": "Content-Type", "value": "application/linkset+json; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/auth.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(robots.txt|sitemap.xml|llms.txt|llms-full.txt)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
       ]
     },
     {
@@ -21,12 +67,16 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/.well-known/api-catalog",
+      "destination": "/.well-known/api-catalog.json"
     },
     {
-      "source": "/(robots.txt|sitemap.xml|llms.txt|llms-full.txt)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
-      ]
+      "source": "/((?!assets/|api/|\\.well-known/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|.*\\.md|.*\\.json|.*\\.txt|favicon\\.ico|icon\\.png|icon\\.webp|logo\\.png|logo\\.webp|site\\.webmanifest).*)",
+      "destination": "/index.html"
     }
   ]
 }

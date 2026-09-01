@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 // Define the static page metadata dictionary
 interface RouteMetadata {
@@ -176,7 +177,65 @@ const routes: RouteMetadata[] = [
   }
 ];
 
+function generateRouteMarkdown(route: RouteMetadata): string {
+  const canonicalUrl = `https://fiversesystems.com${route.path === '/' ? '' : route.path}`;
+  return `# ${route.title}
+
+> Canonical URL: ${canonicalUrl}
+> Publisher: Fiverse Systems Inc. (https://fiversesystems.com)
+> Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+## Summary
+${route.description}
+
+## About Fiverse Systems
+Fiverse Systems is an AI-first software development and digital product engineering company. We engineer:
+- **Agentic AI & Multi-Agent Workflows**: Autonomous agents with deterministic tool validation, API execution, and human-in-the-loop guardrails.
+- **Enterprise RAG Platforms**: High-precision semantic search across vector databases (Pinecone, pgvector) and enterprise data lakes.
+- **Custom LLM Fine-Tuning**: Domain-specific model specialization, LoRA adaptations, and private inference infrastructure.
+- **Scalable SaaS & Cloud Engineering**: Production-ready cloud applications, multi-tenant architectures, and modern web apps.
+
+## Key Discovery Resources for AI Agents
+- **API Catalog (RFC 9727)**: https://fiversesystems.com/.well-known/api-catalog
+- **MCP Server Card (SEP-1649)**: https://fiversesystems.com/.well-known/mcp/server-card.json
+- **Agent Skills Discovery RFC**: https://fiversesystems.com/.well-known/agent-skills/index.json
+- **Auth.md Agent Specs**: https://fiversesystems.com/auth.md
+- **LLM Context**: https://fiversesystems.com/llms.txt & https://fiversesystems.com/llms-full.txt
+- **Contact & Consultations**: hi@fiversesystems.com | https://fiversesystems.com/contact
+`;
+}
+
+function verifySkillChecksums() {
+  const skillsIndexPath = path.resolve(process.cwd(), 'public/.well-known/agent-skills/index.json');
+  if (!fs.existsSync(skillsIndexPath)) return;
+
+  const raw = fs.readFileSync(skillsIndexPath, 'utf-8');
+  const indexData = JSON.parse(raw);
+  let updated = false;
+
+  for (const skill of indexData.skills) {
+    const relativeUrl = skill.url.replace('https://fiversesystems.com/', 'public/');
+    const skillPath = path.resolve(process.cwd(), relativeUrl);
+    if (fs.existsSync(skillPath)) {
+      const content = fs.readFileSync(skillPath);
+      const calculatedHash = crypto.createHash('sha256').update(content).digest('hex');
+      if (skill.sha256 !== calculatedHash) {
+        console.log(`[Agent Skills] Updating checksum for ${skill.name}: ${calculatedHash}`);
+        skill.sha256 = calculatedHash;
+        updated = true;
+      }
+    }
+  }
+
+  if (updated) {
+    fs.writeFileSync(skillsIndexPath, JSON.stringify(indexData, null, 2), 'utf-8');
+    console.log('[Agent Skills] Checksums synced in agent-skills/index.json');
+  }
+}
+
 function prerender() {
+  verifySkillChecksums();
+
   const distPath = path.resolve(process.cwd(), 'dist');
   const templatePath = path.join(distPath, 'index.html');
 
@@ -186,7 +245,7 @@ function prerender() {
   }
 
   const templateHtml = fs.readFileSync(templatePath, 'utf-8');
-  console.log(`[Pre-render] Generating static HTML snapshots for ${routes.length} routes...`);
+  console.log(`[Pre-render] Generating static HTML & Markdown snapshots for ${routes.length} routes...`);
 
   let count = 0;
 
@@ -255,21 +314,39 @@ function prerender() {
 
     // Determine target file path
     let targetFilePath: string;
+    let markdownFilePath: string;
+
     if (route.path === '/') {
       targetFilePath = path.join(distPath, 'index.html');
+      markdownFilePath = path.join(distPath, 'index.md');
     } else {
-      const routeDir = path.join(distPath, route.path.replace(/^\//, ''));
+      const cleanPath = route.path.replace(/^\//, '');
+      const routeDir = path.join(distPath, cleanPath);
       if (!fs.existsSync(routeDir)) {
         fs.mkdirSync(routeDir, { recursive: true });
       }
       targetFilePath = path.join(routeDir, 'index.html');
+      markdownFilePath = path.join(distPath, `${cleanPath}.md`);
     }
 
     fs.writeFileSync(targetFilePath, html, 'utf-8');
+
+    // Also write Markdown snapshot for content negotiation
+    const markdownContent = generateRouteMarkdown(route);
+    fs.writeFileSync(markdownFilePath, markdownContent, 'utf-8');
+
     count++;
   }
 
-  console.log(`[Pre-render Complete] Successfully generated ${count} static HTML routes with unique metadata & schemas.`);
+  // Ensure root-level llms-full.txt exists in dist
+  if (fs.existsSync(path.resolve(process.cwd(), 'public/llms-full.txt'))) {
+    fs.copyFileSync(
+      path.resolve(process.cwd(), 'public/llms-full.txt'),
+      path.join(distPath, 'llms-full.txt')
+    );
+  }
+
+  console.log(`[Pre-render Complete] Successfully generated ${count} static HTML and Markdown routes with unique metadata & schemas.`);
 }
 
 prerender();

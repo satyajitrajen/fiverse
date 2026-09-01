@@ -1,4 +1,8 @@
 # robots.txt for https://fiversesystems.com
+
+# Content Signals (https://contentsignals.org/ / draft-romm-aipref-contentsignals)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 # Search Engine Crawlers (Standard Indexing)
 User-agent: Googlebot
 User-agent: Bingbot
@@ -36,6 +40,14 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+
+# AI & Machine Discovery Endpoints
+# LLM Context: https://fiversesystems.com/llms.txt
+# API Catalog: https://fiversesystems.com/.well-known/api-catalog
+# ARD Manifest: https://fiversesystems.com/.well-known/ai-catalog.json
+# MCP Server: https://fiversesystems.com/.well-known/mcp/server-card.json
+# Agent Skills: https://fiversesystems.com/.well-known/agent-skills/index.json
+# Auth.md: https://fiversesystems.com/auth.md
 
 # Host & Sitemaps
 Host: https://fiversesystems.com
