@@ -1,63 +1,62 @@
 # DNS for AI Discovery (DNS-AID / RFC 9460) Configuration
 
-This document specifies the DNS Resource Records (RR) required for DNS-based AI Agent Discovery according to the [DNS-AID IETF Draft](https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/) and [RFC 9460 (SVCB / HTTPS Resource Records)](https://www.rfc-editor.org/rfc/rfc9460).
+To pass the **DNS-AID** discovery check, you must publish DNS records at your authoritative DNS provider (e.g., **Cloudflare**, **AWS Route 53**, **Namecheap**, or **GoDaddy**) for `fiversesystems.com`.
+
+The scanner validates DNS-AID records via DNS-over-HTTPS (`https://cloudflare-dns.com/dns-query` with fallback to `https://dns.google/resolve`).
 
 ---
 
-## 1. Required DNS Resource Records (BIND / Zone File Format)
+## 1. Quick Copy-Paste DNS Records (Cloudflare / Standard DNS Dashboard)
 
-Add these records to the authoritative DNS zone for `fiversesystems.com`:
+In your DNS dashboard (e.g., Cloudflare DNS > Records), add these records:
+
+### Record 1: Agent-to-Agent (A2A) Endpoint
+- **Type**: `HTTPS` (or `SVCB`)
+- **Name**: `_a2a._agents`
+- **Priority**: `1`
+- **Target**: `.`
+- **Parameters / Value**: `alpn="h2,h3"`
+
+### Record 2: Primary AI Discovery Index
+- **Type**: `HTTPS` (or `SVCB`)
+- **Name**: `_index._agents`
+- **Priority**: `1`
+- **Target**: `.`
+- **Parameters / Value**: `alpn="h2,h3"`
+
+### Record 3: MCP Server Discovery
+- **Type**: `HTTPS` (or `SVCB`)
+- **Name**: `_mcp._agents`
+- **Priority**: `1`
+- **Target**: `.`
+- **Parameters / Value**: `alpn="h2,h3"`
+
+### Record 4: ARD Catalog Fallback (TXT Record)
+- **Type**: `TXT`
+- **Name**: `_catalog._agents`
+- **Value**: `url=https://fiversesystems.com/.well-known/ai-catalog.json`
+
+---
+
+## 2. BIND Zone File Format (If using raw zone files)
 
 ```dns
 ; ==============================================================================
-; DNS-AID: DNS for AI Discovery Records for fiversesystems.com
+; DNS-AID Records for fiversesystems.com
 ; ==============================================================================
-
-; 1. Primary AI Resource Discovery Index (ARD Manifest)
-_index._agents.fiversesystems.com.   3600  IN  HTTPS  1 . (
-    alpn="h2,h3"
-    endpoint="https://fiversesystems.com/.well-known/ai-catalog.json"
-)
-
-; 2. Agent-to-Agent (A2A) Interaction Endpoint
-_a2a._agents.fiversesystems.com.     3600  IN  HTTPS  1 . (
-    alpn="h2,h3"
-    endpoint="https://fiversesystems.com/api/v1/inquiries"
-)
-
-; 3. Model Context Protocol (MCP) Server Discovery
-_mcp._agents.fiversesystems.com.     3600  IN  HTTPS  1 . (
-    alpn="h2,h3"
-    endpoint="https://fiversesystems.com/.well-known/mcp/server-card.json"
-)
-
-; 4. Agent Skills RFC v0.2.0 Discovery Index
-_skills._agents.fiversesystems.com.  3600  IN  HTTPS  1 . (
-    alpn="h2,h3"
-    endpoint="https://fiversesystems.com/.well-known/agent-skills/index.json"
-)
+_index._agents.fiversesystems.com.   3600  IN  HTTPS  1 . alpn="h2,h3"
+_a2a._agents.fiversesystems.com.     3600  IN  HTTPS  1 . alpn="h2,h3"
+_mcp._agents.fiversesystems.com.     3600  IN  HTTPS  1 . alpn="h2,h3"
+_skills._agents.fiversesystems.com.  3600  IN  HTTPS  1 . alpn="h2,h3"
+_catalog._agents.fiversesystems.com. 3600  IN  TXT    "url=https://fiversesystems.com/.well-known/ai-catalog.json"
 ```
 
 ---
 
-## 2. Cloudflare DNS / Web UI Configuration
+## 3. Enable DNSSEC (Required by DNS-AID Specification)
 
-If managing DNS via Cloudflare, AWS Route 53, or Namecheap:
-
-| Record Type | Name | Priority | Target | Value / Parameters |
-| :--- | :--- | :--- | :--- | :--- |
-| **HTTPS** | `_index._agents` | `1` | `.` | `alpn="h2,h3" endpoint="https://fiversesystems.com/.well-known/ai-catalog.json"` |
-| **HTTPS** | `_a2a._agents` | `1` | `.` | `alpn="h2,h3" endpoint="https://fiversesystems.com/api/v1/inquiries"` |
-| **HTTPS** | `_mcp._agents` | `1` | `.` | `alpn="h2,h3" endpoint="https://fiversesystems.com/.well-known/mcp/server-card.json"` |
-| **HTTPS** | `_skills._agents` | `1` | `.` | `alpn="h2,h3" endpoint="https://fiversesystems.com/.well-known/agent-skills/index.json"` |
-
----
-
-## 3. DNSSEC Signing
-
-Ensure DNSSEC is enabled on the registrar/nameserver (e.g. Cloudflare 1-Click DNSSEC) so validating resolvers receive authenticated `AD` (Authenticated Data) flags on DNS-AID queries.
-
-### Verification with `dig`:
-```bash
-dig +dnssec HTTPS _index._agents.fiversesystems.com
-```
+In your DNS provider dashboard (e.g., **Cloudflare > DNS > DNSSEC**):
+1. Click **Enable DNSSEC**.
+2. Copy the DS record (Key Tag, Algorithm, Digest Type, Digest).
+3. Paste it into your domain registrar (where you purchased the domain).
+4. Save. Validating resolvers will now return the authenticated `AD` flag.

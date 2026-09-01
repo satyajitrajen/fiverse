@@ -8,18 +8,13 @@ const agentDiscoveryPlugin = (): Plugin => ({
   name: 'agent-discovery-middleware',
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
+      // 1. Registered IANA Link Headers for Agent Discovery
       const linkHeaders = [
-        '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
-        '</.well-known/ai-catalog.json>; rel="ai-catalog"',
-        '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
-        '</.well-known/agent-skills/index.json>; rel="agent-skills"',
-        '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
-        '</.well-known/oauth-authorization-server>; rel="oauth-authorization-server"',
-        '</auth.md>; rel="auth-metadata"',
-        '</llms.txt>; rel="llms-txt"',
-        '</llms-full.txt>; rel="llms-full-txt"',
+        '</.well-known/api-catalog>; rel="api-catalog"',
         '</api/openapi.json>; rel="service-desc"',
-        '</technology>; rel="service-doc"'
+        '</technology>; rel="service-doc"',
+        '</.well-known/ai-catalog.json>; rel="describedby"',
+        '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"'
       ].join(', ');
 
       res.setHeader('Link', linkHeaders);
@@ -29,7 +24,7 @@ const agentDiscoveryPlugin = (): Plugin => ({
       const url = req.url ? req.url.split('?')[0] : '/';
       const accept = req.headers['accept'] || '';
 
-      // 1. Markdown Content Negotiation for AI Agents (Accept: text/markdown)
+      // 2. Markdown Content Negotiation for AI Agents (Accept: text/markdown)
       if (accept.includes('text/markdown') && !url.includes('/@') && !url.includes('/node_modules') && !url.includes('/src')) {
         const llmsPath = path.resolve(process.cwd(), 'public/llms-full.txt');
         if (fs.existsSync(llmsPath)) {
@@ -45,7 +40,7 @@ const agentDiscoveryPlugin = (): Plugin => ({
         }
       }
 
-      // 2. RFC 9727 API Catalog with application/linkset+json
+      // 3. RFC 9727 API Catalog with application/linkset+json
       if (url === '/.well-known/api-catalog') {
         const catalogPath = path.resolve(process.cwd(), 'public/.well-known/api-catalog.json');
         if (fs.existsSync(catalogPath)) {
@@ -56,7 +51,7 @@ const agentDiscoveryPlugin = (): Plugin => ({
         }
       }
 
-      // 3. Auth.md endpoint
+      // 4. Auth.md endpoint
       if (url === '/auth.md') {
         const authPath = path.resolve(process.cwd(), 'public/auth.md');
         if (fs.existsSync(authPath)) {
@@ -67,15 +62,17 @@ const agentDiscoveryPlugin = (): Plugin => ({
         }
       }
 
-      // 4. OAuth & OpenID Discovery metadata endpoints
+      // 5. OAuth & OpenID Discovery metadata endpoints
       if (
         url === '/.well-known/oauth-authorization-server' ||
         url === '/.well-known/openid-configuration' ||
         url === '/.well-known/oauth-protected-resource'
       ) {
-        const metaPath = path.resolve(process.cwd(), `public${url}`);
-        if (fs.existsSync(metaPath)) {
-          const content = fs.readFileSync(metaPath, 'utf-8');
+        const metaPath = path.resolve(process.cwd(), `public${url}.json`);
+        const fallbackPath = path.resolve(process.cwd(), `public${url}`);
+        const chosenPath = fs.existsSync(metaPath) ? metaPath : fallbackPath;
+        if (fs.existsSync(chosenPath)) {
+          const content = fs.readFileSync(chosenPath, 'utf-8');
           res.setHeader('Content-Type', 'application/json; charset=utf-8');
           res.end(content);
           return;

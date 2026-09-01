@@ -1,15 +1,15 @@
-# Autonomous AI Agent Authentication & Registration (`auth.md`)
+# Fiverse Systems auth.md
 
-This document describes how autonomous AI agents, multi-agent frameworks, and machine-to-machine integrations programmatically register, authenticate, and interact with the **Fiverse Systems** API surface and services.
+This document specifies the agent authentication, dynamic registration, and OAuth 2.0 / OIDC interfaces supported by **Fiverse Systems Inc.** for autonomous AI agents, multi-agent frameworks, and machine clients.
 
 ---
 
 ## 1. Authentication Overview
 
-Fiverse Systems supports RFC-compliant authentication protocols designed for autonomous AI agents:
-- **OAuth 2.0 / OpenID Connect Discovery**: `/.well-known/openid-configuration`
+Fiverse Systems supports RFC-compliant discovery and authentication standards for AI agents:
 - **OAuth Authorization Server Metadata**: `/.well-known/oauth-authorization-server`
 - **OAuth Protected Resource Metadata (RFC 9728)**: `/.well-known/oauth-protected-resource`
+- **OpenID Connect Discovery**: `/.well-known/openid-configuration`
 - **Public API Catalog (RFC 9727)**: `/.well-known/api-catalog`
 
 ---
@@ -24,17 +24,19 @@ Content-Type: application/json
 
 {
   "client_name": "MyAutonomousAgent/1.0",
-  "identity_type": "https",
+  "identity_type": "identity_assertion",
+  "assertion_type": "urn:ietf:params:oauth:token-type:id-jag",
   "redirect_uris": ["https://myagent.example.com/oauth/callback"],
-  "grant_types": ["client_credentials", "authorization_code"],
+  "grant_types": ["client_credentials", "urn:ietf:params:oauth:grant-type:token-exchange"],
   "scope": "read:services read:case-studies write:inquiries"
 }
 ```
 
 ### Supported Identity Types
+- `identity_assertion` (`urn:ietf:params:oauth:token-type:id-jag`, `verified_email`)
+- `anonymous` (with scoped ephemeral access)
 - `did:key` & `did:web` (Decentralized Identifiers)
-- `spiffe` (SPIFFE IDs for service mesh workloads)
-- `https` (Domain-validated agent origins)
+- `https` (Domain-validated origins)
 
 ### Supported Credential Types
 - `bearer_token` (Short-lived signed JWTs, RFC 7519)

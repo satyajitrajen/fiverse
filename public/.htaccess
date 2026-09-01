@@ -7,7 +7,6 @@
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
   # 2. Markdown Negotiation for AI Agents (Accept: text/markdown)
-  # When an agent requests markdown, serve matching .md pre-rendered snapshot or fallback to llms-full.txt
   RewriteCond %{HTTP:Accept} text/markdown [NC]
   RewriteCond %{DOCUMENT_ROOT}/$1.md -f
   RewriteRule ^(.+?)/?$ /$1.md [L]
@@ -16,8 +15,10 @@
   RewriteCond %{REQUEST_URI} ^/?$
   RewriteRule ^$ /llms-full.txt [L]
 
-  # 3. Direct route to .well-known/api-catalog.json if requested as /api-catalog
+  # 3. Direct route to .well-known endpoints with .json
   RewriteRule ^\.well-known/api-catalog$ /.well-known/api-catalog.json [L]
+  RewriteRule ^\.well-known/oauth-protected-resource$ /.well-known/oauth-protected-resource.json [L]
+  RewriteRule ^\.well-known/oauth-authorization-server$ /.well-known/oauth-authorization-server.json [L]
 
   # 4. Serve existing files or directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -54,8 +55,8 @@
   # AI Content Signals (https://contentsignals.org/)
   Header set Content-Signal "search=yes, ai-input=yes, ai-train=no"
 
-  # RFC 8288 Link Headers for AI Agent Discovery
-  Header set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </auth.md>; rel=\"auth-metadata\", </llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\""
+  # RFC 8288 Link Headers for AI Agent Discovery (Registered IANA Relations)
+  Header set Link "</.well-known/api-catalog>; rel=\"api-catalog\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\", </.well-known/ai-catalog.json>; rel=\"describedby\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\""
   Header set Vary "Accept, Accept-Encoding"
 
   # Enable CORS for AI discovery endpoints & APIs
@@ -66,6 +67,11 @@
 
   <FilesMatch "api-catalog$">
     Header set Content-Type "application/linkset+json; charset=utf-8"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  <FilesMatch "(oauth-protected-resource|oauth-authorization-server|openid-configuration)$">
+    Header set Content-Type "application/json; charset=utf-8"
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
 

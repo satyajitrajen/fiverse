@@ -1,7 +1,14 @@
 # robots.txt for https://fiversesystems.com
 
-# Content Signals (https://contentsignals.org/ / draft-romm-aipref-contentsignals)
+# Agentic Resource Discovery (ARD)
+Agentmap: https://fiversesystems.com/.well-known/ai-catalog.json
+
+# Default Policy for All Agents
+User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Search Engine Crawlers (Standard Indexing)
 User-agent: Googlebot
@@ -11,6 +18,7 @@ User-agent: DuckDuckBot
 User-agent: Slurp
 User-agent: Baiduspider
 User-agent: Yandex
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/
@@ -22,6 +30,7 @@ User-agent: Claude-SearchBot
 User-agent: ChatGPT-User
 User-agent: Perplexity-User
 User-agent: Claude-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/
@@ -31,23 +40,10 @@ User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: Google-Extended
 User-agent: Amazonbot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-
-# Default Policy for All Other Agents
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-
-# AI & Machine Discovery Endpoints
-# LLM Context: https://fiversesystems.com/llms.txt
-# API Catalog: https://fiversesystems.com/.well-known/api-catalog
-# ARD Manifest: https://fiversesystems.com/.well-known/ai-catalog.json
-# MCP Server: https://fiversesystems.com/.well-known/mcp/server-card.json
-# Agent Skills: https://fiversesystems.com/.well-known/agent-skills/index.json
-# Auth.md: https://fiversesystems.com/auth.md
 
 # Host & Sitemaps
 Host: https://fiversesystems.com

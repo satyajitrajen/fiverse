@@ -11,7 +11,7 @@
         { "key": "Content-Signal", "value": "search=yes, ai-input=yes, ai-train=no" },
         {
           "key": "Link",
-          "value": "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\", </.well-known/oauth-authorization-server>; rel=\"oauth-authorization-server\", </auth.md>; rel=\"auth-metadata\", </llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\""
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\", </.well-known/ai-catalog.json>; rel=\"describedby\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\""
         },
         { "key": "Vary", "value": "Accept, Accept-Encoding" }
       ]
@@ -25,6 +25,30 @@
       ]
     },
     {
+      "source": "/.well-known/oauth-protected-resource",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/.well-known/openid-configuration",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
       "source": "/.well-known/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
@@ -32,7 +56,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.md",
+      "source": "/auth.md",
       "headers": [
         { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
@@ -40,7 +64,7 @@
       ]
     },
     {
-      "source": "/auth.md",
+      "source": "/(.*)\\.md",
       "headers": [
         { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
@@ -73,6 +97,14 @@
     {
       "source": "/.well-known/api-catalog",
       "destination": "/.well-known/api-catalog.json"
+    },
+    {
+      "source": "/.well-known/oauth-protected-resource",
+      "destination": "/.well-known/oauth-protected-resource.json"
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server",
+      "destination": "/.well-known/oauth-authorization-server.json"
     },
     {
       "source": "/((?!assets/|api/|\\.well-known/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|.*\\.md|.*\\.json|.*\\.txt|favicon\\.ico|icon\\.png|icon\\.webp|logo\\.png|logo\\.webp|site\\.webmanifest).*)",
