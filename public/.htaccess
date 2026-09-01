@@ -55,8 +55,8 @@
   # AI Content Signals (https://contentsignals.org/)
   Header set Content-Signal "search=yes, ai-input=yes, ai-train=no"
 
-  # RFC 8288 Link Headers for AI Agent Discovery (Registered IANA Relations)
-  Header set Link "</.well-known/api-catalog>; rel=\"api-catalog\", </api/openapi.json>; rel=\"service-desc\", </technology>; rel=\"service-doc\", </.well-known/ai-catalog.json>; rel=\"describedby\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\""
+  # RFC 8288 Link Headers for AI Agent Discovery (Strict IANA Registered Types)
+  Header set Link "</.well-known/api-catalog>; rel=api-catalog, </api/openapi.json>; rel=service-desc, </technology>; rel=service-doc, </.well-known/ai-catalog.json>; rel=describedby, </.well-known/oauth-protected-resource>; rel=oauth-protected-resource"
   Header set Vary "Accept, Accept-Encoding"
 
   # Enable CORS for AI discovery endpoints & APIs

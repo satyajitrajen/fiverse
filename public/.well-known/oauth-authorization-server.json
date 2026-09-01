@@ -36,7 +36,7 @@
   ],
   "service_documentation": "https://fiversesystems.com/auth.md",
   "agent_auth": {
-    "skill": "https://isitagentready.com/.well-known/agent-skills/auth-md/SKILL.md",
+    "skill": "https://fiversesystems.com/auth.md",
     "register_uri": "https://fiversesystems.com/api/v1/agents/register",
     "claim_uri": "https://fiversesystems.com/api/v1/agents/claims",
     "revocation_uri": "https://fiversesystems.com/api/v1/agents/revoke",
