@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && bun run scripts/prerender.ts",
+    "build": "vite build && node scripts/prerender.js",
+    "typecheck": "tsc -b",
     "start": "node server.js",
     "serve": "node server.js",
-    "prerender": "bun run scripts/prerender.ts",
+    "prerender": "node scripts/prerender.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },
