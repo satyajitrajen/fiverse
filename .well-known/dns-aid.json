@@ -1,0 +1,51 @@
+{
+  "$schema": "https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/",
+  "domain": "fiversesystems.com",
+  "dnssec_enabled": true,
+  "records": [
+    {
+      "name": "_index._agents.fiversesystems.com",
+      "type": "HTTPS",
+      "priority": 1,
+      "target": ".",
+      "params": {
+        "alpn": ["h2", "h3"],
+        "endpoint": "https://fiversesystems.com/.well-known/ai-catalog.json"
+      },
+      "description": "DNS-AID Primary Agent Resource Discovery Index"
+    },
+    {
+      "name": "_a2a._agents.fiversesystems.com",
+      "type": "HTTPS",
+      "priority": 1,
+      "target": ".",
+      "params": {
+        "alpn": ["h2", "h3"],
+        "endpoint": "https://fiversesystems.com/api/v1/inquiries"
+      },
+      "description": "DNS-AID Agent-to-Agent (A2A) Interaction Endpoint"
+    },
+    {
+      "name": "_mcp._agents.fiversesystems.com",
+      "type": "HTTPS",
+      "priority": 1,
+      "target": ".",
+      "params": {
+        "alpn": ["h2", "h3"],
+        "endpoint": "https://fiversesystems.com/.well-known/mcp/server-card.json"
+      },
+      "description": "DNS-AID Model Context Protocol Server Discovery"
+    },
+    {
+      "name": "_skills._agents.fiversesystems.com",
+      "type": "HTTPS",
+      "priority": 1,
+      "target": ".",
+      "params": {
+        "alpn": ["h2", "h3"],
+        "endpoint": "https://fiversesystems.com/.well-known/agent-skills/index.json"
+      },
+      "description": "DNS-AID Agent Skills Discovery Index"
+    }
+  ]
+}

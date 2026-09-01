@@ -1,0 +1,69 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Fiverse Systems Inc.",
+    "identifier": "did:web:fiversesystems.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:fiversesystems.com:mcp:server-card",
+      "displayName": "Fiverse Systems MCP Server Card",
+      "type": "application/json",
+      "url": "https://fiversesystems.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "How can an AI agent connect to Fiverse Systems via MCP?",
+        "MCP server for AI engineering and architecture estimates",
+        "Call Fiverse Systems tools via Model Context Protocol",
+        "Interact with Fiverse consultation booking tool"
+      ]
+    },
+    {
+      "identifier": "urn:air:fiversesystems.com:skills:catalog",
+      "displayName": "Fiverse Systems Agent Skills Index",
+      "type": "application/json",
+      "url": "https://fiversesystems.com/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "What agent skills are published by Fiverse Systems?",
+        "Agent skills for AI architecture audit and project estimation",
+        "How to use Fiverse consultation booking skill",
+        "Download Fiverse SKILL.md files"
+      ]
+    },
+    {
+      "identifier": "urn:air:fiversesystems.com:api:catalog",
+      "displayName": "Fiverse RFC 9727 API Catalog",
+      "type": "application/linkset+json",
+      "url": "https://fiversesystems.com/.well-known/api-catalog",
+      "representativeQueries": [
+        "Fiverse Systems REST API OpenAPI specification",
+        "Where is the Fiverse API catalog?",
+        "Service documentation and health check endpoints for Fiverse",
+        "RFC 9727 API links for automated discovery"
+      ]
+    },
+    {
+      "identifier": "urn:air:fiversesystems.com:auth:metadata",
+      "displayName": "Fiverse Auth.md Agent Authentication Specification",
+      "type": "text/markdown",
+      "url": "https://fiversesystems.com/auth.md",
+      "representativeQueries": [
+        "How do autonomous AI agents authenticate with Fiverse Systems?",
+        "Agent registration endpoint and OAuth credentials",
+        "Auth.md instructions for machine-to-machine AI clients",
+        "OAuth protected resource metadata for Fiverse"
+      ]
+    },
+    {
+      "identifier": "urn:air:fiversesystems.com:llms:context",
+      "displayName": "Fiverse LLMs Full Context Documentation",
+      "type": "text/plain",
+      "url": "https://fiversesystems.com/llms-full.txt",
+      "representativeQueries": [
+        "What services does Fiverse Systems offer?",
+        "Fiverse engineering pod size, pricing, and sprint timeline",
+        "What tech stack does Fiverse Systems use for AI and SaaS?",
+        "Client case studies and outcomes from Fiverse"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,15 @@
 # robots.txt for https://fiversesystems.com
+
+# Agentic Resource Discovery (ARD)
+Agentmap: https://fiversesystems.com/.well-known/ai-catalog.json
+
+# Default Policy for All Agents
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
 # Search Engine Crawlers (Standard Indexing)
 User-agent: Googlebot
 User-agent: Bingbot
@@ -7,6 +18,7 @@ User-agent: DuckDuckBot
 User-agent: Slurp
 User-agent: Baiduspider
 User-agent: Yandex
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/
@@ -18,6 +30,7 @@ User-agent: Claude-SearchBot
 User-agent: ChatGPT-User
 User-agent: Perplexity-User
 User-agent: Claude-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/
@@ -27,12 +40,7 @@ User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: Google-Extended
 User-agent: Amazonbot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-
-# Default Policy for All Other Agents
-User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /admin/
 Disallow: /api/

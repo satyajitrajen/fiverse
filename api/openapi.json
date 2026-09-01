@@ -1,0 +1,151 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Fiverse Systems Public API",
+    "version": "1.0.0",
+    "description": "Public API for Fiverse Systems — exploring service capabilities, case studies, submitting RFP inquiries, and AI agent interoperability.",
+    "contact": {
+      "name": "Fiverse Systems Engineering",
+      "email": "hi@fiversesystems.com",
+      "url": "https://fiversesystems.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://fiversesystems.com/api/v1",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Service Health Check",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Service is healthy and operational.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "ok" },
+                    "timestamp": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "summary": "List Available AI & Engineering Services",
+        "operationId": "listServices",
+        "responses": {
+          "200": {
+            "description": "Array of services offered by Fiverse Systems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "description": { "type": "string" },
+                      "url": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/case-studies": {
+      "get": {
+        "summary": "List Enterprise Case Studies & Outcomes",
+        "operationId": "listCaseStudies",
+        "parameters": [
+          {
+            "name": "industry",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Filter by industry sector (healthcare, fintech, saas, logistics)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of verified case studies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "clientType": { "type": "string" },
+                      "impactMetrics": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inquiries": {
+      "post": {
+        "summary": "Submit a Consultation Inquiry or RFP",
+        "operationId": "submitInquiry",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "company", "project_brief"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string", "format": "email" },
+                  "company": { "type": "string" },
+                  "service_interest": { "type": "string" },
+                  "budget_range": { "type": "string" },
+                  "timeline": { "type": "string" },
+                  "project_brief": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Inquiry accepted and routed to lead AI architect.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "message": { "type": "string" },
+                    "referenceId": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

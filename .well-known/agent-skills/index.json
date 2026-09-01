@@ -1,0 +1,29 @@
+{
+  "$schema": "https://agentskills.io/schema/discovery-v0.2.0.json",
+  "name": "Fiverse Systems Agent Skills Index",
+  "description": "Discoverable agent skills provided by Fiverse Systems Inc. for AI scoping, architecture audits, and technical consultations.",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "name": "fiverse-project-estimator",
+      "type": "agent-skill",
+      "description": "Scope, evaluate, and estimate timelines, engineering pod sizes, and architectural complexity for AI applications, autonomous agents, RAG platforms, and SaaS products.",
+      "url": "https://fiversesystems.com/.well-known/agent-skills/project-estimator/SKILL.md",
+      "sha256": "82701f3c3bac939b92229aecb9ab453cf98ce2c2af939bd4e23db56c509e8593"
+    },
+    {
+      "name": "fiverse-ai-architecture-audit",
+      "type": "agent-skill",
+      "description": "Audit system architectures for AI agent readiness, deterministic tool execution, vector retrieval latency, multi-tenant security, and LLM guardrails.",
+      "url": "https://fiversesystems.com/.well-known/agent-skills/ai-architecture-audit/SKILL.md",
+      "sha256": "916376167b314fd9c011f7a712387c3eed78950d700487e370f501a03a88e997"
+    },
+    {
+      "name": "fiverse-consultation-booking",
+      "type": "agent-skill",
+      "description": "Guide AI agents to programmatically prepare and submit technical consultation requests and RFP specifications to Fiverse Systems engineering leadership.",
+      "url": "https://fiversesystems.com/.well-known/agent-skills/consultation-booking/SKILL.md",
+      "sha256": "db5895b5973ad4195c2e0eb34d7794ca342f9bcfc29c8e078ee933c78b392dc4"
+    }
+  ]
+}
