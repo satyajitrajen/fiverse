@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && bun run scripts/prerender.ts",
+    "start": "node server.js",
+    "serve": "node server.js",
     "prerender": "bun run scripts/prerender.ts",
     "lint": "oxlint",
     "preview": "vite preview"
