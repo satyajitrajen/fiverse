@@ -31,9 +31,66 @@
     <link rel="service-desc" type="application/json" href="/api/openapi.json" />
     <link rel="service-doc" type="text/html" href="/technology" />
 
+    <!-- WebMCP Tool Provider (Immediate Zero-Delay Registration) -->
+    <script>
+      (function() {
+        if (typeof window === 'undefined') return;
+        var tools = [
+          {
+            name: 'browseServices',
+            description: 'Explore AI engineering services, Agentic AI, custom software, and SaaS development capabilities offered by Fiverse Systems.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                category: { type: 'string', description: 'Filter by category: ai_development, agentic_ai, custom_software, saas_development' }
+              }
+            },
+            execute: async function() { return { status: 'success', services: ['agentic-ai', 'custom-software', 'enterprise-rag'] }; }
+          },
+          {
+            name: 'estimateProjectSprint',
+            description: 'Calculate engineering pod size, sprint timeline, and architectural approach for AI or software projects.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                projectType: { type: 'string', description: 'mvp, full_product, ai_agent' }
+              }
+            },
+            execute: async function() { return { status: 'success', timelineWeeks: 8, podSize: '3-5 engineers' }; }
+          },
+          {
+            name: 'requestArchitectureConsultation',
+            description: 'Submit an architectural inquiry or schedule an AI engineering sprint consultation with Fiverse Systems.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                email: { type: 'string' },
+                projectDescription: { type: 'string' }
+              },
+              required: ['name', 'email', 'projectDescription']
+            },
+            execute: async function() { return { status: 'success', message: 'Consultation requested' }; }
+          }
+        ];
+        if (!navigator.modelContext) {
+          navigator.modelContext = {
+            provideContext: function(ctx) {
+              if (ctx && ctx.tools) this.tools = ctx.tools;
+              return Promise.resolve();
+            },
+            tools: tools
+          };
+        }
+        try {
+          if (typeof navigator.modelContext.provideContext === 'function') {
+            navigator.modelContext.provideContext({ tools: tools });
+          }
+        } catch(e) {}
+        window.__WEBMCP_TOOLS__ = tools;
+      })();
+    </script>
 
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fiverse Systems" />
     <meta property="og:url" content="https://fiversesystems.com/ai-agent-development" />
