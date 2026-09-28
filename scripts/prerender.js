@@ -8,9 +8,9 @@ import crypto from 'node:crypto';
 const routes = [
   {
     path: '/',
-    title: 'AI Development Company & Custom Software Engineering | Fiverse Systems',
-    description: 'Fiverse Systems is an AI-first software development company building Agentic AI, Generative AI, custom software, SaaS platforms, AI agents, enterprise solutions, web and mobile applications.',
-    keywords: 'AI development company, agentic AI, AI agents, generative AI development, custom software development, LLM engineering, SaaS product development',
+    title: 'AI Software Development & Product Engineering | Fiverse Systems',
+    description: 'Fiverse Systems is an AI-first software development and product engineering company building AI agents, SaaS platforms, custom software and enterprise applications.',
+    keywords: 'AI-first product engineering, AI software development company, AI agents, SaaS development, custom software engineering, enterprise AI, agentic AI',
     schema: [
       {
         '@type': 'Organization',
@@ -33,6 +33,100 @@ const routes = [
         'publisher': {
           '@id': 'https://fiversesystems.com/#organization'
         }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://fiversesystems.com/#faq',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'What does Fiverse Systems do?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Fiverse Systems is an AI-first product engineering company that designs, builds and scales AI agents, SaaS platforms, custom software and enterprise applications—from product strategy and UI/UX to cloud deployment and continuous scale.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Does Fiverse build AI agents?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. Fiverse designs and develops autonomous and semi-autonomous AI agents that can reason about business objectives, remember context, query enterprise knowledge bases, call external APIs and databases, and execute multi-step workflows with deterministic guardrails.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Can Fiverse develop an MVP?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. Fiverse provides end-to-end MVP development covering product discovery, UI/UX design, cloud architecture, full-stack engineering, testing, and production deployment in 6 to 12 weeks.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Can Fiverse work with an existing product?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. Teams engage Fiverse for product modernization, legacy refactoring, new feature development, AI integration, performance engineering, or embedding dedicated senior engineering capacity.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Does Fiverse work with startups?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. We partner with early-stage and venture-backed startups to validate concepts, engineer prototypes, build scalable SaaS platforms, and scale engineering infrastructure post-launch.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Does Fiverse build enterprise software?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. Fiverse engineers custom enterprise software, workflow automation engines, internal tools, ERP/CRM integrations, and secure enterprise AI systems with role-based access control (RBAC).'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Who owns the source code and intellectual property?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'You do. 100% of all intellectual property, source code, data pipelines, model configurations, and architecture documentation belong to the client upon completion and milestone settlement.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'How much does it typically cost to build an MVP or AI system with Fiverse?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Fixed-scope MVP engineering sprints typically range from $25,000 to $50,000 for a 6 to 8-week production release covering product PRD, interactive UI/UX design, full-stack development, and cloud deployment. Comprehensive enterprise SaaS platforms or multi-agent autonomous swarms typically range from $50,000 to $100,000+ depending on architectural complexity, third-party integrations, and compliance requirements. Every project is scoped with fixed milestone deliverables and zero hidden fees.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Can you deploy AI models inside our private AWS/GCP VPC without data egress?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes. For security-conscious clients and regulated industries, we deploy completely within your private cloud VPC (AWS, GCP, or Microsoft Azure). Customer data never leaves your infrastructure perimeter. We configure zero-data-retention (ZDR) model endpoints, open-source model inference via vLLM or Ollama on private GPU instances, AES-256 encryption at rest, TLS 1.3 in transit, and granular role-based access control (RBAC).'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'What contract structures, NDAs, and payment terms does Fiverse support?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'We operate under a standard Master Services Agreement (MSA) and project-specific Statements of Work (SOW) with bilateral NDAs executed upfront. Invoicing is milestone-based (e.g., Sprint 0 Architecture, Staging Release, Production Sign-off) or bi-weekly for dedicated squads. We accept international wire transfers and ACH in USD, EUR, and GBP.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'How do I start a project with Fiverse?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'You can start by booking a discovery consultation or scoping call through Start a Project. We analyze your business objectives, review technical feasibility, define the roadmap, and present an engineering proposal within 48 to 72 hours.'
+            }
+          }
+        ]
       }
     ]
   },
@@ -167,6 +261,42 @@ const routes = [
     title: 'Developer Resources & System Templates | Fiverse Systems',
     description: 'Free engineering checklists, evaluation rubrics, RFP templates, and architecture guides for engineering teams building with AI.',
     keywords: 'AI developer resources, engineering templates'
+  },
+  {
+    path: '/services/cloud-engineering',
+    title: 'Cloud Architecture & DevOps Engineering Services | Fiverse Systems',
+    description: 'Cloud architecture, Kubernetes deployment, Terraform infrastructure as code, serverless compute, and CI/CD automation for high-scale AI systems.',
+    keywords: 'cloud architecture, DevOps engineering, Kubernetes, AWS AI, GCP, Terraform'
+  },
+  {
+    path: '/services/product-discovery',
+    title: 'Product Discovery & AI Feasibility Services | Fiverse Systems',
+    description: 'De-risk digital initiatives before writing code. Strategic product discovery, UX wireframing, AI feasibility audits, and architecture roadmaps.',
+    keywords: 'product discovery, AI feasibility, UX research, software scoping, technical PRD'
+  },
+  {
+    path: '/services/enterprise-modernization',
+    title: 'Enterprise Software Modernization Services | Fiverse Systems',
+    description: 'Modernize legacy systems, migrate monolithic architectures to microservices, and embed AI intelligence into core enterprise business operations.',
+    keywords: 'enterprise modernization, legacy software migration, strangler fig pattern, cloud migration'
+  },
+  {
+    path: '/services/dedicated-ai-teams',
+    title: 'Dedicated AI Engineering Squads & Developers | Fiverse Systems',
+    description: 'Scale your engineering capacity with dedicated, cross-functional squads of senior AI engineers, data scientists, and full-stack software architects.',
+    keywords: 'dedicated AI team, hire AI developers, AI engineering squad, staff augmentation'
+  },
+  {
+    path: '/services/security-compliance',
+    title: 'Enterprise AI Security & Governance Services | Fiverse Systems',
+    description: 'Deploy production AI systems with SOC 2 compliance, HIPAA alignment, prompt injection defenses, deterministic guardrails, and automated audit logs.',
+    keywords: 'AI security, AI governance, SOC 2 compliance, LLM guardrails, prompt injection defense'
+  },
+  {
+    path: '/services/software-modernization',
+    title: 'Software Modernization & Cloud Refactoring Services | Fiverse Systems',
+    description: 'Eliminate technical debt, decouple bloated legacy architectures, and rebuild mission-critical software systems for cloud performance.',
+    keywords: 'software modernization, legacy refactoring, monolith to microservices, technical debt'
   }
 ];
 

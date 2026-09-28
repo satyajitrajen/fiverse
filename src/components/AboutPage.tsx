@@ -205,24 +205,28 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
   const aboutFaqs = [
     {
       question: "What is Fiverse Systems?",
-      answer: "Fiverse Systems is an AI-first product engineering company that designs, builds, and deploys intelligent SaaS platforms, autonomous AI agents, enterprise RAG architectures, and custom digital software."
+      answer: "Fiverse Systems is an AI-first product engineering company that designs, builds, and scales autonomous AI agents, SaaS platforms, custom software, and enterprise applications—from product strategy and UX to production cloud deployment and continuous scale."
     },
     {
-      question: "Where is Fiverse Systems located?",
-      answer: "Fiverse Systems operates globally with engineering leadership in San Francisco, CA, and a distributed team of senior AI researchers, full-stack engineers, and product designers."
+      question: "Where does Fiverse Systems operate and deliver projects?",
+      answer: "Fiverse Systems operates as a global engineering consultancy founded by Satyajit Nikam (Principal AI Architect). We partner with founders, growth-stage companies, and enterprises across North America, Europe, and the Asia-Pacific region, providing dedicated working-hour overlap, direct Slack/Teams collaboration, and clear delivery cadences."
     },
     {
-      question: "How is Fiverse different from traditional IT outsourcing agencies?",
-      answer: "Unlike traditional agencies that treat AI as an afterthought, Fiverse is built AI-first with deep research in agentic workflows, deterministic API tool routing, SOC2 security, and high-velocity 6 to 8-week production delivery."
+      question: "Who owns the intellectual property and source code?",
+      answer: "The client owns 100% of all intellectual property, source code, neural network configurations, data pipelines, and architectural documentation upon milestone settlement under a strict bilateral NDA."
+    },
+    {
+      question: "How is Fiverse different from traditional software agencies?",
+      answer: "Traditional agencies build static software and bolt on third-party AI APIs as an afterthought. Fiverse is architected AI-first: we understand reasoning models, state machines, deterministic tool use, and enterprise guardrails as deeply as we understand PostgreSQL, React, and cloud infrastructure."
     }
   ];
 
   return (
     <div className="w-full text-[#111210] selection:bg-[#c8ff28] selection:text-[#111210]">
       <SEOHead
-        title="About Us | AI & Software Product Engineering Company | Fiverse Systems"
-        description="Fiverse Systems is an AI-first product engineering company. We combine artificial intelligence with complete software engineering to build intelligent SaaS, AI agents, and enterprise digital products."
-        keywords="about fiverse systems, AI software company, AI product engineering, agentic AI development, custom software engineers"
+        title="About Us | AI-First Product Engineering Company | Fiverse Systems"
+        description="Fiverse Systems is an AI-first product engineering company. We combine artificial intelligence, software engineering, UX design and cloud to build software for the intelligent era."
+        keywords="about fiverse systems, AI-first product engineering, AI software company, autonomous agents engineering, custom software developers"
         canonicalPath="/about"
         breadcrumbs={[
           { name: 'Home', url: '/' },
@@ -244,26 +248,25 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff28] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8ff28]" />
               </span>
-              <span>AI & SOFTWARE PRODUCT ENGINEERING COMPANY</span>
+              <span>AI-FIRST PRODUCT ENGINEERING</span>
             </div>
 
-            <h1 className="text-[38px] sm:text-[54px] md:text-[62px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
-              we believe software is <br />
-              entering a new era.
+            <h1 className="text-[38px] sm:text-[54px] md:text-[62px] font-bold text-[#111210] tracking-tight leading-[1.08]">
+              Fiverse exists to build software for the intelligent era.
             </h1>
 
             <p className="text-[16px] sm:text-[18px] text-[#3a4035] leading-relaxed max-w-2xl mx-auto">
-              Meet Fiverse Systems. We combine artificial intelligence with complete software product engineering to build intelligent applications, AI agents, SaaS platforms, and enterprise digital products.
+              Software is evolving from static databases and passive forms into intelligent systems that can understand context, reason through problems, automate workflows, and act autonomously. Fiverse Systems bridges that gap.
             </p>
 
             {/* AEO Featured Snippet Direct Answer Definition Block */}
             <div className="bg-white/90 backdrop-blur-xs border-l-4 border-[#c8ff28] p-4 sm:p-5 rounded-r-2xl border border-y-[#e2e6d9] border-r-[#e2e6d9] text-left max-w-2xl mx-auto space-y-1.5 shadow-2xs">
               <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#2e6314]">
                 <span className="h-2 w-2 rounded-full bg-[#2e6314]" />
-                <span>Entity Overview & Mission</span>
+                <span>Our Core Statement</span>
               </div>
               <p className="text-[14px] sm:text-[15px] font-medium text-[#222520] leading-relaxed">
-                <strong className="font-bold text-[#111210]">Fiverse Systems Inc.</strong> is an AI-first product engineering and custom software development company engineering autonomous AI agents, enterprise RAG, and cloud SaaS platforms.
+                <strong className="font-bold text-[#111210]">Fiverse Systems</strong> is an AI-first product engineering company that designs, builds, launches and scales AI agents, SaaS platforms, custom software and enterprise applications.
               </p>
             </div>
 
@@ -272,14 +275,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
                 onClick={handleStartConvo}
                 className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white text-[14px] font-semibold px-7 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 group min-h-[48px]"
               >
-                <span>Start a Conversation</span>
+                <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#c8ff28]" />
               </button>
               <button
                 onClick={onExploreServices}
                 className="w-full sm:w-auto bg-white hover:bg-[#f3f5ed] text-[#111210] border border-[#d8dcd0] text-[14px] font-semibold px-6 py-3.5 rounded-full transition-all duration-200 shadow-2xs cursor-pointer flex items-center justify-center min-h-[48px]"
               >
-                Explore Our Services
+                Explore Capabilities
               </button>
             </div>
           </FadeIn>
@@ -837,8 +840,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
           <FadeIn direction="up" className="bg-white rounded-[36px] sm:rounded-[44px] p-8 sm:p-14 border border-[#e3e6da] card-soft-shadow space-y-8">
             <div className="space-y-3 max-w-3xl">
               <span className="text-[12px] font-bold uppercase tracking-wider text-[#3a4035]">Human-Centered Systems</span>
-              <h2 className="text-[30px] sm:text-[40px] font-bold text-[#111210] tracking-tight leading-[1.15] lowercase">
-                we build for people, not just systems.
+              <h2 className="text-[30px] sm:text-[40px] font-bold text-[#111210] tracking-tight leading-[1.15]">
+                We build for people, not just systems.
               </h2>
               <p className="text-[15px] text-[#3a4035] leading-relaxed">
                 Behind every API request is a person trying to accomplish something. Behind every dashboard is someone trying to understand what is happening. Behind every automation is someone whose time could be spent doing something more important.
@@ -860,6 +863,58 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onStartConversation, onExp
               ))}
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* 10B. INTERNATIONAL CLIENT TRUST & DELIVERY PRINCIPLES */}
+      <section className="w-full py-16 sm:py-20 bg-[#f4f6ed]/60 border-t border-[#e2e6d9]">
+        <div className="w-full sm:w-[92%] lg:w-[82%] max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
+          <FadeIn direction="up" className="space-y-4 max-w-2xl">
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#2e6314]">International Client Trust</span>
+            <h2 className="text-[32px] sm:text-[44px] font-bold text-[#111210] tracking-tight leading-[1.12]">
+              Engineered for global standards and accountability.
+            </h2>
+            <p className="text-[15px] text-[#3a4035] leading-relaxed">
+              Partnering with an external product engineering team requires trust, transparency, and operational alignment. Here is how Fiverse Systems protects your business and intellectual capital.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: '100% Client IP & Code Ownership',
+                desc: 'You retain full, exclusive ownership of all source code, architecture designs, custom weights, and data pipelines upon milestone settlement. We never claim IP on your product.'
+              },
+              {
+                title: 'Dedicated Time-Zone Overlap',
+                desc: 'We guarantee a minimum of 4 hours daily working-hour overlap with US (PST/EST) and European (GMT/CET) teams for live collaboration and rapid response.'
+              },
+              {
+                title: 'Strict Mutual NDAs & Data Security',
+                desc: 'Bilateral confidentiality agreements are signed before discovery. We never share proprietary data or train external commercial AI models on your organizational data.'
+              },
+              {
+                title: 'Direct Engineer-to-Engineer Communication',
+                desc: 'You communicate directly with the senior AI architects and software engineers building your product via dedicated Slack/Teams channels—no game of telephone with account managers.'
+              },
+              {
+                title: 'Weekly Sprints & Staging Previews',
+                desc: 'Every two-week sprint concludes with a live video demo and automated cloud staging deployment. You see and test working software at every milestone.'
+              },
+              {
+                title: 'Post-Launch SLA & Continuous Support',
+                desc: 'We stand behind our code with structured warranty periods, security patch SLAs, cloud infrastructure monitoring, and continuous model performance refinement.'
+              }
+            ].map((principle, pIdx) => (
+              <FadeIn direction="up" delay={pIdx * 0.05} key={pIdx} className="bg-white rounded-3xl p-7 border border-[#e2e6d9] card-soft-shadow hover:border-[#111210] transition-colors space-y-3">
+                <div className="w-9 h-9 rounded-xl bg-[#eef8cf] text-[#2e6314] flex items-center justify-center font-bold text-[14px]">
+                  {pIdx + 1}
+                </div>
+                <h3 className="font-bold text-[17px] text-[#111210]">{principle.title}</h3>
+                <p className="text-[13px] text-[#3a4035] leading-relaxed">{principle.desc}</p>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3000;
 const DIST_DIR = path.join(__dirname, 'dist');
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const _PUBLIC_DIR = path.join(__dirname, 'public');
 
 // MIME type map
 const MIME_TYPES = {

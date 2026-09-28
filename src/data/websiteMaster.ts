@@ -1013,5 +1013,225 @@ export const servicesMasterData: Record<string, ServiceDetail> = {
     lead: 'Multi-property reservation platforms, personalized guest experiences, and AI concierge assistants.',
     bullets: ['Direct reservation engines', 'Guest concierge bots', 'Channel management integration'],
     ctaText: 'Build Hospitality Software'
+  },
+
+  // =========================================================================
+  // ADDITIONAL STRATEGIC SERVICES (NAV & SEO ALIGNMENT)
+  // =========================================================================
+  'cloud-engineering': {
+    id: 'cloud-engineering',
+    category: 'software',
+    title: 'Cloud Architecture & DevOps',
+    metaTitle: 'Cloud Architecture & DevOps Engineering | Fiverse Systems',
+    metaDescription: 'Production cloud engineering, AWS/GCP architecture, Kubernetes orchestration, CI/CD automation, and infrastructure as code by Fiverse Systems.',
+    h1: 'Cloud Architecture and DevOps Engineered for 99.99% Uptime',
+    lead: 'Modern digital products require cloud infrastructure that scales elastically, maintains high availability, isolates multi-tenant data, and enables continuous zero-downtime deployment. Fiverse Systems designs, deploys, and optimizes enterprise cloud environments.',
+    bulletsTitle: 'Cloud & Infrastructure Capabilities',
+    bullets: [
+      'Multi-Region Cloud Architecture: Resilient, low-latency infrastructure across AWS, GCP, and Azure',
+      'Container Orchestration: Docker, Kubernetes (EKS/GKE), and serverless execution environments',
+      'Automated CI/CD Pipelines: Automated testing, canary deployments, and zero-downtime releases',
+      'Infrastructure as Code (IaC): Reproducible environments engineered with Terraform and Pulumi',
+      'Zero-Downtime Database Migrations: High-throughput PostgreSQL, MySQL, and vector database scaling',
+      'Observability & Real-Time Telemetry: Distributed tracing, alert matrices, and cost optimization'
+    ],
+    architectureFlow: [
+      'Git Push & Pull Request Verification',
+      'Automated Test Matrix, Lint & Security Scan',
+      'Docker Container Build & Image Registry Push',
+      'Canary Deployment to Staging VPC Environment',
+      'Automated Integration & Performance Validation',
+      'Zero-Downtime Rolling Production Release'
+    ],
+    processSteps: [
+      { title: '1. Infrastructure Audit', desc: 'Assess current cloud workloads, bottleneck risks, latency hotspots, and security boundaries.' },
+      { title: '2. Architecture Design', desc: 'Define multi-region VPC topologies, IAM access controls, container specs, and database topologies.' },
+      { title: '3. Automation Engineering', desc: 'Write Terraform modules and GitHub Actions/GitLab CI pipelines for automated provisioning.' },
+      { title: '4. Security & Hardening', desc: 'Implement automated vulnerability scans, secrets management, and DDoS protection.' },
+      { title: '5. Migration & Staging', desc: 'Stage workloads and perform shadow testing to verify data parity and zero latency degradation.' },
+      { title: '6. Production Cutover', desc: 'Execute low-risk DNS switchover with real-time telemetry and rollback safeguards.' }
+    ],
+    faqs: [
+      {
+        question: 'Which cloud providers does Fiverse Systems support?',
+        answer: 'We build and maintain production workloads on Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and hybrid/private cloud infrastructure.'
+      },
+      {
+        question: 'How do you ensure zero downtime during major deployments?',
+        answer: 'We utilize blue-green deployments, canary traffic routing, and backward-compatible database schema migrations to ensure users experience zero disruption.'
+      },
+      {
+        question: 'Can you help optimize high cloud and GPU infrastructure costs?',
+        answer: 'Yes. We audit resource allocation, auto-scaling thresholds, container density, and LLM inference setups to dramatically lower monthly cloud spend.'
+      }
+    ],
+    ctaText: 'Engineer Your Cloud Infrastructure',
+    secondaryCtaText: 'Schedule DevOps Consultation'
+  },
+
+  'product-discovery': {
+    id: 'product-discovery',
+    category: 'product',
+    title: 'Product Strategy & UX',
+    metaTitle: 'Product Strategy & UX Discovery Sprints | Fiverse Systems',
+    metaDescription: 'De-risk digital products before writing code. Strategic user research, technical feasibility analysis, and interactive prototyping with Fiverse Systems.',
+    h1: 'De-Risk Your Product Vision Before Writing Code',
+    lead: 'Building the wrong feature set fast is expensive. Our Product Strategy & UX Discovery sprint aligns commercial objectives with technical feasibility, user needs, and a realistic engineering roadmap.',
+    bulletsTitle: 'Discovery Sprints Deliver',
+    bullets: [
+      'User Journey Mapping: Deep user persona interviews, empathy mapping, and task analysis',
+      'Technical Feasibility Assessment: Model selection, API dependency checks, and database architecture',
+      'Interactive Figma Prototypes: Clickable, high-fidelity UX workflows tested with real stakeholders',
+      'Milestone-Based PRD: Detailed specifications, user stories, acceptance criteria, and edge cases',
+      'Timeline & Cost Blueprint: Clear engineering estimates, pod composition, and delivery phases'
+    ],
+    processSteps: [
+      { title: '1. Stakeholder Alignment', desc: 'Unpack business goals, commercial constraints, competitive differentiators, and target metrics.' },
+      { title: '2. User & Workflow Research', desc: 'Interview prospective users and map end-to-end user journeys and cognitive friction points.' },
+      { title: '3. System Architecture Blueprint', desc: 'Define API contracts, data models, AI model integrations, and cloud hosting parameters.' },
+      { title: '4. Interactive UX Prototyping', desc: 'Design pixel-perfect user flows and validate interactions before committing engineering resources.' },
+      { title: '5. Scoped Implementation Roadmap', desc: 'Deliver an actionable, prioritized backlog for MVP and subsequent feature iterations.' }
+    ],
+    faqs: [
+      {
+        question: 'How long does a Product Discovery sprint take?',
+        answer: 'Standard discovery sprints typically run between 2 and 4 weeks depending on product complexity and existing stakeholder documentation.'
+      },
+      {
+        question: 'What do we receive at the end of discovery?',
+        answer: 'You receive an interactive Figma prototype, an enterprise PRD, system architecture diagrams, and a transparent delivery roadmap.'
+      }
+    ],
+    ctaText: 'Book a Product Discovery Sprint',
+    secondaryCtaText: 'Discuss Your Product Concept'
+  },
+
+  'enterprise-modernization': {
+    id: 'enterprise-modernization',
+    category: 'software',
+    title: 'Enterprise Modernization',
+    metaTitle: 'Enterprise Software Modernization Services | Fiverse Systems',
+    metaDescription: 'Modernize legacy enterprise software, monoliths, and outdated workflows into scalable, cloud-native microservices with Fiverse Systems.',
+    h1: 'Modernize Legacy Software Without Operational Disruption',
+    lead: 'Legacy systems carry technical debt, high maintenance costs, and slow feature velocity. Fiverse Systems refactors monolithic architectures into modular, cloud-native systems with zero downtime.',
+    bulletsTitle: 'Modernization Services',
+    bullets: [
+      'Monolith-to-Microservices Migration: Decouple brittle monolithic apps into domain-driven microservices',
+      'Cloud-Native Re-Platforming: Modernize on-premise hardware to scalable AWS and GCP cloud infrastructure',
+      'Database Optimization: Migrate legacy relational schemas to performant, partitioned data systems',
+      'Modern UI/UX Re-Engineering: Replace outdated screens with responsive, lightning-fast React applications',
+      'API-First Enablement: Wrap legacy systems with modern REST and GraphQL APIs for seamless external integrations'
+    ],
+    processSteps: [
+      { title: '1. Codebase & Debt Audit', desc: 'Map dependencies, identify performance bottlenecks, and catalog integration points.' },
+      { title: '2. Target Architecture Definition', desc: 'Formulate an incremental strangler-pattern migration strategy to avoid big-bang risks.' },
+      { title: '3. Data Migration & Sync', desc: 'Establish bi-directional data replication to maintain data consistency during the transition.' },
+      { title: '4. Service Decoupling', desc: 'Extract high-priority business domains into independent, tested microservices.' },
+      { title: '5. Validation & Switchover', desc: 'Run parallel traffic tests and phase out legacy systems with zero end-user interruption.' }
+    ],
+    faqs: [
+      {
+        question: 'Can we modernize without halting ongoing feature development?',
+        answer: 'Yes. We apply the Strangler Fig pattern to decouple services incrementally while your existing product continues serving customers.'
+      },
+      {
+        question: 'How do you guarantee data integrity during migration?',
+        answer: 'We deploy dual-write mechanisms, automated checksum validation, and rollback scripts to verify data fidelity at every stage.'
+      }
+    ],
+    ctaText: 'Modernize Your Enterprise Software',
+    secondaryCtaText: 'Request Technical Architecture Audit'
+  },
+
+  'dedicated-ai-teams': {
+    id: 'dedicated-ai-teams',
+    category: 'product',
+    title: 'Dedicated AI Squads',
+    metaTitle: 'Dedicated AI Engineering Squads & Developers | Fiverse Systems',
+    metaDescription: 'Scale your technical capacity with embedded senior AI engineers, full-stack developers, and ML researchers from Fiverse Systems.',
+    h1: 'Embedded Senior AI Engineers & Product Squads',
+    lead: 'Hiring specialized AI talent is difficult and time-consuming. Fiverse Systems provides dedicated, autonomous engineering squads consisting of senior AI architects, full-stack engineers, and product designers integrated directly into your workflow.',
+    bulletsTitle: 'Squad Capabilities',
+    bullets: [
+      'Senior AI & LLM Architects: Specialists in agent orchestration, model fine-tuning, RAG, and prompt evaluation',
+      'Full-Stack Engineers: Senior TypeScript, Python, React, and cloud backend developers',
+      'DevOps & Infrastructure Engineers: Cloud orchestration, Kubernetes, GPU cluster tuning, and CI/CD pipelines',
+      'Transparent Agile Cadence: Daily standups, bi-weekly sprint demos, and direct Slack/Teams collaboration',
+      '100% Code & IP Ownership: All code, weights, data pipelines, and documentation belong completely to you'
+    ],
+    processSteps: [
+      { title: '1. Skill Matrix Definition', desc: 'Align on technical stack requirements, domain context, and team size.' },
+      { title: '2. Squad Selection & Onboarding', desc: 'Match senior engineers with verified domain experience within 5 to 7 business days.' },
+      { title: '3. Agile Integration', desc: 'Integrate directly into your Jira, GitHub, and Slack environments with daily communication.' },
+      { title: '4. Continuous Delivery', desc: 'Ship production-ready code with automated test coverage and peer code reviews.' }
+    ],
+    faqs: [
+      {
+        question: 'How quickly can a dedicated team start?',
+        answer: 'Typically within 5 to 10 business days after scope and stack confirmation.'
+      },
+      {
+        question: 'How do we manage the team?',
+        answer: 'You can manage the team directly through your existing agile processes, or have a Fiverse Technical Lead oversee execution.'
+      }
+    ],
+    ctaText: 'Hire a Dedicated AI Squad',
+    secondaryCtaText: 'Discuss Team Composition'
+  },
+
+  'security-compliance': {
+    id: 'security-compliance',
+    category: 'software',
+    title: 'Security & Compliance',
+    metaTitle: 'Enterprise AI Security, Governance & Compliance | Fiverse Systems',
+    metaDescription: 'Enterprise data sovereignty, role-based access control, prompt injection defense, and SOC 2 / HIPAA compliance guardrails by Fiverse Systems.',
+    h1: 'Enterprise AI Security, Governance & Compliance',
+    lead: 'Deploying artificial intelligence requires strict data governance and regulatory adherence. Fiverse Systems engineers enterprise guardrails ensuring zero data leakage, prompt injection defense, and automated auditability.',
+    bulletsTitle: 'Security & Governance Pillars',
+    bullets: [
+      'Role-Based Access Control (RBAC): Strict tenant data isolation and granular user permission boundaries',
+      'Prompt Injection & Jailbreak Defense: Real-time input validation, semantic guardrails, and anomaly filtering',
+      'Deterministic Tool Execution: Sandboxed API invocation with human-in-the-loop verification gates',
+      'Regulatory Alignment: Architectures engineered for SOC 2 Type II, HIPAA, and GDPR compliance',
+      'Private VPC & On-Premises Isolation: Air-gapped deployments with zero third-party model training on your data'
+    ],
+    processSteps: [
+      { title: '1. Threat Modeling', desc: 'Identify data exposure vectors, untrusted input boundaries, and privilege escalation risks.' },
+      { title: '2. Guardrail Engineering', desc: 'Implement input/output classifiers, token rate-limiting, and deterministic schema checkers.' },
+      { title: '3. Audit Logging Setup', desc: 'Deploy immutable audit logs capturing model inputs, tool calls, user IDs, and timestamps.' },
+      { title: '4. Penetration Testing', desc: 'Subject the system to red-team prompt injections, jailbreak vectors, and load tests.' }
+    ],
+    faqs: [
+      {
+        question: 'Will our proprietary data be used to train external models?',
+        answer: 'No. We configure enterprise API agreements with zero-data-retention (ZDR) or deploy private self-hosted open-weights models within your secure VPC.'
+      },
+      {
+        question: 'Can you help our healthcare or financial application achieve compliance?',
+        answer: 'Yes. We implement HIPAA-compliant encryption at rest and in transit, audit logging, and SOC 2 access controls.'
+      }
+    ],
+    ctaText: 'Secure Your AI Infrastructure',
+    secondaryCtaText: 'Request Security Review'
+  },
+
+  'software-modernization': {
+    id: 'software-modernization',
+    category: 'software',
+    title: 'Software Modernization',
+    metaTitle: 'Software Modernization & Cloud Migration | Fiverse Systems',
+    metaDescription: 'Upgrade legacy codebases, refactor monoliths into microservices, and improve software performance with Fiverse Systems.',
+    h1: 'Transform Legacy Codebases into Scalable Cloud Software',
+    lead: 'Upgrade legacy codebases to modern React, TypeScript, and cloud-native microservices with zero downtime and improved system reliability.',
+    bulletsTitle: 'Modernization Capabilities',
+    bullets: [
+      'Monolith-to-Microservices: Deconstruct slow monolithic architectures into agile services',
+      'Modern Frontend Migration: Upgrade legacy templates to React, Next.js, and TypeScript',
+      'Database Optimization: Resolve N+1 queries, add Redis caching, and tune PostgreSQL indexes',
+      'Automated Test Suites: Introduce unit, integration, and end-to-end test pipelines'
+    ],
+    ctaText: 'Modernize Your Codebase',
+    secondaryCtaText: 'Schedule Codebase Assessment'
   }
 };
+

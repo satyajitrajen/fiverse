@@ -4,11 +4,30 @@ import {
   FileText,
   Download,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  X,
+  Calendar,
+  Clock,
+  User,
+  Cpu
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { FadeIn, StaggerContainer, StaggerItem, HoverCard, GlowOrb } from './Motion';
 import { SEOHead } from './SEOHead';
+import { trackEvent } from '../utils/analytics';
+
+interface TechnicalArticle {
+  id: string;
+  tag: string;
+  title: string;
+  readTime: string;
+  date: string;
+  author: string;
+  authorRole: string;
+  summary: string;
+  keyPillars: string[];
+  architectureNotes: string;
+}
 
 interface WorkAndInsightsViewsProps {
   activeView: 'casestudies' | 'products' | 'success-stories' | 'blog' | 'ai-insights' | 'guides' | 'resources';
@@ -67,9 +86,11 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
   onExploreProduct
 }) => {
   const [downloadedResource, setDownloadedResource] = useState<string | null>(null);
+  const [activeArticle, setActiveArticle] = useState<TechnicalArticle | null>(null);
 
   const handleDownload = (name: string) => {
     setDownloadedResource(name);
+    trackEvent('guide_download_click', { guide_title: name });
     confetti({
       particleCount: 50,
       spread: 60,
@@ -297,56 +318,247 @@ export const WorkAndInsightsViews: React.FC<WorkAndInsightsViewsProps> = ({
         {(activeView === 'blog' || activeView === 'ai-insights' || activeView === 'success-stories') && (
           <div className="space-y-12">
             <FadeIn direction="up" className="max-w-3xl space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Insights & Perspectives</span>
-              <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08] lowercase">
-                ideas, engineering and the future of software.
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#266314]">Insights & Technical Teardowns</span>
+              <h1 className="text-[36px] sm:text-[50px] font-bold text-[#111210] tracking-tight leading-[1.08]">
+                Engineering blueprints for the intelligent era.
               </h1>
               <p className="text-[16px] text-[#3a4035] leading-relaxed">
-                Practical perspectives on agentic AI, software architecture, RAG, and scaling digital technology businesses.
+                Practical, production-grounded perspectives on agentic AI, state machines, hybrid retrieval, enterprise multi-tenancy, and cloud scalability.
               </p>
             </FadeIn>
 
-            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  tag: 'Agentic AI',
+                  id: 'agentic-swarms',
+                  tag: 'Agentic AI Architecture',
                   title: 'Why Autonomous Agent Swarms Are Replacing Rigid Automation Scripts',
-                  readTime: '5 min read',
-                  date: 'August 2026'
-                },
-                {
-                  tag: 'Engineering Architecture',
-                  title: 'Building Multi-Tenant SaaS with Zero-Downtime Migration Strategies',
-                  readTime: '7 min read',
-                  date: 'August 2026'
-                },
-                {
-                  tag: 'RAG & Knowledge',
-                  title: 'Beyond Basic Cosine Similarity: Implementing Hybrid Search and Re-Ranking for Enterprise RAG',
                   readTime: '6 min read',
-                  date: 'August 2026'
+                  date: 'August 28, 2026',
+                  author: 'Satyajit Nikam',
+                  authorRole: 'Founder & Principal AI Architect',
+                  summary: 'Hardcoded workflow scripts break whenever edge cases or unexpected schema changes occur. Autonomous agent swarms use structured tool execution, step verification, and memory graphs to execute multi-step business operations with self-healing capabilities.',
+                  keyPillars: [
+                    'Dynamic task decomposition into distinct subagent roles (Planner, Executor, Critic)',
+                    'Deterministic tool calls with schema-validated parameter passing',
+                    'Stateful scratchpad memory with rollback checkpoints upon API exception',
+                    'Context-window token pruning to eliminate hallucinations and high latency'
+                  ],
+                  architectureNotes: 'Rather than chaining unconstrained prompts, production agent swarms are designed as state machines with bounded transitions, human escalation triggers, and JSON schema guarantees.'
+                },
+                {
+                  id: 'enterprise-rag',
+                  tag: 'RAG & Knowledge Systems',
+                  title: 'Beyond Basic Cosine Similarity: Hybrid Search and Re-Ranking for Enterprise RAG',
+                  readTime: '8 min read',
+                  date: 'August 22, 2026',
+                  author: 'Satyajit Nikam',
+                  authorRole: 'Founder & Principal AI Architect',
+                  summary: 'Simple vector search fails in enterprise contexts because dense embeddings miss exact alphanumeric IDs, invoice numbers, and SKU codes. Learn how to combine BM25 lexical search with dense vectors and cross-encoder re-ranking to achieve 98%+ precision.',
+                  keyPillars: [
+                    'Reciprocal Rank Fusion (RRF) combining sparse keyword index and dense vectors',
+                    'Cross-encoder re-ranking pass on top 25 candidate chunks',
+                    'Document chunking aligned to semantic AST and table markdown layouts',
+                    'Vector metadata filtering strictly bound to user tenant ID and role-based ACLs'
+                  ],
+                  architectureNotes: 'Enterprise RAG requires zero data leakage between departments. Security ACL filtering must occur before nearest-neighbor calculation, not as an afterthought in memory.'
+                },
+                {
+                  id: 'multi-tenant-saas',
+                  tag: 'Cloud & Database Architecture',
+                  title: 'Building Multi-Tenant SaaS with Row-Level Security & Zero-Downtime Migrations',
+                  readTime: '7 min read',
+                  date: 'August 14, 2026',
+                  author: 'Fiverse Engineering Team',
+                  authorRole: 'Core Systems & Cloud Architecture',
+                  summary: 'Managing hundreds of enterprise tenants in a single database demands strict isolation, deterministic performance guarantees, and migrations that never lock tables during production hours.',
+                  keyPillars: [
+                    'PostgreSQL Row-Level Security (RLS) enforced at the session role layer',
+                    'Tenant-aware connection pooling with PgBouncer to prevent connection exhaustion',
+                    'Expand-and-contract schema migrations executed without table locks',
+                    'Tenant quota enforcement using Redis token buckets at the ingress gateway'
+                  ],
+                  architectureNotes: 'Never rely on application-level WHERE clauses for multi-tenancy. Enforcing tenant boundaries inside the database engine via RLS eliminates single-query data breaches.'
+                },
+                {
+                  id: 'deterministic-guardrails',
+                  tag: 'AI Security & Safety',
+                  title: 'Deterministic Guardrails & Human-in-the-Loop Verification for AI Agents',
+                  readTime: '5 min read',
+                  date: 'August 08, 2026',
+                  author: 'Satyajit Nikam',
+                  authorRole: 'Founder & Principal AI Architect',
+                  summary: 'Unconstrained AI agents cannot be given autonomous access to financial or customer systems without strict guardrails. This blueprint shows how to establish multi-tiered verification loops that safeguard operations.',
+                  keyPillars: [
+                    'Bidirectional semantic guardrails intercepting prompt injection attempts',
+                    'Tiered privilege boundaries: Read-only autonomous, Write requires secondary confirmation',
+                    'Ephemeral staging environments for tool execution with transaction rollbacks',
+                    'Immutable audit logs logging prompt, token cost, tool input, and deterministic outputs'
+                  ],
+                  architectureNotes: 'Automate repetitive tasks freely, but enforce human approval whenever state modifications exceed predefined risk thresholds (e.g. wire transfers or bulk database deletions).'
+                },
+                {
+                  id: 'ai-build-vs-buy',
+                  tag: 'Product Discovery & Strategy',
+                  title: 'The Real ROI of Custom AI Agents vs Commercial SaaS Subscriptions',
+                  readTime: '6 min read',
+                  date: 'July 30, 2026',
+                  author: 'Fiverse Systems Research',
+                  authorRole: 'Product & Technical Strategy',
+                  summary: 'Commercial AI tools charge heavy per-seat licensing fees while locking your proprietary workflow data inside their walled gardens. We analyze the 3-year total cost of ownership (TCO) between commercial licenses and proprietary custom agents.',
+                  keyPillars: [
+                    'Per-seat licensing ballooning vs fixed capital asset depreciation',
+                    'Custom model routing reducing inference cost by 60-80% via small specialized models',
+                    'Preservation of proprietary intellectual property and enterprise data sovereignty',
+                    'Custom tailored UX matching existing internal ERP/CRM workflows without friction'
+                  ],
+                  architectureNotes: 'Custom AI engineering pays for itself rapidly once team size exceeds 25 users, especially when operations require integration with legacy on-premise systems.'
+                },
+                {
+                  id: 'strangler-fig-modernization',
+                  tag: 'Enterprise Modernization',
+                  title: 'From Monolith to Modular Cloud: A Pragmatic Strangler-Fig Migration Roadmap',
+                  readTime: '9 min read',
+                  date: 'July 18, 2026',
+                  author: 'Fiverse Engineering Team',
+                  authorRole: 'Enterprise Architecture Squad',
+                  summary: 'Big-bang rewrites of enterprise legacy systems have a 70%+ failure rate. Learn how to systematically decouple legacy monoliths using the strangler-fig pattern, API proxies, and shadow canary traffic.',
+                  keyPillars: [
+                    'Ingress routing proxy intercepting traffic and routing incrementally by domain',
+                    'Dual-write data synchronization with automated reconciliation workers',
+                    'Shadow traffic verification comparing legacy vs modern microservice outputs',
+                    'Continuous business continuity with instant rollback capability at DNS level'
+                  ],
+                  architectureNotes: 'Modernize enterprise systems while keeping the core business operating smoothly. Zero downtime, zero loss of historical transaction integrity.'
                 }
               ].map((post, pIdx) => (
                 <StaggerItem key={pIdx}>
-                  <HoverCard yOffset={-4} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow space-y-4 flex flex-col justify-between hover:border-[#111210] h-full">
-                    <div className="space-y-2.5">
+                  <HoverCard yOffset={-4} className="bg-white rounded-3xl p-6 border border-[#e4e7dc] card-soft-shadow space-y-4 flex flex-col justify-between hover:border-[#111210] h-full transition-all">
+                    <div className="space-y-3">
                       <div className="flex items-center justify-between text-[11px] text-[#3a4035]">
                         <span className="bg-[#f4f6ed] font-bold text-[#111210] px-2.5 py-0.5 rounded-full">{post.tag}</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <h3 className="font-bold text-[18px] text-[#111210] leading-snug">{post.title}</h3>
+                      <h3 className="font-bold text-[17px] text-[#111210] leading-snug">{post.title}</h3>
+                      <p className="text-[13px] text-[#3a4035] line-clamp-3 leading-relaxed">
+                        {post.summary}
+                      </p>
                     </div>
-                    <button
-                      onClick={onStartProject}
-                      className="text-[13px] font-bold text-[#111210] hover:text-[#266314] flex items-center gap-1.5 cursor-pointer pt-2 border-t border-[#f0f2eb]"
-                    >
-                      <span>Read Article</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                    
+                    <div className="pt-3 border-t border-[#f0f2eb] flex items-center justify-between">
+                      <div className="text-[11px] text-[#3a4035]">
+                        <span className="font-bold text-[#111210] block">{post.author}</span>
+                        <span>{post.date}</span>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setActiveArticle(post);
+                          trackEvent('article_read_click', { article_id: post.id, article_title: post.title });
+                        }}
+                        className="text-[12.5px] font-bold text-[#111210] hover:text-[#266314] flex items-center gap-1 cursor-pointer group"
+                      >
+                        <span>Read Blueprint</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#2e6314] group-hover:translate-x-0.5 transition-transform" />
+                      </button>
+                    </div>
                   </HoverCard>
                 </StaggerItem>
               ))}
             </StaggerContainer>
+
+            {/* Interactive Article Reader Modal */}
+            {activeArticle && (
+              <div
+                className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+                onClick={() => setActiveArticle(null)}
+              >
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-[#e2e6d9] shadow-2xl p-6 sm:p-10 space-y-6 text-left my-auto"
+                >
+                  <div className="flex items-center justify-between border-b border-[#f0f2eb] pb-4">
+                    <span className="bg-[#f0f4e4] text-[#2e6314] font-bold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
+                      {activeArticle.tag}
+                    </span>
+                    <button
+                      onClick={() => setActiveArticle(null)}
+                      className="w-8 h-8 rounded-full bg-[#f4f6ed] hover:bg-[#e7ebe0] text-[#111210] flex items-center justify-center cursor-pointer transition-colors"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h2 className="text-[24px] sm:text-[30px] font-bold text-[#111210] leading-tight">
+                      {activeArticle.title}
+                    </h2>
+                    
+                    <div className="flex flex-wrap items-center gap-4 text-[12px] text-[#3a4035] pt-1">
+                      <div className="flex items-center gap-1.5">
+                        <User className="w-3.5 h-3.5 text-[#111210]" />
+                        <span className="font-bold text-[#111210]">{activeArticle.author}</span>
+                        <span>({activeArticle.authorRole})</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-[#3a4035]" />
+                        <span>{activeArticle.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-[#3a4035]" />
+                        <span>{activeArticle.readTime}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#f8f9f5] p-5 rounded-2xl border border-[#e4e7dc] space-y-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#2e6314]">Executive Summary</span>
+                    <p className="text-[14px] text-[#222520] leading-relaxed">
+                      {activeArticle.summary}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-[#111210] block">
+                      Core Architectural Pillars
+                    </span>
+                    <ul className="space-y-2.5">
+                      {activeArticle.keyPillars.map((pillar, pilIdx) => (
+                        <li key={pilIdx} className="flex items-start gap-3 text-[13.5px] text-[#3a4035]">
+                          <CheckCircle2 className="w-4 h-4 text-[#2e6314] shrink-0 mt-0.5" />
+                          <span>{pillar}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-[#f4f6ed] p-5 rounded-2xl border border-[#dce4cf] space-y-2">
+                    <div className="flex items-center gap-2 text-[12px] font-bold text-[#111210]">
+                      <Cpu className="w-4 h-4 text-[#2e6314]" />
+                      <span>Production Engineering Takeaway</span>
+                    </div>
+                    <p className="text-[13.5px] text-[#2d312c] leading-relaxed">
+                      {activeArticle.architectureNotes}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-[#f0f2eb] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span className="text-[12px] text-[#3a4035]">
+                      Need custom architecture or implementation for your systems?
+                    </span>
+                    <button
+                      onClick={() => {
+                        setActiveArticle(null);
+                        onStartProject();
+                      }}
+                      className="w-full sm:w-auto bg-[#111210] hover:bg-[#252823] text-white text-[13px] font-bold px-6 py-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-all shadow-sm"
+                    >
+                      <span>Discuss Architecture with Us</span>
+                      <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

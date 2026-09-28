@@ -108,58 +108,50 @@ export const Navbar: React.FC<NavbarProps> = memo(({
 
   const navMenuItems: NavMenuItem[] = [
     {
-      id: 'home',
-      label: 'Home',
-      path: '/',
-      hasDropdown: false
-    },
-    {
       id: 'ai',
       label: 'AI',
       hasDropdown: true,
       badge: 'Core',
       items: [
-        { path: '/ai-development-company', title: 'AI Development', desc: 'Custom AI systems engineered for your business requirements', icon: Brain },
-        { path: '/agentic-ai-development', title: 'Agentic AI Development', desc: 'Autonomous multi-agent swarms that think, plan and act', icon: Bot },
-        { path: '/ai-agent-development', title: 'AI Agent Development', desc: 'Specialized goal-oriented intelligent enterprise agents', icon: Cpu },
-        { path: '/generative-ai-development', title: 'Generative AI', desc: 'Enterprise conversational, document, and multimodal intelligence', icon: Sparkles },
-        { path: '/llm-development', title: 'LLM Development', desc: 'Domain-adapted large language model fine-tuning & orchestration', icon: FileText },
-        { path: '/services/rag-development', title: 'RAG Development', desc: 'Connect AI securely with proprietary company documents & databases', icon: Database },
-        { path: '/services/ai-model-development', title: 'AI Model Development', desc: 'Custom architectures, loss functions, and neural topologies', icon: Layers },
-        { path: '/services/ai-model-training', title: 'AI Model Training & Fine-Tuning', desc: 'Distributed GPU training, LoRA/QLoRA, and RLHF alignment', icon: RefreshCw },
-        { path: '/services/machine-learning', title: 'Machine Learning', desc: 'Predictive modeling, regression, anomaly detection, and classification', icon: TrendingUp },
-        { path: '/services/computer-vision', title: 'Computer Vision', desc: 'Object detection, spatial recognition, and visual document parsing', icon: Search },
-        { path: '/services/nlp', title: 'NLP Development', desc: 'Semantic search, intent classification, and entity extraction', icon: Activity },
-        { path: '/services/voice-ai', title: 'Voice AI', desc: 'Sub-second real-time conversational voice agents and speech pipelines', icon: Mic },
-        { path: '/services/ai-automation', title: 'AI Automation', desc: 'Outcome-driven autonomous pipeline & business process execution', icon: Workflow },
-        { path: '/services/enterprise-ai', title: 'Enterprise AI', desc: 'Scalable, secure AI infrastructure with role-based guardrails', icon: ShieldCheck },
-        { path: '/services/ai-integration', title: 'AI Integration', desc: 'Embed state-of-the-art AI into existing legacy systems and APIs', icon: Code2 }
+        // 1. AI Engineering
+        { path: '/ai-development-company', title: 'AI Development', desc: 'Production AI systems built around real business objectives', icon: Brain },
+        { path: '/agentic-ai-development', title: 'Agentic AI Systems', desc: 'Autonomous multi-agent architectures that plan, reason, and act', icon: Bot },
+        { path: '/ai-agent-development', title: 'AI Agent Development', desc: 'Goal-oriented custom software agents for business workflows', icon: Cpu },
+        { path: '/generative-ai-development', title: 'Generative AI', desc: 'Conversational, document, and multimodal intelligence platforms', icon: Sparkles },
+        // 2. AI Models
+        { path: '/services/ai-model-development', title: 'Custom AI Models', desc: 'Domain-adapted neural architectures, weights, and loss functions', icon: Layers },
+        { path: '/services/ai-model-training', title: 'Model Fine-Tuning', desc: 'LoRA, QLoRA, and RLHF alignment on private domain data', icon: RefreshCw },
+        { path: '/llm-development', title: 'LLM Development', desc: 'Commercial & open-source model routing and private VPC inference', icon: FileText },
+        { path: '/services/machine-learning', title: 'Machine Learning', desc: 'Predictive modeling, regression, anomaly detection, and classifiers', icon: TrendingUp },
+        // 3. AI Applications
+        { path: '/services/rag-development', title: 'RAG Systems', desc: 'High-precision retrieval across internal documents and vector stores', icon: Database },
+        { path: '/services/voice-ai', title: 'Voice AI', desc: 'Sub-second real-time conversational voice agents and telephony', icon: Mic },
+        { path: '/services/ai-automation', title: 'AI Automation', desc: 'Context-aware automated pipelines for multi-system operations', icon: Workflow },
+        { path: '/services/nlp', title: 'NLP Development', desc: 'Semantic search, intent classification, and structured extraction', icon: Activity },
+        // 4. AI Infrastructure
+        { path: '/services/cloud-engineering', title: 'Cloud & LLMOps', desc: 'Elastic GPU hosting, container orchestration, and CI/CD pipelines', icon: Database },
+        { path: '/services/enterprise-ai', title: 'Enterprise AI', desc: 'Scalable infrastructure with role-based access & compliance logs', icon: ShieldCheck },
+        { path: '/services/security-compliance', title: 'Security & Guardrails', desc: 'Prompt injection defense, audit trails, and SOC2/HIPAA isolation', icon: ShieldCheck },
+        { path: '/services/ai-integration', title: 'AI Integration', desc: 'Embed state-of-the-art AI into existing legacy software and APIs', icon: Code2 }
       ]
     },
     {
-      id: 'software',
-      label: 'Software',
-      hasDropdown: true,
-      items: [
-        { path: '/custom-software-development', title: 'Custom Software Development', desc: 'Tailor-made software built around your exact workflows', icon: Code2 },
-        { path: '/services/enterprise-software', title: 'Enterprise Software', desc: 'Robust ERP, CRM, and mission-critical business platforms', icon: Building2 },
-        { path: '/services/web-applications', title: 'Web Application Development', desc: 'High-throughput, reactive SaaS and cloud web portals', icon: Globe },
-        { path: '/services/mobile-development', title: 'Mobile App Development', desc: 'Native and cross-platform iOS & Android mobile applications', icon: Smartphone },
-        { path: '/services/api-development', title: 'API Development & Integration', desc: 'Secure REST/GraphQL APIs, microservices, and webhooks', icon: Workflow },
-        { path: '/services/cloud-engineering', title: 'Cloud Engineering & DevOps', desc: 'AWS/GCP/Azure architecture, CI/CD, Kubernetes, and IaC', icon: Database },
-        { path: '/services/software-modernization', title: 'Software Modernization', desc: 'Refactor monoliths to performant modern cloud microservices', icon: RefreshCw },
-        { path: '/services/mvp-development', title: 'MVP Development', desc: 'Rapid prototype-to-production engineering for high-growth startups', icon: Rocket }
-      ]
-    },
-    {
-      id: 'product',
-      label: 'Product',
+      id: 'services',
+      label: 'Services',
       hasDropdown: true,
       items: [
         { path: '/product-development', title: 'Product Engineering', desc: 'End-to-end digital product design, architecture, and deployment', icon: Layers },
-        { path: '/saas-development', title: 'SaaS Product Development', desc: 'Scalable multi-tenant architectures, billing systems, and cloud portals', icon: Globe },
-        { path: '/services/ui-ux-design', title: 'UI/UX Design', desc: 'Human-centered interfaces, interaction design systems, and rapid wireframes', icon: Palette },
-        { path: '/services/product-discovery', title: 'Product Discovery & Strategy', desc: 'Architecture blueprints, feasibility validation, and technical roadmaps', icon: Search }
+        { path: '/saas-development', title: 'SaaS Development', desc: 'Scalable multi-tenant architectures, billing systems, and portals', icon: Globe },
+        { path: '/services/mvp-development', title: 'MVP Development', desc: 'Rapid prototype-to-production engineering for ambitious teams', icon: Rocket },
+        { path: '/services/product-discovery', title: 'Product Strategy & UX', desc: 'User research, architecture blueprints, and feasibility specs', icon: Search },
+        { path: '/custom-software-development', title: 'Custom Software', desc: 'Tailor-made software built around your exact workflows', icon: Code2 },
+        { path: '/services/enterprise-software', title: 'Enterprise Applications', desc: 'Robust ERP, CRM, and mission-critical business platforms', icon: Building2 },
+        { path: '/services/web-applications', title: 'Web Applications', desc: 'High-throughput, reactive SaaS and cloud web portals', icon: Globe },
+        { path: '/services/mobile-development', title: 'Mobile Applications', desc: 'Native and cross-platform iOS & Android mobile applications', icon: Smartphone },
+        { path: '/services/api-development', title: 'APIs & Integrations', desc: 'Secure REST/GraphQL APIs, microservices, and webhooks', icon: Workflow },
+        { path: '/services/ui-ux-design', title: 'UI/UX & Design Systems', desc: 'Human-centered interfaces, tokens, and rapid wireframes', icon: Palette },
+        { path: '/services/cloud-engineering', title: 'Cloud & DevOps', desc: 'AWS/GCP/Azure architecture, CI/CD, Kubernetes, and IaC', icon: Database },
+        { path: '/services/software-modernization', title: 'Software Modernization', desc: 'Refactor monoliths to performant modern cloud microservices', icon: RefreshCw }
       ]
     },
     {
@@ -168,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
       hasDropdown: true,
       items: [
         { path: '/services/enterprise-modernization', title: 'Enterprise Modernization', desc: 'Transform legacy business operations into agile digital systems', icon: Building2 },
-        { path: '/services/startup-acceleration', title: 'Startup Acceleration', desc: 'Dedicated technical squads to build, launch, and scale MVPs', icon: Rocket },
+        { path: '/services/startup-product-development', title: 'Startup Acceleration', desc: 'Dedicated technical squads to build, launch, and scale MVPs', icon: Rocket },
         { path: '/services/dedicated-ai-teams', title: 'Dedicated AI Squads', desc: 'Full-stack AI engineers, data scientists, and ML architects on demand', icon: Users },
         { path: '/services/security-compliance', title: 'Security & Compliance', desc: 'Enterprise data sovereignty, SOC 2, HIPAA, and ISO guardrails', icon: ShieldCheck }
       ]
@@ -285,11 +277,11 @@ export const Navbar: React.FC<NavbarProps> = memo(({
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
                       className={`absolute top-full left-0 mt-2 bg-white rounded-3xl border border-[#e2e6d9] shadow-2xl p-6 z-50 transition-all duration-150 animate-in fade-in slide-in-from-top-2 ${
-                        item.id === 'ai'
+                        item.id === 'ai' || item.id === 'services'
                           ? 'w-[780px] -left-12 grid grid-cols-3 gap-3'
                           : item.id === 'industries'
                           ? 'w-[700px] -left-16 grid grid-cols-3 gap-3'
-                          : item.id === 'solutions' || item.id === 'software' || item.id === 'product'
+                          : item.id === 'solutions'
                           ? 'w-[600px] -left-8 grid grid-cols-2 gap-3'
                           : 'w-[480px] -left-4 grid grid-cols-2 gap-2.5'
                       }`}
@@ -379,7 +371,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-md border-b border-[#e2e6d9] px-4 pt-3 pb-8 space-y-4 max-h-[calc(100dvh-75px)] overflow-y-auto shadow-2xl transition-all duration-200">
+        <div className="xl:hidden bg-white/98 backdrop-blur-md border-b border-[#e2e6d9] px-4 pt-3 pb-8 space-y-4 max-h-[calc(100dvh-75px)] overflow-y-auto shadow-2xl transition-all duration-200">
           <div className="space-y-1">
             {navMenuItems.map(item => {
               if (!item.hasDropdown && item.path) {

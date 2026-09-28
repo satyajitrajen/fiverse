@@ -11,11 +11,13 @@ import {
   CheckCircle2,
   ArrowRight,
   Terminal,
-  Cloud
+  Cloud,
+  ShieldCheck
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { FadeIn, StaggerContainer, StaggerItem, HoverCard, GlowOrb } from './Motion';
 import { SEOHead } from './SEOHead';
+import { trackEvent } from '../utils/analytics';
 
 interface CompanyViewsProps {
   activeSection: 'why' | 'process' | 'technology' | 'careers' | 'contact';
@@ -62,7 +64,7 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
     email: '',
     phone: '',
     company: '',
-    service: 'AI Development',
+    service: 'AI / Agentic AI Systems',
     description: '',
     timeline: '1-3 months',
     budget: '$25,000 - $50,000'
@@ -72,24 +74,32 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
+    trackEvent('contact_form_submit', {
+      project_type: formData.service,
+      timeline: formData.timeline,
+      budget: formData.budget,
+      source: 'company_contact_page',
+      has_company: Boolean(formData.company.trim())
+    });
     confetti({
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 }
     });
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: 'AI Development',
-        description: '',
-        timeline: '1-3 months',
-        budget: '$25,000 - $50,000'
-      });
-    }, 4000);
+  };
+
+  const handleResetForm = () => {
+    setIsSubmitted(false);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      service: 'AI / Agentic AI Systems',
+      description: '',
+      timeline: '1-3 months',
+      budget: '$25,000 - $50,000'
+    });
   };
 
   const currentMeta = sectionMetaMap[activeSection] || sectionMetaMap.why;
@@ -461,15 +471,61 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                   {isSubmitted ? (
                     <div
                       key="submitted"
-                      className="text-center py-16 space-y-4"
+                      className="py-6 space-y-6 text-left"
                     >
-                      <div className="w-16 h-16 rounded-full bg-[#eef8cf] text-[#266314] flex items-center justify-center mx-auto">
-                        <CheckCircle2 className="w-8 h-8" />
+                      <div className="flex items-center gap-3.5 p-4 bg-[#f4f8eb] rounded-2xl border border-[#d6e5bf]">
+                        <div className="w-12 h-12 rounded-full bg-[#2e6314] text-[#c8ff28] flex items-center justify-center shrink-0">
+                          <CheckCircle2 className="w-7 h-7" />
+                        </div>
+                        <div>
+                          <h3 className="text-[20px] font-bold text-[#111210]">Project brief received.</h3>
+                          <p className="text-[13px] text-[#3a4035]">
+                            Thank you! Your requirements have been submitted directly to our principal engineering team.
+                          </p>
+                        </div>
                       </div>
-                      <h3 className="text-[24px] font-bold text-[#111210]">Thank you! We've received your project inquiry.</h3>
-                      <p className="text-[14px] text-[#3a4035] max-w-md mx-auto">
-                        A senior technology lead from Fiverse Systems will review your requirements and get in touch within 24 business hours.
-                      </p>
+
+                      <div className="bg-[#f8f9f5] rounded-2xl p-6 border border-[#e4e7dc] space-y-3.5">
+                        <div className="flex items-center justify-between border-b border-[#e2e6d9] pb-2.5">
+                          <span className="text-[12px] font-bold uppercase tracking-wider text-[#2e6314]">What Happens Next</span>
+                          <span className="text-[12px] font-medium text-[#3a4035]">5-Stage Review Process</span>
+                        </div>
+                        <ol className="space-y-3 text-[13.5px] text-[#2d312c]">
+                          <li className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#111210] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <div><strong>Technical Review:</strong> Principal engineers evaluate feasibility, model requirements, and system integrations within 24 hours.</div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#111210] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <div><strong>Expert Assignment:</strong> We match your inquiry with a dedicated AI architect or full-stack software lead.</div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#111210] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <div><strong>Discovery Call:</strong> A focused 30-minute scoping discussion to align on core milestones, risks, and timelines.</div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#111210] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                            <div><strong>Solution Blueprint:</strong> We outline the recommended system architecture, tech stack, and risk guardrails.</div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#111210] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">5</span>
+                            <div><strong>Transparent Proposal:</strong> Detailed deliverables, squad composition, sprint timeline, and milestone terms.</div>
+                          </li>
+                        </ol>
+                      </div>
+
+                      <div className="flex items-center gap-2.5 text-[12px] text-[#3a4035] bg-[#edf2e4] p-3.5 rounded-xl border border-[#dce4cf]">
+                        <ShieldCheck className="w-4 h-4 text-[#2e6314] shrink-0" />
+                        <span>Strict mutual NDA & 100% Client Intellectual Property ownership policy guaranteed.</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={handleResetForm}
+                        className="bg-[#111210] hover:bg-[#252823] text-white font-bold text-[13px] px-6 py-3 rounded-xl transition-all cursor-pointer shadow-xs"
+                      >
+                        Submit Another Brief
+                      </button>
                     </div>
                   ) : (
                     <form
@@ -479,91 +535,97 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                     >
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Your Name *</label>
+                          <label htmlFor="company-contact-name" className="text-[12px] font-bold text-[#111210]">Your Name *</label>
                           <input
+                            id="company-contact-name"
                             type="text"
                             required
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             placeholder="Jane Doe"
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] focus:outline-none focus:border-[#111210]"
                           />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Work Email *</label>
+                          <label htmlFor="company-contact-email" className="text-[12px] font-bold text-[#111210]">Work Email *</label>
                           <input
+                            id="company-contact-email"
                             type="email"
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="jane@company.com"
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] focus:outline-none focus:border-[#111210]"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Phone Number</label>
+                          <label htmlFor="company-contact-phone" className="text-[12px] font-bold text-[#111210]">Phone Number</label>
                           <input
+                            id="company-contact-phone"
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             placeholder="+1 (555) 000-0000"
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] focus:outline-none focus:border-[#111210]"
                           />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Company Name</label>
+                          <label htmlFor="company-contact-company" className="text-[12px] font-bold text-[#111210]">Company Name</label>
                           <input
+                            id="company-contact-company"
                             type="text"
                             value={formData.company}
                             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                             placeholder="Acme Systems Inc."
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] focus:outline-none focus:border-[#111210]"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-[12px] font-bold text-[#111210]">What are you looking for? *</label>
+                        <label htmlFor="company-contact-service" className="text-[12px] font-bold text-[#111210]">What are you looking for? *</label>
                         <select
+                          id="company-contact-service"
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] bg-white focus:outline-none focus:border-[#111210]"
+                          className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] bg-white focus:outline-none focus:border-[#111210]"
                         >
-                          <option value="AI Development">AI Development</option>
-                          <option value="Agentic AI & Swarms">Agentic AI & Swarms</option>
+                          <option value="AI / Agentic AI Systems">AI / Agentic AI Systems</option>
+                          <option value="SaaS Product Engineering">SaaS Product Engineering</option>
                           <option value="Custom Software Development">Custom Software Development</option>
-                          <option value="SaaS Development">SaaS Development</option>
-                          <option value="MVP Development">MVP Development</option>
-                          <option value="Mobile App Development">Mobile App Development</option>
-                          <option value="Web Application Development">Web Application Development</option>
                           <option value="Enterprise Software Modernization">Enterprise Software Modernization</option>
-                          <option value="Dedicated Engineering Team">Dedicated Engineering Team</option>
-                          <option value="Other">Other</option>
+                          <option value="Web Application Development">Web Application Development</option>
+                          <option value="Mobile Application Development">Mobile Application Development</option>
+                          <option value="MVP Engineering Sprint">MVP Engineering Sprint</option>
+                          <option value="Dedicated Engineering Squad">Dedicated Engineering Squad</option>
+                          <option value="Other Technical Need">Other Technical Need</option>
                         </select>
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-[12px] font-bold text-[#111210]">Project Description & Goals *</label>
+                        <label htmlFor="company-contact-description" className="text-[12px] font-bold text-[#111210]">Project Description & Goals *</label>
                         <textarea
+                          id="company-contact-description"
                           required
                           rows={4}
                           value={formData.description}
                           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                           placeholder="Tell us about the problem, user workflow, or software idea you want to bring to life..."
-                          className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] focus:outline-none focus:border-[#111210]"
+                          className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] focus:outline-none focus:border-[#111210]"
                         />
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Estimated Timeline</label>
+                          <label htmlFor="company-contact-timeline" className="text-[12px] font-bold text-[#111210]">Estimated Timeline</label>
                           <select
+                            id="company-contact-timeline"
                             value={formData.timeline}
                             onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] bg-white focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] bg-white focus:outline-none focus:border-[#111210]"
                           >
                             <option value="Under 1 month">Under 1 month</option>
                             <option value="1-3 months">1-3 months</option>
@@ -574,17 +636,18 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                         </div>
 
                         <div className="space-y-1.5">
-                          <label className="text-[12px] font-bold text-[#111210]">Estimated Budget</label>
+                          <label htmlFor="company-contact-budget" className="text-[12px] font-bold text-[#111210]">Estimated Budget</label>
                           <select
+                            id="company-contact-budget"
                             value={formData.budget}
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[14px] bg-white focus:outline-none focus:border-[#111210]"
+                            className="w-full p-3 rounded-xl border border-[#d8dcd0] text-[16px] sm:text-[14px] bg-white focus:outline-none focus:border-[#111210]"
                           >
-                            <option value="Under $15,000">Under $15,000</option>
-                            <option value="$15,000 - $25,000">$15,000 - $25,000</option>
-                            <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                            <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                            <option value="$100,000+">$100,000+</option>
+                            <option value="$25,000 - $50,000">$25,000 - $50,000 (MVP Engineering Sprint)</option>
+                            <option value="$50,000 - $100,000">$50,000 - $100,000 (Full Platform / AI System)</option>
+                            <option value="$100,000 - $250,000">$100,000 - $250,000 (Enterprise Modernization)</option>
+                            <option value="$250,000+">$250,000+ (Multi-System Architecture)</option>
+                            <option value="Under $25,000">Under $25,000 (Discovery / Advisory)</option>
                           </select>
                         </div>
                       </div>
@@ -596,6 +659,14 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                         <span>Start Your Project</span>
                         <ArrowRight className="w-4 h-4 text-[#c8ff28]" />
                       </button>
+
+                      <p className="text-[12px] text-[#3a4035] text-center pt-1 flex items-center justify-center gap-3">
+                        <span>✓ Response within 24 hours</span>
+                        <span>•</span>
+                        <span>✓ Strict mutual NDA</span>
+                        <span>•</span>
+                        <span>✓ 100% Client IP ownership</span>
+                      </p>
                     </form>
                   )}
                 
@@ -610,18 +681,19 @@ export const CompanyViews: React.FC<CompanyViewsProps> = ({ activeSection, onSta
                     Have an urgent question or RFQ? Contact our team directly via email.
                   </p>
                   <a
-                    href="mailto:hi@fiverse.app"
+                    href="mailto:hi@fiversesystems.com"
                     className="inline-block text-[#c8ff28] font-bold text-[15px] underline underline-offset-4"
                   >
-                    hi@fiverse.app
+                    hi@fiversesystems.com
                   </a>
                 </div>
 
                 <div className="bg-[#f0f2eb]/70 rounded-3xl p-6 border border-[#e2e6d9] space-y-3 text-[13px] text-[#3a4035]">
                   <p className="font-bold text-[#111210]">What happens after submitting?</p>
-                  <p>1. We review your goals and verify technical feasibility.</p>
-                  <p>2. We schedule a 30-minute discovery call with a technical lead.</p>
-                  <p>3. You receive a structured architecture and cost proposal.</p>
+                  <p>1. We review your goals and verify technical feasibility within 24 hours.</p>
+                  <p>2. We match your project with a senior AI or full-stack software lead.</p>
+                  <p>3. We schedule a 30-minute scoping call with an architect.</p>
+                  <p>4. You receive a structured architecture and milestone proposal.</p>
                 </div>
               </FadeIn>
             </div>
