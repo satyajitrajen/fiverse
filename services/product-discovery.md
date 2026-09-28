@@ -1,19 +1,19 @@
 ---
-title: "AI Software Development & Product Engineering | Fiverse Systems"
-description: "Fiverse Systems is an AI-first software development and product engineering company building AI agents, SaaS platforms, custom software and enterprise applications."
-url: "https://fiversesystems.com"
-canonical: "https://fiversesystems.com"
+title: "Product Discovery & AI Feasibility Services | Fiverse Systems"
+description: "De-risk digital initiatives before writing code. Strategic product discovery, UX wireframing, AI feasibility audits, and architecture roadmaps."
+url: "https://fiversesystems.com/services/product-discovery"
+canonical: "https://fiversesystems.com/services/product-discovery"
 date: "2026-09-02"
 ---
 
-# AI Software Development & Product Engineering | Fiverse Systems
+# Product Discovery & AI Feasibility Services | Fiverse Systems
 
-> Canonical URL: https://fiversesystems.com
+> Canonical URL: https://fiversesystems.com/services/product-discovery
 > Publisher: Fiverse Systems Inc. (https://fiversesystems.com)
 > Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 ## Summary
-Fiverse Systems is an AI-first software development and product engineering company building AI agents, SaaS platforms, custom software and enterprise applications.
+De-risk digital initiatives before writing code. Strategic product discovery, UX wireframing, AI feasibility audits, and architecture roadmaps.
 
 ## About Fiverse Systems
 Fiverse Systems is an AI-first software development and digital product engineering company. We engineer:

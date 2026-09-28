@@ -1,19 +1,19 @@
 ---
-title: "AI Software Development & Product Engineering | Fiverse Systems"
-description: "Fiverse Systems is an AI-first software development and product engineering company building AI agents, SaaS platforms, custom software and enterprise applications."
-url: "https://fiversesystems.com"
-canonical: "https://fiversesystems.com"
+title: "Cloud Architecture & DevOps Engineering Services | Fiverse Systems"
+description: "Cloud architecture, Kubernetes deployment, Terraform infrastructure as code, serverless compute, and CI/CD automation for high-scale AI systems."
+url: "https://fiversesystems.com/services/cloud-engineering"
+canonical: "https://fiversesystems.com/services/cloud-engineering"
 date: "2026-09-02"
 ---
 
-# AI Software Development & Product Engineering | Fiverse Systems
+# Cloud Architecture & DevOps Engineering Services | Fiverse Systems
 
-> Canonical URL: https://fiversesystems.com
+> Canonical URL: https://fiversesystems.com/services/cloud-engineering
 > Publisher: Fiverse Systems Inc. (https://fiversesystems.com)
 > Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 ## Summary
-Fiverse Systems is an AI-first software development and product engineering company building AI agents, SaaS platforms, custom software and enterprise applications.
+Cloud architecture, Kubernetes deployment, Terraform infrastructure as code, serverless compute, and CI/CD automation for high-scale AI systems.
 
 ## About Fiverse Systems
 Fiverse Systems is an AI-first software development and digital product engineering company. We engineer:
